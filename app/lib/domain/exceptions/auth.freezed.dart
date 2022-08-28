@@ -12,19 +12,7 @@ part of 'auth.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AuthExceptionTearOff {
-  const _$AuthExceptionTearOff();
-
-  _NotLoggedIn notLoggedIn() {
-    return _NotLoggedIn();
-  }
-}
-
-/// @nodoc
-const $AuthException = _$AuthExceptionTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AuthException {
@@ -80,21 +68,22 @@ class _$AuthExceptionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$NotLoggedInCopyWith<$Res> {
-  factory _$NotLoggedInCopyWith(
-          _NotLoggedIn value, $Res Function(_NotLoggedIn) then) =
-      __$NotLoggedInCopyWithImpl<$Res>;
+abstract class _$$_NotLoggedInCopyWith<$Res> {
+  factory _$$_NotLoggedInCopyWith(
+          _$_NotLoggedIn value, $Res Function(_$_NotLoggedIn) then) =
+      __$$_NotLoggedInCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$NotLoggedInCopyWithImpl<$Res> extends _$AuthExceptionCopyWithImpl<$Res>
-    implements _$NotLoggedInCopyWith<$Res> {
-  __$NotLoggedInCopyWithImpl(
-      _NotLoggedIn _value, $Res Function(_NotLoggedIn) _then)
-      : super(_value, (v) => _then(v as _NotLoggedIn));
+class __$$_NotLoggedInCopyWithImpl<$Res>
+    extends _$AuthExceptionCopyWithImpl<$Res>
+    implements _$$_NotLoggedInCopyWith<$Res> {
+  __$$_NotLoggedInCopyWithImpl(
+      _$_NotLoggedIn _value, $Res Function(_$_NotLoggedIn) _then)
+      : super(_value, (v) => _then(v as _$_NotLoggedIn));
 
   @override
-  _NotLoggedIn get _value => super._value as _NotLoggedIn;
+  _$_NotLoggedIn get _value => super._value as _$_NotLoggedIn;
 }
 
 /// @nodoc
@@ -110,7 +99,7 @@ class _$_NotLoggedIn implements _NotLoggedIn {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _NotLoggedIn);
+        (other.runtimeType == runtimeType && other is _$_NotLoggedIn);
   }
 
   @override

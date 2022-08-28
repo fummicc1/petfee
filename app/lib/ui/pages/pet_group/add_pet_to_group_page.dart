@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:petfee/riverpod/pet/controller.dart';
-import 'package:petfee/riverpod/pet/state.dart';
+import 'package:petfee/ui/pages/pet_list/controller.dart';
 import 'package:petfee/ui/components/pet_card.dart';
 import 'package:petfee/ui/pages/pet_group/share_pet_page.dart';
+
+import '../pet_list/state.dart';
 
 class AddPetToGroupPage extends ConsumerWidget {
   const AddPetToGroupPage({Key? key}) : super(key: key);

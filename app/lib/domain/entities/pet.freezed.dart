@@ -12,29 +12,11 @@ part of 'pet.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PetID _$PetIDFromJson(Map<String, dynamic> json) {
   return _PetID.fromJson(json);
 }
-
-/// @nodoc
-class _$PetIDTearOff {
-  const _$PetIDTearOff();
-
-  _PetID call(String value) {
-    return _PetID(
-      value,
-    );
-  }
-
-  PetID fromJson(Map<String, Object?> json) {
-    return PetID.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $PetID = _$PetIDTearOff();
 
 /// @nodoc
 mixin _$PetID {
@@ -74,27 +56,27 @@ class _$PetIDCopyWithImpl<$Res> implements $PetIDCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PetIDCopyWith<$Res> implements $PetIDCopyWith<$Res> {
-  factory _$PetIDCopyWith(_PetID value, $Res Function(_PetID) then) =
-      __$PetIDCopyWithImpl<$Res>;
+abstract class _$$_PetIDCopyWith<$Res> implements $PetIDCopyWith<$Res> {
+  factory _$$_PetIDCopyWith(_$_PetID value, $Res Function(_$_PetID) then) =
+      __$$_PetIDCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$PetIDCopyWithImpl<$Res> extends _$PetIDCopyWithImpl<$Res>
-    implements _$PetIDCopyWith<$Res> {
-  __$PetIDCopyWithImpl(_PetID _value, $Res Function(_PetID) _then)
-      : super(_value, (v) => _then(v as _PetID));
+class __$$_PetIDCopyWithImpl<$Res> extends _$PetIDCopyWithImpl<$Res>
+    implements _$$_PetIDCopyWith<$Res> {
+  __$$_PetIDCopyWithImpl(_$_PetID _value, $Res Function(_$_PetID) _then)
+      : super(_value, (v) => _then(v as _$_PetID));
 
   @override
-  _PetID get _value => super._value as _PetID;
+  _$_PetID get _value => super._value as _$_PetID;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_PetID(
+    return _then(_$_PetID(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -131,27 +113,30 @@ class _$_PetID with DiagnosticableTreeMixin implements _PetID {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PetID &&
+            other is _$_PetID &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
-  _$PetIDCopyWith<_PetID> get copyWith =>
-      __$PetIDCopyWithImpl<_PetID>(this, _$identity);
+  _$$_PetIDCopyWith<_$_PetID> get copyWith =>
+      __$$_PetIDCopyWithImpl<_$_PetID>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PetIDToJson(this);
+    return _$$_PetIDToJson(
+      this,
+    );
   }
 }
 
 abstract class _PetID implements PetID {
-  const factory _PetID(String value) = _$_PetID;
+  const factory _PetID(final String value) = _$_PetID;
 
   factory _PetID.fromJson(Map<String, dynamic> json) = _$_PetID.fromJson;
 
@@ -159,39 +144,13 @@ abstract class _PetID implements PetID {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$PetIDCopyWith<_PetID> get copyWith => throw _privateConstructorUsedError;
+  _$$_PetIDCopyWith<_$_PetID> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Pet _$PetFromJson(Map<String, dynamic> json) {
   return _Pet.fromJson(json);
 }
-
-/// @nodoc
-class _$PetTearOff {
-  const _$PetTearOff();
-
-  _Pet call(
-      {required PetID petID,
-      required String name,
-      String? avatarURL,
-      required int numberOfFeedTimesPerDay,
-      required List<UserID> users}) {
-    return _Pet(
-      petID: petID,
-      name: name,
-      avatarURL: avatarURL,
-      numberOfFeedTimesPerDay: numberOfFeedTimesPerDay,
-      users: users,
-    );
-  }
-
-  Pet fromJson(Map<String, Object?> json) {
-    return Pet.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Pet = _$PetTearOff();
 
 /// @nodoc
 mixin _$Pet {
@@ -269,9 +228,9 @@ class _$PetCopyWithImpl<$Res> implements $PetCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$PetCopyWith<$Res> implements $PetCopyWith<$Res> {
-  factory _$PetCopyWith(_Pet value, $Res Function(_Pet) then) =
-      __$PetCopyWithImpl<$Res>;
+abstract class _$$_PetCopyWith<$Res> implements $PetCopyWith<$Res> {
+  factory _$$_PetCopyWith(_$_Pet value, $Res Function(_$_Pet) then) =
+      __$$_PetCopyWithImpl<$Res>;
   @override
   $Res call(
       {PetID petID,
@@ -285,13 +244,13 @@ abstract class _$PetCopyWith<$Res> implements $PetCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$PetCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res>
-    implements _$PetCopyWith<$Res> {
-  __$PetCopyWithImpl(_Pet _value, $Res Function(_Pet) _then)
-      : super(_value, (v) => _then(v as _Pet));
+class __$$_PetCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res>
+    implements _$$_PetCopyWith<$Res> {
+  __$$_PetCopyWithImpl(_$_Pet _value, $Res Function(_$_Pet) _then)
+      : super(_value, (v) => _then(v as _$_Pet));
 
   @override
-  _Pet get _value => super._value as _Pet;
+  _$_Pet get _value => super._value as _$_Pet;
 
   @override
   $Res call({
@@ -301,7 +260,7 @@ class __$PetCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res>
     Object? numberOfFeedTimesPerDay = freezed,
     Object? users = freezed,
   }) {
-    return _then(_Pet(
+    return _then(_$_Pet(
       petID: petID == freezed
           ? _value.petID
           : petID // ignore: cast_nullable_to_non_nullable
@@ -319,7 +278,7 @@ class __$PetCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res>
           : numberOfFeedTimesPerDay // ignore: cast_nullable_to_non_nullable
               as int,
       users: users == freezed
-          ? _value.users
+          ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
               as List<UserID>,
     ));
@@ -335,7 +294,8 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
       required this.name,
       this.avatarURL,
       required this.numberOfFeedTimesPerDay,
-      required this.users});
+      required final List<UserID> users})
+      : _users = users;
 
   factory _$_Pet.fromJson(Map<String, dynamic> json) => _$$_PetFromJson(json);
 
@@ -347,8 +307,12 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
   final String? avatarURL;
   @override
   final int numberOfFeedTimesPerDay;
+  final List<UserID> _users;
   @override
-  final List<UserID> users;
+  List<UserID> get users {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_users);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -372,15 +336,16 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Pet &&
+            other is _$_Pet &&
             const DeepCollectionEquality().equals(other.petID, petID) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.avatarURL, avatarURL) &&
             const DeepCollectionEquality().equals(
                 other.numberOfFeedTimesPerDay, numberOfFeedTimesPerDay) &&
-            const DeepCollectionEquality().equals(other.users, users));
+            const DeepCollectionEquality().equals(other._users, _users));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -388,26 +353,28 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(avatarURL),
       const DeepCollectionEquality().hash(numberOfFeedTimesPerDay),
-      const DeepCollectionEquality().hash(users));
+      const DeepCollectionEquality().hash(_users));
 
   @JsonKey(ignore: true)
   @override
-  _$PetCopyWith<_Pet> get copyWith =>
-      __$PetCopyWithImpl<_Pet>(this, _$identity);
+  _$$_PetCopyWith<_$_Pet> get copyWith =>
+      __$$_PetCopyWithImpl<_$_Pet>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PetToJson(this);
+    return _$$_PetToJson(
+      this,
+    );
   }
 }
 
 abstract class _Pet implements Pet {
   const factory _Pet(
-      {required PetID petID,
-      required String name,
-      String? avatarURL,
-      required int numberOfFeedTimesPerDay,
-      required List<UserID> users}) = _$_Pet;
+      {required final PetID petID,
+      required final String name,
+      final String? avatarURL,
+      required final int numberOfFeedTimesPerDay,
+      required final List<UserID> users}) = _$_Pet;
 
   factory _Pet.fromJson(Map<String, dynamic> json) = _$_Pet.fromJson;
 
@@ -423,5 +390,5 @@ abstract class _Pet implements Pet {
   List<UserID> get users;
   @override
   @JsonKey(ignore: true)
-  _$PetCopyWith<_Pet> get copyWith => throw _privateConstructorUsedError;
+  _$$_PetCopyWith<_$_Pet> get copyWith => throw _privateConstructorUsedError;
 }

@@ -44,7 +44,7 @@ class PetRepositoryImpl with PetRepository {
       final path = "pets/${document.id}.jpeg";
       final ref = FirebaseStorage.instance.ref(path);
       final meta = SettableMetadata(contentType: "image/jpeg");
-      final _ = await ref.putFile(avatar, meta);
+      await ref.putFile(avatar, meta);
       final url = await ref.getDownloadURL();
       entity = entity.copyWith(avatarURL: url);
     }

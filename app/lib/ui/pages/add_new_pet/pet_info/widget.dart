@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import '/ui/pages/add_new_pet/feed_times/widget.dart';
-import '/ui/pages/pet_list/pet_list_page.dart';
+import '/ui/pages/pet_list/widget.dart';
 import '/ui/pages/root_page.dart';
-import '/riverpod/add_new_pet/controller.dart';
+import '../controller.dart';
 import '/main.dart';
 import '/strings.dart';
 import '/ui/components/avatar_view.dart';
@@ -46,8 +46,8 @@ class InputNewPetInfoPage extends ConsumerWidget {
                     InkWell(
                       onTap: () async {
                         try {
-                          final _picker = ImagePicker();
-                          final pickedImage = await _picker.pickImage(
+                          final picker = ImagePicker();
+                          final pickedImage = await picker.pickImage(
                               source: ImageSource.gallery);
                           if (pickedImage == null) {
                             return;
@@ -104,8 +104,10 @@ class InputNewPetInfoPage extends ConsumerWidget {
                     .read(addNewPetController.notifier)
                     .completeSettings();
                 if (canBack) {
+                  // ignore: use_build_context_synchronously
                   Navigator.of(context).pop();
                 } else {
+                  // ignore: use_build_context_synchronously
                   Navigator.of(context).pushNamedAndRemoveUntil(
                       PetListPage.pageName,
                           (route) => route.settings.name == RootPage.pageName);

@@ -65,6 +65,7 @@ class SharePetPage extends ConsumerWidget {
                             text: link,
                           );
                           await Clipboard.setData(data);
+                          // ignore: use_build_context_synchronously
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text("共有リンクをコピーしました"),

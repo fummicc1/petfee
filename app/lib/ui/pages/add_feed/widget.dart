@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:petfee/domain/entities/pet.dart';
-import 'package:petfee/riverpod/add_feed/controller.dart';
-import 'package:petfee/riverpod/add_feed/state.dart';
+import 'package:petfee/ui/pages/add_feed/controller.dart';
+import 'package:petfee/ui/pages/add_feed/state.dart';
 
 class AddFeedPage extends ConsumerWidget {
   const AddFeedPage({
@@ -58,6 +58,7 @@ class AddFeedPage extends ConsumerWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           await ref.read(addFeedController(pet).notifier).commit();
+          // ignore: use_build_context_synchronously
           Navigator.of(context).pop();
         },
         label: const Text("保存する"),

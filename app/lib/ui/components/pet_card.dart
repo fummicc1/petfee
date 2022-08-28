@@ -15,6 +15,7 @@ class PetCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: onTap,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
         child: SizedBox(
@@ -48,7 +49,6 @@ class PetCard extends StatelessWidget {
           ),
         ),
       ),
-      onTap: onTap,
     );
   }
 }

@@ -12,29 +12,11 @@ part of 'user.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserID _$UserIDFromJson(Map<String, dynamic> json) {
   return _UserID.fromJson(json);
 }
-
-/// @nodoc
-class _$UserIDTearOff {
-  const _$UserIDTearOff();
-
-  _UserID call(String value) {
-    return _UserID(
-      value,
-    );
-  }
-
-  UserID fromJson(Map<String, Object?> json) {
-    return UserID.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UserID = _$UserIDTearOff();
 
 /// @nodoc
 mixin _$UserID {
@@ -74,27 +56,27 @@ class _$UserIDCopyWithImpl<$Res> implements $UserIDCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UserIDCopyWith<$Res> implements $UserIDCopyWith<$Res> {
-  factory _$UserIDCopyWith(_UserID value, $Res Function(_UserID) then) =
-      __$UserIDCopyWithImpl<$Res>;
+abstract class _$$_UserIDCopyWith<$Res> implements $UserIDCopyWith<$Res> {
+  factory _$$_UserIDCopyWith(_$_UserID value, $Res Function(_$_UserID) then) =
+      __$$_UserIDCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$UserIDCopyWithImpl<$Res> extends _$UserIDCopyWithImpl<$Res>
-    implements _$UserIDCopyWith<$Res> {
-  __$UserIDCopyWithImpl(_UserID _value, $Res Function(_UserID) _then)
-      : super(_value, (v) => _then(v as _UserID));
+class __$$_UserIDCopyWithImpl<$Res> extends _$UserIDCopyWithImpl<$Res>
+    implements _$$_UserIDCopyWith<$Res> {
+  __$$_UserIDCopyWithImpl(_$_UserID _value, $Res Function(_$_UserID) _then)
+      : super(_value, (v) => _then(v as _$_UserID));
 
   @override
-  _UserID get _value => super._value as _UserID;
+  _$_UserID get _value => super._value as _$_UserID;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_UserID(
+    return _then(_$_UserID(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -131,27 +113,30 @@ class _$_UserID with DiagnosticableTreeMixin implements _UserID {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserID &&
+            other is _$_UserID &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
-  _$UserIDCopyWith<_UserID> get copyWith =>
-      __$UserIDCopyWithImpl<_UserID>(this, _$identity);
+  _$$_UserIDCopyWith<_$_UserID> get copyWith =>
+      __$$_UserIDCopyWithImpl<_$_UserID>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserIDToJson(this);
+    return _$$_UserIDToJson(
+      this,
+    );
   }
 }
 
 abstract class _UserID implements UserID {
-  const factory _UserID(String value) = _$_UserID;
+  const factory _UserID(final String value) = _$_UserID;
 
   factory _UserID.fromJson(Map<String, dynamic> json) = _$_UserID.fromJson;
 
@@ -159,35 +144,13 @@ abstract class _UserID implements UserID {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$UserIDCopyWith<_UserID> get copyWith => throw _privateConstructorUsedError;
+  _$$_UserIDCopyWith<_$_UserID> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 User _$UserFromJson(Map<String, dynamic> json) {
   return _User.fromJson(json);
 }
-
-/// @nodoc
-class _$UserTearOff {
-  const _$UserTearOff();
-
-  _User call(
-      {required UserID userID,
-      required String authID,
-      required bool isAnonymous}) {
-    return _User(
-      userID: userID,
-      authID: authID,
-      isAnonymous: isAnonymous,
-    );
-  }
-
-  User fromJson(Map<String, Object?> json) {
-    return User.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $User = _$UserTearOff();
 
 /// @nodoc
 mixin _$User {
@@ -248,9 +211,9 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$UserCopyWith(_User value, $Res Function(_User) then) =
-      __$UserCopyWithImpl<$Res>;
+abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
+      __$$_UserCopyWithImpl<$Res>;
   @override
   $Res call({UserID userID, String authID, bool isAnonymous});
 
@@ -259,13 +222,13 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
-    implements _$UserCopyWith<$Res> {
-  __$UserCopyWithImpl(_User _value, $Res Function(_User) _then)
-      : super(_value, (v) => _then(v as _User));
+class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
+    implements _$$_UserCopyWith<$Res> {
+  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
+      : super(_value, (v) => _then(v as _$_User));
 
   @override
-  _User get _value => super._value as _User;
+  _$_User get _value => super._value as _$_User;
 
   @override
   $Res call({
@@ -273,7 +236,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? authID = freezed,
     Object? isAnonymous = freezed,
   }) {
-    return _then(_User(
+    return _then(_$_User(
       userID: userID == freezed
           ? _value.userID
           : userID // ignore: cast_nullable_to_non_nullable
@@ -325,13 +288,14 @@ class _$_User with DiagnosticableTreeMixin implements _User {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _User &&
+            other is _$_User &&
             const DeepCollectionEquality().equals(other.userID, userID) &&
             const DeepCollectionEquality().equals(other.authID, authID) &&
             const DeepCollectionEquality()
                 .equals(other.isAnonymous, isAnonymous));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -341,20 +305,22 @@ class _$_User with DiagnosticableTreeMixin implements _User {
 
   @JsonKey(ignore: true)
   @override
-  _$UserCopyWith<_User> get copyWith =>
-      __$UserCopyWithImpl<_User>(this, _$identity);
+  _$$_UserCopyWith<_$_User> get copyWith =>
+      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserToJson(this);
+    return _$$_UserToJson(
+      this,
+    );
   }
 }
 
 abstract class _User implements User {
   const factory _User(
-      {required UserID userID,
-      required String authID,
-      required bool isAnonymous}) = _$_User;
+      {required final UserID userID,
+      required final String authID,
+      required final bool isAnonymous}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -366,5 +332,5 @@ abstract class _User implements User {
   bool get isAnonymous;
   @override
   @JsonKey(ignore: true)
-  _$UserCopyWith<_User> get copyWith => throw _privateConstructorUsedError;
+  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,29 +12,11 @@ part of 'feed.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 FeedID _$FeedIDFromJson(Map<String, dynamic> json) {
   return _FeedID.fromJson(json);
 }
-
-/// @nodoc
-class _$FeedIDTearOff {
-  const _$FeedIDTearOff();
-
-  _FeedID call(String value) {
-    return _FeedID(
-      value,
-    );
-  }
-
-  FeedID fromJson(Map<String, Object?> json) {
-    return FeedID.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $FeedID = _$FeedIDTearOff();
 
 /// @nodoc
 mixin _$FeedID {
@@ -74,27 +56,27 @@ class _$FeedIDCopyWithImpl<$Res> implements $FeedIDCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$FeedIDCopyWith<$Res> implements $FeedIDCopyWith<$Res> {
-  factory _$FeedIDCopyWith(_FeedID value, $Res Function(_FeedID) then) =
-      __$FeedIDCopyWithImpl<$Res>;
+abstract class _$$_FeedIDCopyWith<$Res> implements $FeedIDCopyWith<$Res> {
+  factory _$$_FeedIDCopyWith(_$_FeedID value, $Res Function(_$_FeedID) then) =
+      __$$_FeedIDCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$FeedIDCopyWithImpl<$Res> extends _$FeedIDCopyWithImpl<$Res>
-    implements _$FeedIDCopyWith<$Res> {
-  __$FeedIDCopyWithImpl(_FeedID _value, $Res Function(_FeedID) _then)
-      : super(_value, (v) => _then(v as _FeedID));
+class __$$_FeedIDCopyWithImpl<$Res> extends _$FeedIDCopyWithImpl<$Res>
+    implements _$$_FeedIDCopyWith<$Res> {
+  __$$_FeedIDCopyWithImpl(_$_FeedID _value, $Res Function(_$_FeedID) _then)
+      : super(_value, (v) => _then(v as _$_FeedID));
 
   @override
-  _FeedID get _value => super._value as _FeedID;
+  _$_FeedID get _value => super._value as _$_FeedID;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_FeedID(
+    return _then(_$_FeedID(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -131,27 +113,30 @@ class _$_FeedID with DiagnosticableTreeMixin implements _FeedID {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FeedID &&
+            other is _$_FeedID &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
-  _$FeedIDCopyWith<_FeedID> get copyWith =>
-      __$FeedIDCopyWithImpl<_FeedID>(this, _$identity);
+  _$$_FeedIDCopyWith<_$_FeedID> get copyWith =>
+      __$$_FeedIDCopyWithImpl<_$_FeedID>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedIDToJson(this);
+    return _$$_FeedIDToJson(
+      this,
+    );
   }
 }
 
 abstract class _FeedID implements FeedID {
-  const factory _FeedID(String value) = _$_FeedID;
+  const factory _FeedID(final String value) = _$_FeedID;
 
   factory _FeedID.fromJson(Map<String, dynamic> json) = _$_FeedID.fromJson;
 
@@ -159,39 +144,13 @@ abstract class _FeedID implements FeedID {
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$FeedIDCopyWith<_FeedID> get copyWith => throw _privateConstructorUsedError;
+  _$$_FeedIDCopyWith<_$_FeedID> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 Feed _$FeedFromJson(Map<String, dynamic> json) {
   return _Feed.fromJson(json);
 }
-
-/// @nodoc
-class _$FeedTearOff {
-  const _$FeedTearOff();
-
-  _Feed call(
-      {required FeedID feedID,
-      required DateTime date,
-      required DateTime createdAt,
-      required PetID petID,
-      required UserID feederID}) {
-    return _Feed(
-      feedID: feedID,
-      date: date,
-      createdAt: createdAt,
-      petID: petID,
-      feederID: feederID,
-    );
-  }
-
-  Feed fromJson(Map<String, Object?> json) {
-    return Feed.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Feed = _$FeedTearOff();
 
 /// @nodoc
 mixin _$Feed {
@@ -285,9 +244,9 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
-  factory _$FeedCopyWith(_Feed value, $Res Function(_Feed) then) =
-      __$FeedCopyWithImpl<$Res>;
+abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
+  factory _$$_FeedCopyWith(_$_Feed value, $Res Function(_$_Feed) then) =
+      __$$_FeedCopyWithImpl<$Res>;
   @override
   $Res call(
       {FeedID feedID,
@@ -305,13 +264,13 @@ abstract class _$FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
-    implements _$FeedCopyWith<$Res> {
-  __$FeedCopyWithImpl(_Feed _value, $Res Function(_Feed) _then)
-      : super(_value, (v) => _then(v as _Feed));
+class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
+    implements _$$_FeedCopyWith<$Res> {
+  __$$_FeedCopyWithImpl(_$_Feed _value, $Res Function(_$_Feed) _then)
+      : super(_value, (v) => _then(v as _$_Feed));
 
   @override
-  _Feed get _value => super._value as _Feed;
+  _$_Feed get _value => super._value as _$_Feed;
 
   @override
   $Res call({
@@ -321,7 +280,7 @@ class __$FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
     Object? petID = freezed,
     Object? feederID = freezed,
   }) {
-    return _then(_Feed(
+    return _then(_$_Feed(
       feedID: feedID == freezed
           ? _value.feedID
           : feedID // ignore: cast_nullable_to_non_nullable
@@ -391,7 +350,7 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Feed &&
+            other is _$_Feed &&
             const DeepCollectionEquality().equals(other.feedID, feedID) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
@@ -399,6 +358,7 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
             const DeepCollectionEquality().equals(other.feederID, feederID));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -410,22 +370,24 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
 
   @JsonKey(ignore: true)
   @override
-  _$FeedCopyWith<_Feed> get copyWith =>
-      __$FeedCopyWithImpl<_Feed>(this, _$identity);
+  _$$_FeedCopyWith<_$_Feed> get copyWith =>
+      __$$_FeedCopyWithImpl<_$_Feed>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedToJson(this);
+    return _$$_FeedToJson(
+      this,
+    );
   }
 }
 
 abstract class _Feed implements Feed {
   const factory _Feed(
-      {required FeedID feedID,
-      required DateTime date,
-      required DateTime createdAt,
-      required PetID petID,
-      required UserID feederID}) = _$_Feed;
+      {required final FeedID feedID,
+      required final DateTime date,
+      required final DateTime createdAt,
+      required final PetID petID,
+      required final UserID feederID}) = _$_Feed;
 
   factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
 
@@ -441,5 +403,5 @@ abstract class _Feed implements Feed {
   UserID get feederID;
   @override
   @JsonKey(ignore: true)
-  _$FeedCopyWith<_Feed> get copyWith => throw _privateConstructorUsedError;
+  _$$_FeedCopyWith<_$_Feed> get copyWith => throw _privateConstructorUsedError;
 }

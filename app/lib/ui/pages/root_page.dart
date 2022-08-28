@@ -7,8 +7,8 @@ import 'package:petfee/domain/exceptions/auth.dart';
 import 'package:petfee/domain/repositories/auth/repository.dart';
 import 'package:petfee/domain/repositories/pet/repository.dart';
 import '/ui/pages/add_new_pet/pet_info/widget.dart';
-import '/ui/pages/pet_group/join_pet_group.dart';
-import '/ui/pages/pet_list/pet_list_page.dart';
+import 'pet_group/join_group/widget.dart';
+import '/ui/pages/pet_list/widget.dart';
 
 class RootPage extends ConsumerStatefulWidget {
   const RootPage({Key? key}) : super(key: key);
@@ -84,6 +84,7 @@ class _RootPageState extends ConsumerState<RootPage> {
       if (petID.isNotEmpty) {
         final pet =
             await PetRepositoryImpl.shared.fetchSingle(petID: PetID(petID));
+        // ignore: use_build_context_synchronously
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {

@@ -1,7 +1,7 @@
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '/domain/entities/pet.dart';
-import '/ui/pages/pet_group/join_pet_group.dart';
+import '../../ui/pages/pet_group/join_group/widget.dart';
 
 mixin ShareLinkService {
   Future<String> generateSharingPetLink(Pet pet);

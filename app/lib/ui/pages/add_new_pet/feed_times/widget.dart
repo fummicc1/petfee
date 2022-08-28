@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:petfee/riverpod/add_new_pet/controller.dart';
+import 'package:petfee/ui/pages/add_new_pet/controller.dart';
 
 class SetupFeedTimesPage extends ConsumerWidget {
   const SetupFeedTimesPage({
@@ -60,20 +60,20 @@ class SetupFeedTimesPage extends ConsumerWidget {
                 },
                 items: const [
                   DropdownMenuItem(
-                    child: Text("1回"),
                     value: 1,
+                    child: Text("1回"),
                   ),
                   DropdownMenuItem(
-                    child: Text("2回"),
                     value: 2,
+                    child: Text("2回"),
                   ),
                   DropdownMenuItem(
-                    child: Text("3回"),
                     value: 3,
+                    child: Text("3回"),
                   ),
                   DropdownMenuItem(
-                    child: Text("4回"),
                     value: 4,
+                    child: Text("4回"),
                   ),
                 ],
               ),

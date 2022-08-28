@@ -12,25 +12,7 @@ part of 'pet.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PetExceptionTearOff {
-  const _$PetExceptionTearOff();
-
-  _NotExists notExists(PetID petID) {
-    return _NotExists(
-      petID,
-    );
-  }
-
-  _AlreadyJoined alreadyJoined() {
-    return _AlreadyJoined();
-  }
-}
-
-/// @nodoc
-const $PetException = _$PetExceptionTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PetException {
@@ -91,29 +73,30 @@ class _$PetExceptionCopyWithImpl<$Res> implements $PetExceptionCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$NotExistsCopyWith<$Res> {
-  factory _$NotExistsCopyWith(
-          _NotExists value, $Res Function(_NotExists) then) =
-      __$NotExistsCopyWithImpl<$Res>;
+abstract class _$$_NotExistsCopyWith<$Res> {
+  factory _$$_NotExistsCopyWith(
+          _$_NotExists value, $Res Function(_$_NotExists) then) =
+      __$$_NotExistsCopyWithImpl<$Res>;
   $Res call({PetID petID});
 
   $PetIDCopyWith<$Res> get petID;
 }
 
 /// @nodoc
-class __$NotExistsCopyWithImpl<$Res> extends _$PetExceptionCopyWithImpl<$Res>
-    implements _$NotExistsCopyWith<$Res> {
-  __$NotExistsCopyWithImpl(_NotExists _value, $Res Function(_NotExists) _then)
-      : super(_value, (v) => _then(v as _NotExists));
+class __$$_NotExistsCopyWithImpl<$Res> extends _$PetExceptionCopyWithImpl<$Res>
+    implements _$$_NotExistsCopyWith<$Res> {
+  __$$_NotExistsCopyWithImpl(
+      _$_NotExists _value, $Res Function(_$_NotExists) _then)
+      : super(_value, (v) => _then(v as _$_NotExists));
 
   @override
-  _NotExists get _value => super._value as _NotExists;
+  _$_NotExists get _value => super._value as _$_NotExists;
 
   @override
   $Res call({
     Object? petID = freezed,
   }) {
-    return _then(_NotExists(
+    return _then(_$_NotExists(
       petID == freezed
           ? _value.petID
           : petID // ignore: cast_nullable_to_non_nullable
@@ -146,7 +129,7 @@ class _$_NotExists implements _NotExists {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NotExists &&
+            other is _$_NotExists &&
             const DeepCollectionEquality().equals(other.petID, petID));
   }
 
@@ -156,8 +139,8 @@ class _$_NotExists implements _NotExists {
 
   @JsonKey(ignore: true)
   @override
-  _$NotExistsCopyWith<_NotExists> get copyWith =>
-      __$NotExistsCopyWithImpl<_NotExists>(this, _$identity);
+  _$$_NotExistsCopyWith<_$_NotExists> get copyWith =>
+      __$$_NotExistsCopyWithImpl<_$_NotExists>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -223,31 +206,31 @@ class _$_NotExists implements _NotExists {
 }
 
 abstract class _NotExists implements PetException {
-  factory _NotExists(PetID petID) = _$_NotExists;
+  factory _NotExists(final PetID petID) = _$_NotExists;
 
   PetID get petID;
   @JsonKey(ignore: true)
-  _$NotExistsCopyWith<_NotExists> get copyWith =>
+  _$$_NotExistsCopyWith<_$_NotExists> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$AlreadyJoinedCopyWith<$Res> {
-  factory _$AlreadyJoinedCopyWith(
-          _AlreadyJoined value, $Res Function(_AlreadyJoined) then) =
-      __$AlreadyJoinedCopyWithImpl<$Res>;
+abstract class _$$_AlreadyJoinedCopyWith<$Res> {
+  factory _$$_AlreadyJoinedCopyWith(
+          _$_AlreadyJoined value, $Res Function(_$_AlreadyJoined) then) =
+      __$$_AlreadyJoinedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AlreadyJoinedCopyWithImpl<$Res>
+class __$$_AlreadyJoinedCopyWithImpl<$Res>
     extends _$PetExceptionCopyWithImpl<$Res>
-    implements _$AlreadyJoinedCopyWith<$Res> {
-  __$AlreadyJoinedCopyWithImpl(
-      _AlreadyJoined _value, $Res Function(_AlreadyJoined) _then)
-      : super(_value, (v) => _then(v as _AlreadyJoined));
+    implements _$$_AlreadyJoinedCopyWith<$Res> {
+  __$$_AlreadyJoinedCopyWithImpl(
+      _$_AlreadyJoined _value, $Res Function(_$_AlreadyJoined) _then)
+      : super(_value, (v) => _then(v as _$_AlreadyJoined));
 
   @override
-  _AlreadyJoined get _value => super._value as _AlreadyJoined;
+  _$_AlreadyJoined get _value => super._value as _$_AlreadyJoined;
 }
 
 /// @nodoc
@@ -263,7 +246,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _AlreadyJoined);
+        (other.runtimeType == runtimeType && other is _$_AlreadyJoined);
   }
 
   @override

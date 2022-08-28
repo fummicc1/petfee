@@ -1,11 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:petfee/domain/entities/pet.dart';
-import '/ui/pages/pet_detail/pet_detail_page.dart';
-import '/ui/pages/pet_list/pet_list_page.dart';
+import '/ui/pages/pet_detail/widget.dart';
+import '/ui/pages/pet_list/widget.dart';
 import '/ui/pages/root_page.dart';
 
 import 'domain/services/push_notification.dart';
