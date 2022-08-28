@@ -159,6 +159,8 @@ mixin _$Pet {
   String? get avatarURL => throw _privateConstructorUsedError;
   int get numberOfFeedTimesPerDay => throw _privateConstructorUsedError;
   List<UserID> get users => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -174,7 +176,9 @@ abstract class $PetCopyWith<$Res> {
       String name,
       String? avatarURL,
       int numberOfFeedTimesPerDay,
-      List<UserID> users});
+      List<UserID> users,
+      DateTime createdAt,
+      DateTime updatedAt});
 
   $PetIDCopyWith<$Res> get petID;
 }
@@ -194,6 +198,8 @@ class _$PetCopyWithImpl<$Res> implements $PetCopyWith<$Res> {
     Object? avatarURL = freezed,
     Object? numberOfFeedTimesPerDay = freezed,
     Object? users = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       petID: petID == freezed
@@ -216,6 +222,14 @@ class _$PetCopyWithImpl<$Res> implements $PetCopyWith<$Res> {
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
               as List<UserID>,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 
@@ -237,7 +251,9 @@ abstract class _$$_PetCopyWith<$Res> implements $PetCopyWith<$Res> {
       String name,
       String? avatarURL,
       int numberOfFeedTimesPerDay,
-      List<UserID> users});
+      List<UserID> users,
+      DateTime createdAt,
+      DateTime updatedAt});
 
   @override
   $PetIDCopyWith<$Res> get petID;
@@ -259,6 +275,8 @@ class __$$_PetCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res>
     Object? avatarURL = freezed,
     Object? numberOfFeedTimesPerDay = freezed,
     Object? users = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$_Pet(
       petID: petID == freezed
@@ -281,6 +299,14 @@ class __$$_PetCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res>
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
               as List<UserID>,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -294,7 +320,9 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
       required this.name,
       this.avatarURL,
       required this.numberOfFeedTimesPerDay,
-      required final List<UserID> users})
+      required final List<UserID> users,
+      required this.createdAt,
+      required this.updatedAt})
       : _users = users;
 
   factory _$_Pet.fromJson(Map<String, dynamic> json) => _$$_PetFromJson(json);
@@ -315,8 +343,13 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
   }
 
   @override
+  final DateTime createdAt;
+  @override
+  final DateTime updatedAt;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Pet(petID: $petID, name: $name, avatarURL: $avatarURL, numberOfFeedTimesPerDay: $numberOfFeedTimesPerDay, users: $users)';
+    return 'Pet(petID: $petID, name: $name, avatarURL: $avatarURL, numberOfFeedTimesPerDay: $numberOfFeedTimesPerDay, users: $users, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -329,7 +362,9 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
       ..add(DiagnosticsProperty('avatarURL', avatarURL))
       ..add(DiagnosticsProperty(
           'numberOfFeedTimesPerDay', numberOfFeedTimesPerDay))
-      ..add(DiagnosticsProperty('users', users));
+      ..add(DiagnosticsProperty('users', users))
+      ..add(DiagnosticsProperty('createdAt', createdAt))
+      ..add(DiagnosticsProperty('updatedAt', updatedAt));
   }
 
   @override
@@ -342,7 +377,9 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
             const DeepCollectionEquality().equals(other.avatarURL, avatarURL) &&
             const DeepCollectionEquality().equals(
                 other.numberOfFeedTimesPerDay, numberOfFeedTimesPerDay) &&
-            const DeepCollectionEquality().equals(other._users, _users));
+            const DeepCollectionEquality().equals(other._users, _users) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
   @JsonKey(ignore: true)
@@ -353,7 +390,9 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(avatarURL),
       const DeepCollectionEquality().hash(numberOfFeedTimesPerDay),
-      const DeepCollectionEquality().hash(_users));
+      const DeepCollectionEquality().hash(_users),
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -374,7 +413,9 @@ abstract class _Pet implements Pet {
       required final String name,
       final String? avatarURL,
       required final int numberOfFeedTimesPerDay,
-      required final List<UserID> users}) = _$_Pet;
+      required final List<UserID> users,
+      required final DateTime createdAt,
+      required final DateTime updatedAt}) = _$_Pet;
 
   factory _Pet.fromJson(Map<String, dynamic> json) = _$_Pet.fromJson;
 
@@ -388,6 +429,10 @@ abstract class _Pet implements Pet {
   int get numberOfFeedTimesPerDay;
   @override
   List<UserID> get users;
+  @override
+  DateTime get createdAt;
+  @override
+  DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_PetCopyWith<_$_Pet> get copyWith => throw _privateConstructorUsedError;

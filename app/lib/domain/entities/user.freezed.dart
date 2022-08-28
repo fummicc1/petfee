@@ -157,6 +157,8 @@ mixin _$User {
   UserID get userID => throw _privateConstructorUsedError;
   String get authID => throw _privateConstructorUsedError;
   bool get isAnonymous => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -167,7 +169,12 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({UserID userID, String authID, bool isAnonymous});
+  $Res call(
+      {UserID userID,
+      String authID,
+      bool isAnonymous,
+      DateTime createdAt,
+      DateTime updatedAt});
 
   $UserIDCopyWith<$Res> get userID;
 }
@@ -185,6 +192,8 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
     Object? userID = freezed,
     Object? authID = freezed,
     Object? isAnonymous = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       userID: userID == freezed
@@ -199,6 +208,14 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
           ? _value.isAnonymous
           : isAnonymous // ignore: cast_nullable_to_non_nullable
               as bool,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 
@@ -215,7 +232,12 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
       __$$_UserCopyWithImpl<$Res>;
   @override
-  $Res call({UserID userID, String authID, bool isAnonymous});
+  $Res call(
+      {UserID userID,
+      String authID,
+      bool isAnonymous,
+      DateTime createdAt,
+      DateTime updatedAt});
 
   @override
   $UserIDCopyWith<$Res> get userID;
@@ -235,6 +257,8 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
     Object? userID = freezed,
     Object? authID = freezed,
     Object? isAnonymous = freezed,
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$_User(
       userID: userID == freezed
@@ -249,6 +273,14 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
           ? _value.isAnonymous
           : isAnonymous // ignore: cast_nullable_to_non_nullable
               as bool,
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -258,7 +290,11 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 @JsonSerializable(explicitToJson: true)
 class _$_User with DiagnosticableTreeMixin implements _User {
   const _$_User(
-      {required this.userID, required this.authID, required this.isAnonymous});
+      {required this.userID,
+      required this.authID,
+      required this.isAnonymous,
+      required this.createdAt,
+      required this.updatedAt});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
@@ -268,10 +304,14 @@ class _$_User with DiagnosticableTreeMixin implements _User {
   final String authID;
   @override
   final bool isAnonymous;
+  @override
+  final DateTime createdAt;
+  @override
+  final DateTime updatedAt;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'User(userID: $userID, authID: $authID, isAnonymous: $isAnonymous)';
+    return 'User(userID: $userID, authID: $authID, isAnonymous: $isAnonymous, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -281,7 +321,9 @@ class _$_User with DiagnosticableTreeMixin implements _User {
       ..add(DiagnosticsProperty('type', 'User'))
       ..add(DiagnosticsProperty('userID', userID))
       ..add(DiagnosticsProperty('authID', authID))
-      ..add(DiagnosticsProperty('isAnonymous', isAnonymous));
+      ..add(DiagnosticsProperty('isAnonymous', isAnonymous))
+      ..add(DiagnosticsProperty('createdAt', createdAt))
+      ..add(DiagnosticsProperty('updatedAt', updatedAt));
   }
 
   @override
@@ -292,7 +334,9 @@ class _$_User with DiagnosticableTreeMixin implements _User {
             const DeepCollectionEquality().equals(other.userID, userID) &&
             const DeepCollectionEquality().equals(other.authID, authID) &&
             const DeepCollectionEquality()
-                .equals(other.isAnonymous, isAnonymous));
+                .equals(other.isAnonymous, isAnonymous) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
   }
 
   @JsonKey(ignore: true)
@@ -301,7 +345,9 @@ class _$_User with DiagnosticableTreeMixin implements _User {
       runtimeType,
       const DeepCollectionEquality().hash(userID),
       const DeepCollectionEquality().hash(authID),
-      const DeepCollectionEquality().hash(isAnonymous));
+      const DeepCollectionEquality().hash(isAnonymous),
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt));
 
   @JsonKey(ignore: true)
   @override
@@ -320,7 +366,9 @@ abstract class _User implements User {
   const factory _User(
       {required final UserID userID,
       required final String authID,
-      required final bool isAnonymous}) = _$_User;
+      required final bool isAnonymous,
+      required final DateTime createdAt,
+      required final DateTime updatedAt}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -330,6 +378,10 @@ abstract class _User implements User {
   String get authID;
   @override
   bool get isAnonymous;
+  @override
+  DateTime get createdAt;
+  @override
+  DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;

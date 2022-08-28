@@ -77,6 +77,7 @@ class FeedRepositoryImpl implements FeedRepository {
       feedID: FeedID(document.id),
       date: feed.date,
       createdAt: feed.createdAt,
+      updatedAt: DateTime.now(),
       petID: petID,
       feederID: userID,
     );

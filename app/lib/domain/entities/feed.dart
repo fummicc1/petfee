@@ -24,6 +24,7 @@ class Feed with _$Feed {
     required FeedID feedID,
     required DateTime date,
     required DateTime createdAt,
+    required DateTime updatedAt,
     required PetID petID,
     required UserID feederID,
   }) = _Feed;

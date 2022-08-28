@@ -23,6 +23,8 @@ class Pet with _$Pet {
     String? avatarURL,
     required int numberOfFeedTimesPerDay,
     required List<UserID> users,
+    required DateTime createdAt,
+    required DateTime updatedAt,
   }) = _Pet;
 
   factory Pet.fromJson(Map<String, dynamic> json) => _$PetFromJson(json);

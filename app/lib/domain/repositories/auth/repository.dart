@@ -67,12 +67,15 @@ class AuthRepositoryImpl with AuthRepository {
     if (authID == null) {
       throw AuthException.notLoggedIn();
     }
+    final now = DateTime.now();
     final userDocument =
         FirebaseFirestore.instance.collection(User.collectionName).doc();
     final entity = User(
       authID: authID,
       userID: UserID(userDocument.id),
       isAnonymous: true,
+      createdAt: now,
+      updatedAt: now,
     );
     await userDocument.set(entity.toJson());
   }

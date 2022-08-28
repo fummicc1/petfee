@@ -33,6 +33,7 @@ class AddFeedController extends StateNotifier<AddFeedState> {
   }
 
   Future commit() async {
+    final now = DateTime.now();
     final pet = state.pet;
     final petID = pet.petID;
     final userID = await _authRepository.userID;
@@ -43,7 +44,8 @@ class AddFeedController extends StateNotifier<AddFeedState> {
       date: state.feededAt,
       petID: petID,
       feederID: userID,
-      createdAt: DateTime.now(),
+      createdAt: now,
+      updatedAt: now,
     );
     await _feedRepository.saveNewFeed(
       userID: userID,

@@ -22,6 +22,8 @@ _$_Pet _$$_PetFromJson(Map<String, dynamic> json) => _$_Pet(
       users: (json['users'] as List<dynamic>)
           .map((e) => UserID.fromJson(e as Map<String, dynamic>))
           .toList(),
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
 
 Map<String, dynamic> _$$_PetToJson(_$_Pet instance) => <String, dynamic>{
@@ -30,4 +32,6 @@ Map<String, dynamic> _$$_PetToJson(_$_Pet instance) => <String, dynamic>{
       'avatarURL': instance.avatarURL,
       'numberOfFeedTimesPerDay': instance.numberOfFeedTimesPerDay,
       'users': instance.users.map((e) => e.toJson()).toList(),
+      'createdAt': instance.createdAt.toIso8601String(),
+      'updatedAt': instance.updatedAt.toIso8601String(),
     };

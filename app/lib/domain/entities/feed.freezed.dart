@@ -157,6 +157,7 @@ mixin _$Feed {
   FeedID get feedID => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
   PetID get petID => throw _privateConstructorUsedError;
   UserID get feederID => throw _privateConstructorUsedError;
 
@@ -173,6 +174,7 @@ abstract class $FeedCopyWith<$Res> {
       {FeedID feedID,
       DateTime date,
       DateTime createdAt,
+      DateTime updatedAt,
       PetID petID,
       UserID feederID});
 
@@ -194,6 +196,7 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
     Object? feedID = freezed,
     Object? date = freezed,
     Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? petID = freezed,
     Object? feederID = freezed,
   }) {
@@ -209,6 +212,10 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       petID: petID == freezed
           ? _value.petID
@@ -252,6 +259,7 @@ abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
       {FeedID feedID,
       DateTime date,
       DateTime createdAt,
+      DateTime updatedAt,
       PetID petID,
       UserID feederID});
 
@@ -277,6 +285,7 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
     Object? feedID = freezed,
     Object? date = freezed,
     Object? createdAt = freezed,
+    Object? updatedAt = freezed,
     Object? petID = freezed,
     Object? feederID = freezed,
   }) {
@@ -292,6 +301,10 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
       petID: petID == freezed
           ? _value.petID
@@ -313,6 +326,7 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
       {required this.feedID,
       required this.date,
       required this.createdAt,
+      required this.updatedAt,
       required this.petID,
       required this.feederID});
 
@@ -325,13 +339,15 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
   @override
   final DateTime createdAt;
   @override
+  final DateTime updatedAt;
+  @override
   final PetID petID;
   @override
   final UserID feederID;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Feed(feedID: $feedID, date: $date, createdAt: $createdAt, petID: $petID, feederID: $feederID)';
+    return 'Feed(feedID: $feedID, date: $date, createdAt: $createdAt, updatedAt: $updatedAt, petID: $petID, feederID: $feederID)';
   }
 
   @override
@@ -342,6 +358,7 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
       ..add(DiagnosticsProperty('feedID', feedID))
       ..add(DiagnosticsProperty('date', date))
       ..add(DiagnosticsProperty('createdAt', createdAt))
+      ..add(DiagnosticsProperty('updatedAt', updatedAt))
       ..add(DiagnosticsProperty('petID', petID))
       ..add(DiagnosticsProperty('feederID', feederID));
   }
@@ -354,6 +371,7 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
             const DeepCollectionEquality().equals(other.feedID, feedID) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
             const DeepCollectionEquality().equals(other.petID, petID) &&
             const DeepCollectionEquality().equals(other.feederID, feederID));
   }
@@ -365,6 +383,7 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
       const DeepCollectionEquality().hash(feedID),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt),
       const DeepCollectionEquality().hash(petID),
       const DeepCollectionEquality().hash(feederID));
 
@@ -386,6 +405,7 @@ abstract class _Feed implements Feed {
       {required final FeedID feedID,
       required final DateTime date,
       required final DateTime createdAt,
+      required final DateTime updatedAt,
       required final PetID petID,
       required final UserID feederID}) = _$_Feed;
 
@@ -397,6 +417,8 @@ abstract class _Feed implements Feed {
   DateTime get date;
   @override
   DateTime get createdAt;
+  @override
+  DateTime get updatedAt;
   @override
   PetID get petID;
   @override

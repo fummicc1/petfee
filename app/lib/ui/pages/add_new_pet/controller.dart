@@ -54,12 +54,15 @@ class AddNewPetController extends StateNotifier<AddNewPetState> {
     final petAvatar = state.petAvatar;
     final petName = state.petName;
     final numberOfFeedPerDay = state.numberOfFeedPerDay;
+    final now = DateTime.now();
 
     final petModel = Pet(
       petID: const PetID(""),
       name: petName,
       numberOfFeedTimesPerDay: numberOfFeedPerDay,
       users: [],
+      createdAt: now,
+      updatedAt: now,
     );
     final File? file;
     if (petAvatar != null) {

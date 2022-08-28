@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -13,13 +14,15 @@ class UserID with _$UserID {
 
 @freezed
 class User with _$User {
-  static const collectionName = kDebugMode ? "users-dev" : "users";
+  static const collectionName = "users";
 
   @JsonSerializable(explicitToJson: true)
   const factory User({
     required UserID userID,
     required String authID,
     required bool isAnonymous,
+    required DateTime createdAt,
+    required DateTime updatedAt,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
