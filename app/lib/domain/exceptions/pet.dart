@@ -7,4 +7,5 @@ part 'pet.freezed.dart';
 class PetException with _$PetException implements Exception {
   factory PetException.notExists(PetID petID) = _NotExists;
   factory PetException.alreadyJoined() = _AlreadyJoined;
+  factory PetException.emptyList() = _EmptyList;
 }
