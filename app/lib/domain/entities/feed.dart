@@ -27,6 +27,7 @@ class Feed with _$Feed {
     required DateTime updatedAt,
     required PetID petID,
     required UserID feederID,
+    String? memo,
   }) = _Feed;
 
   factory Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);

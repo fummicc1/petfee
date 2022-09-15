@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:petfee/domain/entities/pet.dart';
 import 'package:petfee/domain/exceptions/auth.dart';
+import 'package:petfee/domain/exceptions/pet.dart';
 import 'package:petfee/domain/repositories/auth/repository.dart';
 import 'package:petfee/domain/repositories/pet/repository.dart';
 import '/ui/pages/add_new_pet/pet_info/widget.dart';
@@ -34,9 +35,10 @@ class _RootPageState extends ConsumerState<RootPage> {
           final hasPet = snapshot.hasData && snapshot.requireData.isNotEmpty;
           if (hasPet) {
             return const PetListPage();
-          } else {
+          } else if (snapshot.error == PetException.emptyList()) {
             return const InputNewPetInfoPage(canBack: false);
           }
+          return const Center(child: CircularProgressIndicator());
         });
   }
 
@@ -47,7 +49,11 @@ class _RootPageState extends ConsumerState<RootPage> {
         await authRepository.loginAnonymously();
       }
       final userID = await ref.watch(authRepositoryProvider).userID;
-      return ref.watch(petRepositoryProvider).fetchPetList(userID: userID);
+      final list = await ref.watch(petRepositoryProvider).fetchPetList(userID: userID);
+      if (list.isEmpty) {
+        throw PetException.emptyList();
+      }
+      return list;
     } on AuthException catch (e) {
       if (e == AuthException.notLoggedIn()) {
         await ref.read(authRepositoryProvider).loginAnonymously();

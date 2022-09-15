@@ -20,18 +20,21 @@ mixin _$PetException {
   TResult when<TResult extends Object?>({
     required TResult Function(PetID petID) notExists,
     required TResult Function() alreadyJoined,
+    required TResult Function() emptyList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$PetException {
   TResult map<TResult extends Object?>({
     required TResult Function(_NotExists value) notExists,
     required TResult Function(_AlreadyJoined value) alreadyJoined,
+    required TResult Function(_EmptyList value) emptyList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +153,7 @@ class _$_NotExists implements _NotExists {
   TResult when<TResult extends Object?>({
     required TResult Function(PetID petID) notExists,
     required TResult Function() alreadyJoined,
+    required TResult Function() emptyList,
   }) {
     return notExists(petID);
   }
@@ -156,6 +163,7 @@ class _$_NotExists implements _NotExists {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
   }) {
     return notExists?.call(petID);
   }
@@ -165,6 +173,7 @@ class _$_NotExists implements _NotExists {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
     required TResult orElse(),
   }) {
     if (notExists != null) {
@@ -178,6 +187,7 @@ class _$_NotExists implements _NotExists {
   TResult map<TResult extends Object?>({
     required TResult Function(_NotExists value) notExists,
     required TResult Function(_AlreadyJoined value) alreadyJoined,
+    required TResult Function(_EmptyList value) emptyList,
   }) {
     return notExists(this);
   }
@@ -187,6 +197,7 @@ class _$_NotExists implements _NotExists {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
   }) {
     return notExists?.call(this);
   }
@@ -196,6 +207,7 @@ class _$_NotExists implements _NotExists {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
     required TResult orElse(),
   }) {
     if (notExists != null) {
@@ -257,6 +269,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   TResult when<TResult extends Object?>({
     required TResult Function(PetID petID) notExists,
     required TResult Function() alreadyJoined,
+    required TResult Function() emptyList,
   }) {
     return alreadyJoined();
   }
@@ -266,6 +279,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
   }) {
     return alreadyJoined?.call();
   }
@@ -275,6 +289,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
     required TResult orElse(),
   }) {
     if (alreadyJoined != null) {
@@ -288,6 +303,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   TResult map<TResult extends Object?>({
     required TResult Function(_NotExists value) notExists,
     required TResult Function(_AlreadyJoined value) alreadyJoined,
+    required TResult Function(_EmptyList value) emptyList,
   }) {
     return alreadyJoined(this);
   }
@@ -297,6 +313,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
   }) {
     return alreadyJoined?.call(this);
   }
@@ -306,6 +323,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
     required TResult orElse(),
   }) {
     if (alreadyJoined != null) {
@@ -317,4 +335,114 @@ class _$_AlreadyJoined implements _AlreadyJoined {
 
 abstract class _AlreadyJoined implements PetException {
   factory _AlreadyJoined() = _$_AlreadyJoined;
+}
+
+/// @nodoc
+abstract class _$$_EmptyListCopyWith<$Res> {
+  factory _$$_EmptyListCopyWith(
+          _$_EmptyList value, $Res Function(_$_EmptyList) then) =
+      __$$_EmptyListCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_EmptyListCopyWithImpl<$Res> extends _$PetExceptionCopyWithImpl<$Res>
+    implements _$$_EmptyListCopyWith<$Res> {
+  __$$_EmptyListCopyWithImpl(
+      _$_EmptyList _value, $Res Function(_$_EmptyList) _then)
+      : super(_value, (v) => _then(v as _$_EmptyList));
+
+  @override
+  _$_EmptyList get _value => super._value as _$_EmptyList;
+}
+
+/// @nodoc
+
+class _$_EmptyList implements _EmptyList {
+  _$_EmptyList();
+
+  @override
+  String toString() {
+    return 'PetException.emptyList()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_EmptyList);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PetID petID) notExists,
+    required TResult Function() alreadyJoined,
+    required TResult Function() emptyList,
+  }) {
+    return emptyList();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(PetID petID)? notExists,
+    TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
+  }) {
+    return emptyList?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PetID petID)? notExists,
+    TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
+    required TResult orElse(),
+  }) {
+    if (emptyList != null) {
+      return emptyList();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NotExists value) notExists,
+    required TResult Function(_AlreadyJoined value) alreadyJoined,
+    required TResult Function(_EmptyList value) emptyList,
+  }) {
+    return emptyList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NotExists value)? notExists,
+    TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
+  }) {
+    return emptyList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NotExists value)? notExists,
+    TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
+    required TResult orElse(),
+  }) {
+    if (emptyList != null) {
+      return emptyList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EmptyList implements PetException {
+  factory _EmptyList() = _$_EmptyList;
 }

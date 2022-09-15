@@ -160,6 +160,7 @@ mixin _$Feed {
   DateTime get updatedAt => throw _privateConstructorUsedError;
   PetID get petID => throw _privateConstructorUsedError;
   UserID get feederID => throw _privateConstructorUsedError;
+  String? get memo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -176,7 +177,8 @@ abstract class $FeedCopyWith<$Res> {
       DateTime createdAt,
       DateTime updatedAt,
       PetID petID,
-      UserID feederID});
+      UserID feederID,
+      String? memo});
 
   $FeedIDCopyWith<$Res> get feedID;
   $PetIDCopyWith<$Res> get petID;
@@ -199,6 +201,7 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
     Object? updatedAt = freezed,
     Object? petID = freezed,
     Object? feederID = freezed,
+    Object? memo = freezed,
   }) {
     return _then(_value.copyWith(
       feedID: feedID == freezed
@@ -225,6 +228,10 @@ class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
           ? _value.feederID
           : feederID // ignore: cast_nullable_to_non_nullable
               as UserID,
+      memo: memo == freezed
+          ? _value.memo
+          : memo // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -261,7 +268,8 @@ abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
       DateTime createdAt,
       DateTime updatedAt,
       PetID petID,
-      UserID feederID});
+      UserID feederID,
+      String? memo});
 
   @override
   $FeedIDCopyWith<$Res> get feedID;
@@ -288,6 +296,7 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
     Object? updatedAt = freezed,
     Object? petID = freezed,
     Object? feederID = freezed,
+    Object? memo = freezed,
   }) {
     return _then(_$_Feed(
       feedID: feedID == freezed
@@ -314,6 +323,10 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
           ? _value.feederID
           : feederID // ignore: cast_nullable_to_non_nullable
               as UserID,
+      memo: memo == freezed
+          ? _value.memo
+          : memo // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -328,7 +341,8 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
       required this.createdAt,
       required this.updatedAt,
       required this.petID,
-      required this.feederID});
+      required this.feederID,
+      this.memo});
 
   factory _$_Feed.fromJson(Map<String, dynamic> json) => _$$_FeedFromJson(json);
 
@@ -344,10 +358,12 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
   final PetID petID;
   @override
   final UserID feederID;
+  @override
+  final String? memo;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Feed(feedID: $feedID, date: $date, createdAt: $createdAt, updatedAt: $updatedAt, petID: $petID, feederID: $feederID)';
+    return 'Feed(feedID: $feedID, date: $date, createdAt: $createdAt, updatedAt: $updatedAt, petID: $petID, feederID: $feederID, memo: $memo)';
   }
 
   @override
@@ -360,7 +376,8 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
       ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('updatedAt', updatedAt))
       ..add(DiagnosticsProperty('petID', petID))
-      ..add(DiagnosticsProperty('feederID', feederID));
+      ..add(DiagnosticsProperty('feederID', feederID))
+      ..add(DiagnosticsProperty('memo', memo));
   }
 
   @override
@@ -373,7 +390,8 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
             const DeepCollectionEquality().equals(other.petID, petID) &&
-            const DeepCollectionEquality().equals(other.feederID, feederID));
+            const DeepCollectionEquality().equals(other.feederID, feederID) &&
+            const DeepCollectionEquality().equals(other.memo, memo));
   }
 
   @JsonKey(ignore: true)
@@ -385,7 +403,8 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt),
       const DeepCollectionEquality().hash(petID),
-      const DeepCollectionEquality().hash(feederID));
+      const DeepCollectionEquality().hash(feederID),
+      const DeepCollectionEquality().hash(memo));
 
   @JsonKey(ignore: true)
   @override
@@ -407,7 +426,8 @@ abstract class _Feed implements Feed {
       required final DateTime createdAt,
       required final DateTime updatedAt,
       required final PetID petID,
-      required final UserID feederID}) = _$_Feed;
+      required final UserID feederID,
+      final String? memo}) = _$_Feed;
 
   factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
 
@@ -423,6 +443,8 @@ abstract class _Feed implements Feed {
   PetID get petID;
   @override
   UserID get feederID;
+  @override
+  String? get memo;
   @override
   @JsonKey(ignore: true)
   _$$_FeedCopyWith<_$_Feed> get copyWith => throw _privateConstructorUsedError;

@@ -21,6 +21,7 @@ _$_Feed _$$_FeedFromJson(Map<String, dynamic> json) => _$_Feed(
       updatedAt: DateTime.parse(json['updatedAt'] as String),
       petID: PetID.fromJson(json['petID'] as Map<String, dynamic>),
       feederID: UserID.fromJson(json['feederID'] as Map<String, dynamic>),
+      memo: json['memo'] as String?,
     );
 
 Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) => <String, dynamic>{
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) => <String, dynamic>{
       'updatedAt': instance.updatedAt.toIso8601String(),
       'petID': instance.petID.toJson(),
       'feederID': instance.feederID.toJson(),
+      'memo': instance.memo,
     };
