@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
@@ -96,9 +98,9 @@ class PetDetailPage extends ConsumerWidget {
                         child: Wrap(
                           direction: Axis.horizontal,
                           children: List.generate(
-                              state.pet.numberOfFeedTimesPerDay,
+                              max(state.pet.numberOfFeedTimesPerDay, state.feedsForSelectedDate.length),
                               (index) => index + 1).map((i) {
-                            if (i >= state.feedsForSelectedDate.length) {
+                            if (i > state.feedsForSelectedDate.length) {
                               return Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Container(
