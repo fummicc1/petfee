@@ -43,6 +43,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.brown,
         colorScheme: const ColorScheme.dark().copyWith(
           brightness: Brightness.dark,
+          primary: const Color.fromARGB(255, 141, 92, 69),
           secondary: const Color.fromARGB(255, 141, 92, 69),
         )
       ),

@@ -24,41 +24,49 @@ class PetDetailController extends StateNotifier<PetDetailState> {
   ) : super(state) {
     _subscription =
         _feedRepository.feedsSnapshot(petID: state.pet.petID).listen((feeds) {
-      /// Key: dateTime
-      /// Value: number of feed
-      final Map<DateTime, List<Feed>> dayFeedMap = {};
-
-      for (final feed in feeds) {
-        final zeroHourDate = DateTime(
-          feed.date.year,
-          feed.date.month,
-          feed.date.day,
-        );
-        final current = dayFeedMap[zeroHourDate] ?? [];
-        current.add(feed);
-        dayFeedMap[zeroHourDate] = current;
-      }
-
-      state = state.copyWith(
-        calendarEventList: EventList(events: {}),
-      );
-
-      for (final feeds in dayFeedMap.values) {
-        _addEvent(
-          feeds: feeds,
-          dateTime: feeds.first.date,
-        );
-      }
-
       Future(() async {
-        state = state.copyWith(
-          feedsForSelectedDate: await _findFeedsForDate(
-            date: state.selectedDate,
-          ),
-        );
-      });
+        /// Key: dateTime
+        /// Value: number of feed
+        final Map<DateTime, List<Feed>> dayFeedMap = {};
 
-      Future(() async {
+        for (final feed in feeds) {
+          final zeroHourDate = feed.date.dropTime;
+          final current = dayFeedMap[zeroHourDate] ?? [];
+          current.add(feed);
+          dayFeedMap[zeroHourDate] = current;
+        }
+
+        final Map<DateTime, List<Event>> events = {};
+        for (final element in dayFeedMap.entries) {
+          final dateTime = element.key;
+          final eventList = element.value.map((feed) {
+            final isClear =
+                element.value.length / state.pet.numberOfFeedTimesPerDay >= 1;
+            return Event(
+              date: dateTime,
+              title: "Feed",
+              icon: Container(
+                color: Colors.brown,
+                child: Icon(
+                  isClear ? Icons.check : Icons.sms_failed_outlined,
+                  size: 32,
+                  color: Colors.white,
+                ),
+              ),
+            );
+          }).toList();
+          events[dateTime] = eventList;
+        }
+        final EventList<Event> calendarEventList = EventList(events: events);
+
+        final feedsForSelectedDate = await _findFeedsForDate(
+          date: this.state.selectedDate,
+        );
+
+        this.state = this.state.copyWith(
+          feedsForSelectedDate: feedsForSelectedDate,
+          calendarEventList: calendarEventList,
+        );
         final isAuthed = await _pushNotificationClient.isNotificationAuthorized;
         if (!isAuthed) await _pushNotificationClient.requestPermission();
       });
@@ -72,35 +80,6 @@ class PetDetailController extends StateNotifier<PetDetailState> {
       selectedDate: newValue,
       feedsForSelectedDate: feeds,
     );
-  }
-
-  _addEvent({
-    required List<Feed> feeds,
-    required DateTime dateTime,
-  }) async {
-    dateTime = dateTime.dropTime;
-    List<Event> events = [];
-    final pet = state.pet;
-    final calendarEventList = state.calendarEventList;
-    final isClear = feeds.length / pet.numberOfFeedTimesPerDay >= 1;
-    for (final feed in feeds) {
-      final event = Event(
-        date: feed.date,
-        title: "Feed",
-        icon: Container(
-          color: Colors.brown,
-          child: Icon(
-            isClear ? Icons.check : Icons.sms_failed_outlined,
-            size: 32,
-            color: Colors.white,
-          ),
-        ),
-      );
-      events.add(event);
-    }
-    calendarEventList.addAll(dateTime, events);
-
-    state = state.copyWith(calendarEventList: calendarEventList);
   }
 
   Future<List<Feed>> _findFeedsForDate({required final DateTime date}) async {
