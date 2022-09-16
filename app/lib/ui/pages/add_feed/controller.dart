@@ -55,12 +55,18 @@ class AddFeedController extends StateNotifier<AddFeedState> {
   }
 }
 
-final addFeedController =
-    StateNotifierProvider.family<AddFeedController, AddFeedState, Pet>(
-        (ref, pet) {
+class AddFeedConrollerInput {
+  final Pet pet;
+  final DateTime initialDate;
+
+  AddFeedConrollerInput(this.pet, this.initialDate);
+}
+
+final addFeedController = StateNotifierProvider.family<AddFeedController,
+    AddFeedState, AddFeedConrollerInput>((ref, input) {
   final state = AddFeedState(
-    pet: pet,
-    feededAt: DateTime.now(),
+    pet: input.pet,
+    feededAt: input.initialDate,
   );
   final auth = ref.watch(authRepositoryProvider);
   final feed = ref.watch(feedRepositoryProvider);

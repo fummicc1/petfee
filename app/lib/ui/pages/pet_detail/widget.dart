@@ -4,6 +4,7 @@ import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:petfee/ui/pages/add_feed/controller.dart';
 import 'package:petfee/utils/datetime.dart';
 import '/domain/entities/pet.dart';
 import 'controller.dart';
@@ -125,7 +126,8 @@ class PetDetailPage extends ConsumerWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       const Icon(Icons.check),
-                                      Text("$i / ${state.pet.numberOfFeedTimesPerDay} 完了")
+                                      Text(
+                                          "$i / ${state.pet.numberOfFeedTimesPerDay} 完了")
                                     ],
                                   ),
                                 ),
@@ -149,7 +151,12 @@ class PetDetailPage extends ConsumerWidget {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
-                  return AddFeedPage(pet: pet);
+                  return AddFeedPage(
+                    input: AddFeedConrollerInput(
+                      pet,
+                      state.selectedDate,
+                    ),
+                  );
                 },
                 settings: const RouteSettings(name: AddFeedPage.pageName),
                 fullscreenDialog: true,

@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:petfee/domain/entities/pet.dart';
 import 'package:petfee/ui/pages/add_feed/controller.dart';
 import 'package:petfee/ui/pages/add_feed/state.dart';
 
 class AddFeedPage extends ConsumerWidget {
   const AddFeedPage({
     Key? key,
-    required final this.pet,
+    required final this.input,
   }) : super(key: key);
 
   static const pageName = "/add_feed_page";
 
-  final Pet pet;
+  final AddFeedConrollerInput input;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AddFeedState state = ref.watch(addFeedController(pet));
+    final AddFeedState state = ref.watch(addFeedController(input));
 
     return Scaffold(
       appBar: AppBar(
@@ -43,12 +42,13 @@ class AddFeedPage extends ConsumerWidget {
                     );
                     if (date != null) {
                       ref
-                          .read(addFeedController(pet).notifier)
+                          .read(addFeedController(input).notifier)
                           .updateFeededat(date);
                     }
                   },
-                  child: Text(
-                      ref.read(addFeedController(pet).notifier).feededAtText()),
+                  child: Text(ref
+                      .read(addFeedController(input).notifier)
+                      .feededAtText()),
                 )
               ],
             )
@@ -57,7 +57,7 @@ class AddFeedPage extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-          await ref.read(addFeedController(pet).notifier).commit();
+          await ref.read(addFeedController(input).notifier).commit();
           // ignore: use_build_context_synchronously
           Navigator.of(context).pop();
         },
