@@ -47,7 +47,7 @@ class PetDetailPage extends ConsumerWidget {
                 headerTextStyle: Theme.of(context).textTheme.headline6,
                 weekFormat: false,
                 height:
-                    MediaQuery.of(context).size.height * (isTablet ? 0.7 : 0.4),
+                    MediaQuery.of(context).size.height * (isTablet ? 0.7 : 0.45),
                 todayBorderColor: Colors.transparent,
                 todayButtonColor: Colors.brown,
                 maxSelectedDate: DateTime.now(),
