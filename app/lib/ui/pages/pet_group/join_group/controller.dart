@@ -33,9 +33,7 @@ class JoinGroupController extends StateNotifier<JoinGroupState> {
 
       await _petRepository.updatePet(pet);
       final petID = pet.petID;
-      if (petID.value.isEmpty) {
-        await _pushNotificationClient.subscribeTopic(petID.value);
-      }
+      await _pushNotificationClient.subscribeTopic(petID.value);
     } catch (e) {
       if (e == PetException.alreadyJoined()) {
         final errorMessage = "既に${pet.name}の管理に携わっています";
