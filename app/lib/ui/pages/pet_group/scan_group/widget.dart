@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ScanPetGroupPage extends StatelessWidget {
   const ScanPetGroupPage({Key? key}) : super(key: key);
 
-  static const String pageName = "scan_pet_group_page";
+  static const String pageName = "/scan_pet_group_page";
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,6 @@ class ScanPetGroupPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-
         ],
       ),
     );
