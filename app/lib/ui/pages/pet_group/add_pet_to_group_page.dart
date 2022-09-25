@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:petfee/ui/pages/pet_group/scan_group/widget.dart';
 import 'package:petfee/ui/pages/pet_list/controller.dart';
 import 'package:petfee/ui/components/pet_card.dart';
 import 'package:petfee/ui/pages/pet_group/share_pet_page.dart';
@@ -37,6 +38,12 @@ class AddPetToGroupPage extends ConsumerWidget {
             },
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.of(context).pushNamed(ScanPetGroupPage.pageName);
+        },
+        label: const Text("グループに入る"),
       ),
     );
   }

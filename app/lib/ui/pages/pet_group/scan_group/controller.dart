@@ -53,7 +53,7 @@ class ScanPetGroupController extends StateNotifier<ScanPetGroupState> {
         onPressed: () {
           state = state.copyWith(showPreview: false);
         },
-        icon: const Icon(Icons.qr_code),
+        icon: const Icon(Icons.text_fields),
       );
     }
     return IconButton(
