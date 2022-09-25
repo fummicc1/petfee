@@ -9,6 +9,8 @@ abstract class CameraService {
 
   bool get hasController;
 
+  CameraController get requiredController;
+
   VoidCallback get onUpdate;
 
   Future initialize();
@@ -23,6 +25,9 @@ abstract class CameraService {
 class CameraServiceImpl with CameraService {
   CameraController? _controller;
   List<CameraDescription> _cameras = [];
+
+  @override
+  CameraController get requiredController => _controller!;
 
   @override
   bool get noAvailableCamera => _cameras.isEmpty;
