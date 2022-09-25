@@ -86,15 +86,11 @@ class ScanPetGroupController extends StateNotifier<ScanPetGroupState> {
       qrViewController: controller,
     );
     controller.scannedDataStream.listen((scanData) {
-      if (state.isLoadingQRCode) {
-        return;
-      }
       if (scanData.format == BarcodeFormat.qrcode) {
         final code = scanData.code;
         if (code == null) {
           return;
         }
-        state = state.copyWith(isLoadingQRCode: true);
         if (Navigator.of(context).canPop()) {
           Navigator.of(context).pop();
         }
@@ -110,7 +106,6 @@ class ScanPetGroupController extends StateNotifier<ScanPetGroupState> {
             print(e);
           }
         }
-        state = state.copyWith(isLoadingQRCode: false);
       }
     });
   }

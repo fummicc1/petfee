@@ -19,7 +19,7 @@ class JoinGroupController extends StateNotifier<JoinGroupState> {
   ) : super(state);
 
   Future joinGroup() async {
-    final Pet pet = state.pet;
+    Pet pet = state.pet;
     try {
       final myUserID = await _authRepository.userID;
       final currentJoinedUsers = pet.users;
@@ -27,16 +27,21 @@ class JoinGroupController extends StateNotifier<JoinGroupState> {
         throw PetException.alreadyJoined();
       }
 
-      pet.users.add(myUserID);
+      pet = pet.copyWith(
+        users: pet.users + [myUserID]
+      );
 
       await _petRepository.updatePet(pet);
       final petID = pet.petID;
       if (petID.value.isEmpty) {
         await _pushNotificationClient.subscribeTopic(petID.value);
       }
-    } on PetException catch (_) {
-      final errorMessage = "既に${pet.name}の管理に携わっています";
-      state = state.copyWith(errorMessage: errorMessage);
+    } catch (e) {
+      if (e == PetException.alreadyJoined()) {
+        final errorMessage = "既に${pet.name}の管理に携わっています";
+        state = state.copyWith(errorMessage: errorMessage);
+      }
+      rethrow;
     }
   }
 }

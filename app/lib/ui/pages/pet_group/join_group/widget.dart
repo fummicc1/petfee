@@ -73,23 +73,11 @@ class JoinPetGroupPage extends ConsumerWidget {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: ElevatedButton.icon(
-                        onPressed: () {
-                          try {
-                            Future(
-                              () async {
-                                await ref
-                                    .read(joinGroupController(pet).notifier)
-                                    .joinGroup();
-                              },
-                            );
-                          } catch (e) {
-                            if (e != PetException.alreadyJoined()) {
-                              Navigator.of(context).pop();
-                            }
-                            if (kDebugMode) {
-                              print(e);
-                            }
-                          }
+                        onPressed: () async {
+                          await ref
+                              .read(joinGroupController(pet).notifier)
+                              .joinGroup();
+                          Navigator.of(context).pop();
                         },
                         icon: const Icon(Icons.group_add),
                         label: const Text("参加する")),

@@ -29,36 +29,41 @@ class _RootPageState extends ConsumerState<RootPage> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List>(
+    return FutureBuilder<Stream<List<Pet>>>(
         future: initialFuture(),
         builder: (context, snapshot) {
-          final hasPet = snapshot.hasData && snapshot.requireData.isNotEmpty;
-          if (hasPet) {
-            return const PetListPage();
-          } else if (snapshot.error == PetException.emptyList()) {
-            return const InputNewPetInfoPage(canBack: false);
+          if (!snapshot.hasData) {
+            return const Center(child: CircularProgressIndicator());
           }
-          return const Center(child: CircularProgressIndicator());
+          return StreamBuilder<List<Pet>>(
+            stream: snapshot.requireData,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                if (snapshot.requireData.isNotEmpty) {
+                  return const PetListPage();
+                }
+              }
+              return const InputNewPetInfoPage(canBack: false);
+            },
+          );
         });
   }
 
-  Future<List> initialFuture() async {
+  Future<Stream<List<Pet>>> initialFuture() async {
     try {
       final AuthRepository authRepository = ref.watch(authRepositoryProvider);
       if (!authRepository.isLoggedIn) {
         await authRepository.loginAnonymously();
       }
       final userID = await ref.watch(authRepositoryProvider).userID;
-      final list = await ref.watch(petRepositoryProvider).fetchPetList(userID: userID);
-      if (list.isEmpty) {
-        throw PetException.emptyList();
-      }
-      return list;
+      final petRepository = ref.watch(petRepositoryProvider);
+      return petRepository.petListSnapshot(userID: userID);
     } on AuthException catch (e) {
       if (e == AuthException.notLoggedIn()) {
         await ref.read(authRepositoryProvider).loginAnonymously();
         final userID = await ref.read(authRepositoryProvider).userID;
-        return ref.watch(petRepositoryProvider).fetchPetList(userID: userID);
+        final petRepository = ref.watch(petRepositoryProvider);
+        return petRepository.petListSnapshot(userID: userID);
       }
     }
     throw UnimplementedError();
