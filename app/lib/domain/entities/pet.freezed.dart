@@ -314,7 +314,7 @@ class __$$_PetCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_Pet with DiagnosticableTreeMixin implements _Pet {
+class _$_Pet extends _Pet with DiagnosticableTreeMixin {
   const _$_Pet(
       {required this.petID,
       required this.name,
@@ -323,7 +323,8 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
       required final List<UserID> users,
       required this.createdAt,
       required this.updatedAt})
-      : _users = users;
+      : _users = users,
+        super._();
 
   factory _$_Pet.fromJson(Map<String, dynamic> json) => _$$_PetFromJson(json);
 
@@ -407,7 +408,7 @@ class _$_Pet with DiagnosticableTreeMixin implements _Pet {
   }
 }
 
-abstract class _Pet implements Pet {
+abstract class _Pet extends Pet {
   const factory _Pet(
       {required final PetID petID,
       required final String name,
@@ -416,6 +417,7 @@ abstract class _Pet implements Pet {
       required final List<UserID> users,
       required final DateTime createdAt,
       required final DateTime updatedAt}) = _$_Pet;
+  const _Pet._() : super._();
 
   factory _Pet.fromJson(Map<String, dynamic> json) = _$_Pet.fromJson;
 

@@ -37,17 +37,24 @@ class PetDetailPage extends ConsumerWidget {
               CalendarCarousel<Event>(
                 locale: "JA",
                 dayButtonColor: Theme.of(context).cardColor,
-                onDayPressed: (selectedDateTime, events) {
-                  ref
-                      .read(petDetailController(pet).notifier)
-                      .updateSelectedDate(selectedDateTime);
+                onDayPressed: (pSelectedDateTime, events) {
+                  final selectedDateTime = pSelectedDateTime.dropTime;
+                  final currentSelectedDate =
+                      ref.watch(petDetailController(pet)).selectedDate;
+                  if (currentSelectedDate == selectedDateTime) {
+                    showAddFeedPage(context, pet, selectedDateTime);
+                  } else {
+                    ref
+                        .read(petDetailController(pet).notifier)
+                        .updateSelectedDate(selectedDateTime);
+                  }
                 },
                 pageScrollPhysics: const PageScrollPhysics(),
                 weekdayTextStyle: Theme.of(context).textTheme.bodyText1,
                 headerTextStyle: Theme.of(context).textTheme.headline6,
                 weekFormat: false,
                 height:
-                    MediaQuery.of(context).size.height * (isTablet ? 0.7 : 0.45),
+                    MediaQuery.of(context).size.height * (isTablet ? 0.7 : 0.5),
                 todayBorderColor: Colors.transparent,
                 todayButtonColor: Colors.brown,
                 maxSelectedDate: DateTime.now(),
@@ -98,7 +105,8 @@ class PetDetailPage extends ConsumerWidget {
                         child: Wrap(
                           direction: Axis.horizontal,
                           children: List.generate(
-                              max(state.pet.numberOfFeedTimesPerDay, state.feedsForSelectedDate.length),
+                              max(state.pet.numberOfFeedTimesPerDay,
+                                  state.feedsForSelectedDate.length),
                               (index) => index + 1).map((i) {
                             if (i > state.feedsForSelectedDate.length) {
                               return Padding(
@@ -150,24 +158,28 @@ class PetDetailPage extends ConsumerWidget {
       floatingActionButton: Builder(
         builder: (context) => FloatingActionButton.extended(
           onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return AddFeedPage(
-                    input: AddFeedConrollerInput(
-                      pet,
-                      state.selectedDate,
-                    ),
-                  );
-                },
-                settings: const RouteSettings(name: AddFeedPage.pageName),
-                fullscreenDialog: true,
-              ),
-            );
+            showAddFeedPage(context, pet, state.selectedDate);
           },
           label: const Text("餌の記録を作る"),
           icon: const Icon(Icons.note_outlined),
         ),
+      ),
+    );
+  }
+
+  showAddFeedPage(BuildContext context, Pet pet, DateTime initialSelectedDate) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) {
+          return AddFeedPage(
+            input: AddFeedConrollerInput(
+              pet,
+              initialSelectedDate,
+            ),
+          );
+        },
+        settings: const RouteSettings(name: AddFeedPage.pageName),
+        fullscreenDialog: true,
       ),
     );
   }
