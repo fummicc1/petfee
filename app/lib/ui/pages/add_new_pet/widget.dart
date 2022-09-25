@@ -4,10 +4,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:petfee/ui/pages/pet_group/scan_group/widget.dart';
 import '/ui/pages/add_new_pet/feed_times/widget.dart';
 import '/ui/pages/pet_list/widget.dart';
 import '/ui/pages/root_page.dart';
-import '../controller.dart';
+import 'controller.dart';
 import '/main.dart';
 import '/strings.dart';
 import '/ui/components/avatar_view.dart';
@@ -93,6 +94,21 @@ class InputNewPetInfoPage extends ConsumerWidget {
             SizedBox(
               height: 200,
               child: SetupFeedTimesPage(canBack: canBack),
+            ),
+            const SizedBox(
+              height: 24,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed(ScanPetGroupPage.pageName);
+              },
+              child: Text(
+                "共有リンクからペットを追加",
+                style: Theme.of(context)
+                    .textTheme
+                    .button
+                    ?.apply(fontWeightDelta: 2),
+              ),
             )
           ],
         ),
@@ -100,9 +116,7 @@ class InputNewPetInfoPage extends ConsumerWidget {
       floatingActionButton: state.canCompleteNewPetSettings
           ? FloatingActionButton.extended(
               onPressed: () async {
-                await ref
-                    .read(addNewPetController.notifier)
-                    .completeSettings();
+                await ref.read(addNewPetController.notifier).completeSettings();
                 if (canBack) {
                   // ignore: use_build_context_synchronously
                   Navigator.of(context).pop();
@@ -110,7 +124,7 @@ class InputNewPetInfoPage extends ConsumerWidget {
                   // ignore: use_build_context_synchronously
                   Navigator.of(context).pushNamedAndRemoveUntil(
                       PetListPage.pageName,
-                          (route) => route.settings.name == RootPage.pageName);
+                      (route) => route.settings.name == RootPage.pageName);
                 }
               },
               label: const Text("決定"))

@@ -4,7 +4,7 @@ import '/main.dart';
 import 'controller.dart';
 import 'state.dart';
 import '/ui/components/pet_card.dart';
-import '/ui/pages/add_new_pet/pet_info/widget.dart';
+import '../add_new_pet/widget.dart';
 import '/ui/pages/pet_detail/widget.dart';
 import '/ui/pages/pet_group/add_pet_to_group_page.dart';
 

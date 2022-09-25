@@ -7,7 +7,7 @@ import 'package:petfee/domain/exceptions/auth.dart';
 import 'package:petfee/domain/exceptions/pet.dart';
 import 'package:petfee/domain/repositories/auth/repository.dart';
 import 'package:petfee/domain/repositories/pet/repository.dart';
-import '/ui/pages/add_new_pet/pet_info/widget.dart';
+import 'add_new_pet/widget.dart';
 import 'pet_group/join_group/widget.dart';
 import '/ui/pages/pet_list/widget.dart';
 

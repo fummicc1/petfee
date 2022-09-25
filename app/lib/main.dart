@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:petfee/domain/entities/pet.dart';
+import 'package:petfee/ui/pages/pet_group/scan_group/widget.dart';
 import '/ui/pages/pet_detail/widget.dart';
 import '/ui/pages/pet_list/widget.dart';
 import '/ui/pages/root_page.dart';
@@ -55,6 +56,7 @@ class _MyAppState extends State<MyApp> {
           final pet = ModalRoute.of(context)?.settings.arguments as Pet;
           return PetDetailPage(pet: pet);
         },
+        ScanPetGroupPage.pageName: (context) => const ScanPetGroupPage(),
       },
     );
   }
