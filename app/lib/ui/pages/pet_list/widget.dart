@@ -55,8 +55,10 @@ class PetListPage extends ConsumerWidget {
               return PetCard(
                   pet: pet,
                   onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(PetDetailPage.pageName, arguments: pet);
+                    Navigator.of(context).pushNamed(
+                      PetDetailPage.pageName,
+                      arguments: pet,
+                    );
                   });
             }),
       ),

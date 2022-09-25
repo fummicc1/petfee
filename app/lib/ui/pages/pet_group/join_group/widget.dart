@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:petfee/domain/entities/pet.dart';
+import 'package:petfee/domain/exceptions/pet.dart';
 import 'controller.dart';
 import 'state.dart';
 import '/ui/components/avatar_view.dart';
@@ -72,14 +73,19 @@ class JoinPetGroupPage extends ConsumerWidget {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: ElevatedButton.icon(
-                        onPressed: () async {
+                        onPressed: () {
                           try {
-                            await ref
-                                .read(joinGroupController(pet).notifier)
-                                .joinGroup();
-                            // ignore: use_build_context_synchronously
-                            Navigator.of(context).pop();
+                            Future(
+                              () async {
+                                await ref
+                                    .read(joinGroupController(pet).notifier)
+                                    .joinGroup();
+                              },
+                            );
                           } catch (e) {
+                            if (e != PetException.alreadyJoined()) {
+                              Navigator.of(context).pop();
+                            }
                             if (kDebugMode) {
                               print(e);
                             }

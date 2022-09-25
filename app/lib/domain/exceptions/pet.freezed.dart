@@ -21,6 +21,7 @@ mixin _$PetException {
     required TResult Function(PetID petID) notExists,
     required TResult Function() alreadyJoined,
     required TResult Function() emptyList,
+    required TResult Function() failToScanQR,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$PetException {
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
     TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$PetException {
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
     TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$PetException {
     required TResult Function(_NotExists value) notExists,
     required TResult Function(_AlreadyJoined value) alreadyJoined,
     required TResult Function(_EmptyList value) emptyList,
+    required TResult Function(_FailToScanQR value) failToScanQR,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$PetException {
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
     TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$PetException {
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
     TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +160,7 @@ class _$_NotExists implements _NotExists {
     required TResult Function(PetID petID) notExists,
     required TResult Function() alreadyJoined,
     required TResult Function() emptyList,
+    required TResult Function() failToScanQR,
   }) {
     return notExists(petID);
   }
@@ -164,6 +171,7 @@ class _$_NotExists implements _NotExists {
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
     TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
   }) {
     return notExists?.call(petID);
   }
@@ -174,6 +182,7 @@ class _$_NotExists implements _NotExists {
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
     TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
     required TResult orElse(),
   }) {
     if (notExists != null) {
@@ -188,6 +197,7 @@ class _$_NotExists implements _NotExists {
     required TResult Function(_NotExists value) notExists,
     required TResult Function(_AlreadyJoined value) alreadyJoined,
     required TResult Function(_EmptyList value) emptyList,
+    required TResult Function(_FailToScanQR value) failToScanQR,
   }) {
     return notExists(this);
   }
@@ -198,6 +208,7 @@ class _$_NotExists implements _NotExists {
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
     TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
   }) {
     return notExists?.call(this);
   }
@@ -208,6 +219,7 @@ class _$_NotExists implements _NotExists {
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
     TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
     required TResult orElse(),
   }) {
     if (notExists != null) {
@@ -270,6 +282,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
     required TResult Function(PetID petID) notExists,
     required TResult Function() alreadyJoined,
     required TResult Function() emptyList,
+    required TResult Function() failToScanQR,
   }) {
     return alreadyJoined();
   }
@@ -280,6 +293,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
     TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
   }) {
     return alreadyJoined?.call();
   }
@@ -290,6 +304,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
     TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
     required TResult orElse(),
   }) {
     if (alreadyJoined != null) {
@@ -304,6 +319,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
     required TResult Function(_NotExists value) notExists,
     required TResult Function(_AlreadyJoined value) alreadyJoined,
     required TResult Function(_EmptyList value) emptyList,
+    required TResult Function(_FailToScanQR value) failToScanQR,
   }) {
     return alreadyJoined(this);
   }
@@ -314,6 +330,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
     TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
   }) {
     return alreadyJoined?.call(this);
   }
@@ -324,6 +341,7 @@ class _$_AlreadyJoined implements _AlreadyJoined {
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
     TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
     required TResult orElse(),
   }) {
     if (alreadyJoined != null) {
@@ -380,6 +398,7 @@ class _$_EmptyList implements _EmptyList {
     required TResult Function(PetID petID) notExists,
     required TResult Function() alreadyJoined,
     required TResult Function() emptyList,
+    required TResult Function() failToScanQR,
   }) {
     return emptyList();
   }
@@ -390,6 +409,7 @@ class _$_EmptyList implements _EmptyList {
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
     TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
   }) {
     return emptyList?.call();
   }
@@ -400,6 +420,7 @@ class _$_EmptyList implements _EmptyList {
     TResult Function(PetID petID)? notExists,
     TResult Function()? alreadyJoined,
     TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
     required TResult orElse(),
   }) {
     if (emptyList != null) {
@@ -414,6 +435,7 @@ class _$_EmptyList implements _EmptyList {
     required TResult Function(_NotExists value) notExists,
     required TResult Function(_AlreadyJoined value) alreadyJoined,
     required TResult Function(_EmptyList value) emptyList,
+    required TResult Function(_FailToScanQR value) failToScanQR,
   }) {
     return emptyList(this);
   }
@@ -424,6 +446,7 @@ class _$_EmptyList implements _EmptyList {
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
     TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
   }) {
     return emptyList?.call(this);
   }
@@ -434,6 +457,7 @@ class _$_EmptyList implements _EmptyList {
     TResult Function(_NotExists value)? notExists,
     TResult Function(_AlreadyJoined value)? alreadyJoined,
     TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
     required TResult orElse(),
   }) {
     if (emptyList != null) {
@@ -445,4 +469,121 @@ class _$_EmptyList implements _EmptyList {
 
 abstract class _EmptyList implements PetException {
   factory _EmptyList() = _$_EmptyList;
+}
+
+/// @nodoc
+abstract class _$$_FailToScanQRCopyWith<$Res> {
+  factory _$$_FailToScanQRCopyWith(
+          _$_FailToScanQR value, $Res Function(_$_FailToScanQR) then) =
+      __$$_FailToScanQRCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FailToScanQRCopyWithImpl<$Res>
+    extends _$PetExceptionCopyWithImpl<$Res>
+    implements _$$_FailToScanQRCopyWith<$Res> {
+  __$$_FailToScanQRCopyWithImpl(
+      _$_FailToScanQR _value, $Res Function(_$_FailToScanQR) _then)
+      : super(_value, (v) => _then(v as _$_FailToScanQR));
+
+  @override
+  _$_FailToScanQR get _value => super._value as _$_FailToScanQR;
+}
+
+/// @nodoc
+
+class _$_FailToScanQR implements _FailToScanQR {
+  _$_FailToScanQR();
+
+  @override
+  String toString() {
+    return 'PetException.failToScanQR()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_FailToScanQR);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(PetID petID) notExists,
+    required TResult Function() alreadyJoined,
+    required TResult Function() emptyList,
+    required TResult Function() failToScanQR,
+  }) {
+    return failToScanQR();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(PetID petID)? notExists,
+    TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
+  }) {
+    return failToScanQR?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(PetID petID)? notExists,
+    TResult Function()? alreadyJoined,
+    TResult Function()? emptyList,
+    TResult Function()? failToScanQR,
+    required TResult orElse(),
+  }) {
+    if (failToScanQR != null) {
+      return failToScanQR();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_NotExists value) notExists,
+    required TResult Function(_AlreadyJoined value) alreadyJoined,
+    required TResult Function(_EmptyList value) emptyList,
+    required TResult Function(_FailToScanQR value) failToScanQR,
+  }) {
+    return failToScanQR(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_NotExists value)? notExists,
+    TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
+  }) {
+    return failToScanQR?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_NotExists value)? notExists,
+    TResult Function(_AlreadyJoined value)? alreadyJoined,
+    TResult Function(_EmptyList value)? emptyList,
+    TResult Function(_FailToScanQR value)? failToScanQR,
+    required TResult orElse(),
+  }) {
+    if (failToScanQR != null) {
+      return failToScanQR(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FailToScanQR implements PetException {
+  factory _FailToScanQR() = _$_FailToScanQR;
 }

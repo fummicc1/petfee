@@ -1,4 +1,3 @@
-import 'package:camera/camera.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:petfee/domain/exceptions/auth.dart';
 import 'package:petfee/domain/exceptions/pet.dart';
 import 'package:petfee/domain/repositories/auth/repository.dart';
 import 'package:petfee/domain/repositories/pet/repository.dart';
-import 'package:petfee/domain/services/camera_service.dart';
 import 'add_new_pet/widget.dart';
 import 'pet_group/join_group/widget.dart';
 import '/ui/pages/pet_list/widget.dart';
@@ -22,7 +20,7 @@ class RootPage extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _RootPageState();
 }
 
-class _RootPageState extends ConsumerState<RootPage> with WidgetsBindingObserver {
+class _RootPageState extends ConsumerState<RootPage> {
   @override
   void initState() {
     super.initState();
@@ -103,22 +101,6 @@ class _RootPageState extends ConsumerState<RootPage> with WidgetsBindingObserver
           ),
         );
       }
-    }
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    final CameraService cameraService = ref.read(cameraServiceProvider);
-
-    // App state changed before we got the chance to initialize.
-    if (!cameraService.isInitialized) {
-      return;
-    }
-
-    if (state == AppLifecycleState.inactive) {
-      cameraService.dispose();
-    } else if (state == AppLifecycleState.resumed) {
-      cameraService.refreshController();
     }
   }
 }

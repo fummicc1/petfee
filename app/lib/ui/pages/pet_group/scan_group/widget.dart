@@ -1,7 +1,7 @@
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:petfee/domain/services/camera_service.dart';
+import 'package:petfee/domain/repositories/pet/repository.dart';
+import 'package:petfee/ui/pages/pet_group/join_group/widget.dart';
 import 'package:petfee/ui/pages/pet_group/scan_group/controller.dart';
 
 class ScanPetGroupPage extends ConsumerWidget {
@@ -11,22 +11,33 @@ class ScanPetGroupPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final cameraService = ref.watch(cameraServiceProvider);
-    final controller = ref.watch(
-      scanPetGroupController(cameraService).notifier,
-    );
-    ref.watch(scanPetGroupController(cameraService));
+    final petRepository = ref.watch(petRepositoryProvider);
+    final controller =
+        ref.watch(scanPetGroupController(petRepository).notifier);
+    final state = ref.watch(scanPetGroupController(petRepository));
     return Scaffold(
       appBar: AppBar(
         title: const Text("ペットをスキャン"),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 320,
-            child: controller.buildPreview(),
-          )
-        ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            controller.currentWidget(context),
+            Positioned(
+              right: 24,
+              bottom: 32,
+              child: Container(
+                height: 56,
+                width: 56,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: BorderRadius.circular(28),
+                ),
+                child: controller.actionButton(),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
