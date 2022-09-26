@@ -59,13 +59,11 @@ class JoinPetGroupPage extends ConsumerWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                state.pet.avatarURL == null
-                    ? const SizedBox.shrink()
-                    : Center(
-                        child: AvatarView(
-                            avatar: NetworkImage(state.pet.avatarURL!),
-                            length: 200),
-                      ),
+                Center(
+                  child: AvatarView(
+                      avatar: NetworkImage(state.pet.requireAvatarURL!),
+                      length: 200),
+                ),
                 const SizedBox(
                   height: 16,
                 ),

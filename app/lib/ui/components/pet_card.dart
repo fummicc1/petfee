@@ -27,10 +27,9 @@ class PetCard extends StatelessWidget {
                   width: 12,
                 ),
                 AvatarView(
-                    avatar: pet.avatarURL == null
-                        ? null
-                        : NetworkImage(pet.avatarURL!),
-                    length: 40),
+                  avatar: NetworkImage(pet.requireAvatarURL),
+                  length: 40,
+                ),
                 const SizedBox(
                   width: 16,
                 ),

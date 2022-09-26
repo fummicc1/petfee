@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:petfee/domain/entities/user.dart';
 
 part 'pet.freezed.dart';
+
 part 'pet.g.dart';
 
 @freezed
@@ -16,6 +17,8 @@ class PetID with _$PetID {
 class Pet with _$Pet {
   static const collectionName = kDebugMode ? "pets-dev" : "pets";
 
+  const Pet._();
+
   @JsonSerializable(explicitToJson: true)
   const factory Pet({
     required PetID petID,
@@ -28,4 +31,7 @@ class Pet with _$Pet {
   }) = _Pet;
 
   factory Pet.fromJson(Map<String, dynamic> json) => _$PetFromJson(json);
+
+  String get requireAvatarURL =>
+      avatarURL ?? "https://i.gyazo.com/a8a763e3ec2f3752dae54afe3765ccaf.png";
 }
