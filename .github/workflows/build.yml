@@ -1,0 +1,31 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    name: "Build iOS Apps"
+    runs-on: macos-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: "11.x"
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.0.5"
+      - name: Install Dependency
+        run: flutter pub get
+      - name: Build iOS App
+        run: flutter build ios --simulator
+      - name: Build Android App
+        run: flutter build appbundle --debug
+      - name: Test
+        run: flutter test
