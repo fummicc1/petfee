@@ -7,7 +7,7 @@ part of 'controller.dart';
 // **************************************************************************
 
 String _$petDetailControllerHash() =>
-    r'085249021bf8670da94995bf4c5ffb6748f46174';
+    r'de3860062959f82d5a6e704a0423a95cfa224ce6';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -31,11 +31,11 @@ class _SystemHash {
 }
 
 abstract class _$PetDetailController
-    extends BuildlessAutoDisposeAsyncNotifier<PetDetailState> {
+    extends BuildlessAutoDisposeNotifier<PetDetailState> {
   late final Pet pet;
   late final List<Feed> feeds;
 
-  FutureOr<PetDetailState> build({
+  PetDetailState build({
     required Pet pet,
     required List<Feed> feeds,
   });
@@ -46,7 +46,7 @@ abstract class _$PetDetailController
 const petDetailControllerProvider = PetDetailControllerFamily();
 
 /// See also [PetDetailController].
-class PetDetailControllerFamily extends Family<AsyncValue<PetDetailState>> {
+class PetDetailControllerFamily extends Family<PetDetailState> {
   /// See also [PetDetailController].
   const PetDetailControllerFamily();
 
@@ -87,7 +87,7 @@ class PetDetailControllerFamily extends Family<AsyncValue<PetDetailState>> {
 }
 
 /// See also [PetDetailController].
-class PetDetailControllerProvider extends AutoDisposeAsyncNotifierProviderImpl<
+class PetDetailControllerProvider extends AutoDisposeNotifierProviderImpl<
     PetDetailController, PetDetailState> {
   /// See also [PetDetailController].
   PetDetailControllerProvider({
@@ -125,7 +125,7 @@ class PetDetailControllerProvider extends AutoDisposeAsyncNotifierProviderImpl<
   final List<Feed> feeds;
 
   @override
-  FutureOr<PetDetailState> runNotifierBuild(
+  PetDetailState runNotifierBuild(
     covariant PetDetailController notifier,
   ) {
     return notifier.build(
@@ -154,7 +154,7 @@ class PetDetailControllerProvider extends AutoDisposeAsyncNotifierProviderImpl<
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<PetDetailController, PetDetailState>
+  AutoDisposeNotifierProviderElement<PetDetailController, PetDetailState>
       createElement() {
     return _PetDetailControllerProviderElement(this);
   }
@@ -176,8 +176,7 @@ class PetDetailControllerProvider extends AutoDisposeAsyncNotifierProviderImpl<
   }
 }
 
-mixin PetDetailControllerRef
-    on AutoDisposeAsyncNotifierProviderRef<PetDetailState> {
+mixin PetDetailControllerRef on AutoDisposeNotifierProviderRef<PetDetailState> {
   /// The parameter `pet` of this provider.
   Pet get pet;
 
@@ -186,7 +185,7 @@ mixin PetDetailControllerRef
 }
 
 class _PetDetailControllerProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<PetDetailController,
+    extends AutoDisposeNotifierProviderElement<PetDetailController,
         PetDetailState> with PetDetailControllerRef {
   _PetDetailControllerProviderElement(super.provider);
 

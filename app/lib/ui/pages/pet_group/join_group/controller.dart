@@ -1,39 +1,42 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:petfee/domain/exceptions/pet.dart';
-import 'state.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import '/domain/entities/pet.dart';
 import '/domain/repositories/auth/repository.dart';
 import '/domain/repositories/pet/repository.dart';
 import '/domain/services/push_notification.dart';
+import 'state.dart';
 
-class JoinGroupController extends StateNotifier<JoinGroupState> {
-  final PushNotificationClient _pushNotificationClient;
-  final PetRepository _petRepository;
-  final AuthRepository _authRepository;
+part 'controller.g.dart';
 
-  JoinGroupController(
-    JoinGroupState state,
-    this._authRepository,
-    this._petRepository,
-    this._pushNotificationClient,
-  ) : super(state);
+@Riverpod(dependencies: [
+  PushNotificationClient,
+  AuthRepository,
+  PetRepository,
+])
+class JoinGroupController extends _$JoinGroupController {
+  @override
+  JoinGroupState build({required Pet pet}) => JoinGroupState(pet: pet);
 
   Future joinGroup() async {
     Pet pet = state.pet;
     try {
-      final myUserID = await _authRepository.userID;
+      final myUserID = ref.watch(authRepositoryProvider)?.userID;
+      if (myUserID == null) return;
       final currentJoinedUsers = pet.users;
       if (currentJoinedUsers.contains(myUserID)) {
         throw PetException.alreadyJoined();
       }
 
-      pet = pet.copyWith(
-        users: pet.users + [myUserID]
-      );
+      pet = pet.copyWith(users: pet.users + [myUserID]);
 
-      await _petRepository.updatePet(pet);
+      await ref.watch(petRepositoryProvider.notifier).update(
+            pet: pet,
+          );
       final petID = pet.petID;
-      await _pushNotificationClient.subscribeTopic(petID.value);
+      await ref
+          .watch(pushNotificationClientProvider.notifier)
+          .subscribeTopic(petID.value);
     } catch (e) {
       if (e == PetException.alreadyJoined()) {
         final errorMessage = "既に${pet.name}の管理に携わっています";
@@ -43,18 +46,3 @@ class JoinGroupController extends StateNotifier<JoinGroupState> {
     }
   }
 }
-
-final joinGroupController =
-    StateNotifierProvider.family<JoinGroupController, JoinGroupState, Pet>(
-        (ref, pet) {
-  final state = JoinGroupState(pet: pet);
-  final authRepository = ref.watch(authRepositoryProvider);
-  final petRepository = ref.watch(petRepositoryProvider);
-  final pushNotificationClient = ref.watch(pushNotificationProvider);
-  return JoinGroupController(
-    state,
-    authRepository,
-    petRepository,
-    pushNotificationClient,
-  );
-});

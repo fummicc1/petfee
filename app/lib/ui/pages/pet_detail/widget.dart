@@ -20,7 +20,8 @@ class PetDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final PetDetailState state = ref.watch(petDetailControllerProvide);
+    final PetDetailState state =
+        ref.watch(petDetailControllerProvider(pet: pet, feeds: []));
     var shortestSide = MediaQuery.of(context).size.shortestSide;
     final bool isTablet = shortestSide >= 600;
     return Scaffold(
@@ -38,13 +39,20 @@ class PetDetailPage extends ConsumerWidget {
                 dayButtonColor: Theme.of(context).cardColor,
                 onDayPressed: (pSelectedDateTime, events) {
                   final selectedDateTime = pSelectedDateTime.dropTime;
-                  final currentSelectedDate =
-                      ref.watch(petDetailController(pet)).selectedDate;
+                  final currentSelectedDate = ref
+                      .watch(
+                        petDetailControllerProvider(
+                          pet: pet,
+                          feeds: [],
+                        ),
+                      )
+                      .selectedDate;
                   if (currentSelectedDate == selectedDateTime) {
                     showAddFeedPage(context, pet, selectedDateTime);
                   } else {
                     ref
-                        .read(petDetailController(pet).notifier)
+                        .watch(petDetailControllerProvider(pet: pet, feeds: [])
+                            .notifier)
                         .updateSelectedDate(selectedDateTime);
                   }
                 },

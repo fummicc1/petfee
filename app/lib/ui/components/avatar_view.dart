@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 class AvatarView extends StatelessWidget {
   const AvatarView({
-    Key? key,
+    super.key,
     required this.avatar,
     required this.length,
     this.padding = 8,
-  }) : super(key: key);
+  });
 
   final ImageProvider? avatar;
   final double length;

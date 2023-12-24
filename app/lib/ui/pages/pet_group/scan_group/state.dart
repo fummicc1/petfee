@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:petfee/domain/entities/pet.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 part 'state.freezed.dart';

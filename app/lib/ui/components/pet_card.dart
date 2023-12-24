@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+
 import '/domain/entities/pet.dart';
 import '/ui/components/avatar_view.dart';
 
 class PetCard extends StatelessWidget {
   const PetCard({
-    Key? key,
+    super.key,
     required this.pet,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final Pet pet;
   final VoidCallback onTap;
@@ -39,7 +40,7 @@ class PetCard extends StatelessWidget {
                   children: [
                     Text(
                       pet.name,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
                 )

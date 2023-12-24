@@ -8,9 +8,9 @@ import 'state.dart';
 
 class JoinPetGroupPage extends ConsumerWidget {
   const JoinPetGroupPage({
-    Key? key,
+    super.key,
     required this.pet,
-  }) : super(key: key);
+  });
 
   static const pageName = "/join_pet_group_page";
 
@@ -18,7 +18,8 @@ class JoinPetGroupPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final JoinGroupState state = ref.watch(joinGroupController(pet));
+    final JoinGroupState state =
+        ref.watch(joinGroupControllerProvider(pet: pet));
 
     final errorMessage = state.errorMessage;
 
@@ -72,7 +73,8 @@ class JoinPetGroupPage extends ConsumerWidget {
                     child: ElevatedButton.icon(
                         onPressed: () async {
                           await ref
-                              .read(joinGroupController(pet).notifier)
+                              .read(joinGroupControllerProvider(pet: pet)
+                                  .notifier)
                               .joinGroup();
                           if (context.mounted) {
                             Navigator.of(context).pop();

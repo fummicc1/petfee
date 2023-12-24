@@ -17,5 +17,5 @@
   "dart.useLsp": true,
   // always, prompt（選択制）, never のオプションあり
   "dart.renameFilesWithClasses": "always",
-  "cSpell.words": ["riverpod", "petfee", "cupertino", "firestore"]
+  "cSpell.words": ["riverpod", "petfee", "cupertino", "firestore", "ARGB",]
 }

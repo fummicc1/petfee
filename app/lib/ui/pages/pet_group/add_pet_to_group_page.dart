@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:petfee/ui/pages/pet_group/scan_group/widget.dart';
-import 'package:petfee/ui/pages/pet_list/controller.dart';
 import 'package:petfee/ui/components/pet_card.dart';
+import 'package:petfee/ui/pages/pet_group/scan_group/widget.dart';
 import 'package:petfee/ui/pages/pet_group/share_pet_page.dart';
+import 'package:petfee/ui/pages/pet_list/controller.dart';
 
 import '../pet_list/state.dart';
 
 class AddPetToGroupPage extends ConsumerWidget {
-  const AddPetToGroupPage({Key? key}) : super(key: key);
+  const AddPetToGroupPage({super.key});
 
   static const pageName = "/add_pet_to_group_page";
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final PetState petState = ref.watch(petController);
+    final PetState petState = ref.watch(petControllerProvider);
 
     return Scaffold(
       appBar: AppBar(

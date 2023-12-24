@@ -5,10 +5,10 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:petfee/domain/entities/pet.dart';
 import 'package:petfee/ui/pages/pet_group/join_group/widget.dart';
 import 'package:petfee/ui/pages/pet_group/scan_group/widget.dart';
+
 import '/ui/pages/pet_detail/widget.dart';
 import '/ui/pages/pet_list/widget.dart';
 import '/ui/pages/root_page.dart';
-
 import 'domain/services/push_notification.dart';
 
 void main() async {
@@ -22,7 +22,7 @@ void main() async {
 const petIcon = Icon(Icons.pets);
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   static const pageName = "/";
 
@@ -42,13 +42,12 @@ class _MyAppState extends State<MyApp> {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.brown,
-        colorScheme: const ColorScheme.dark().copyWith(
-          brightness: Brightness.dark,
-          primary: const Color.fromARGB(255, 141, 92, 69),
-          secondary: const Color.fromARGB(255, 141, 92, 69),
-        )
-      ),
+          primarySwatch: Colors.brown,
+          colorScheme: const ColorScheme.dark().copyWith(
+            brightness: Brightness.dark,
+            primary: const Color.fromARGB(255, 141, 92, 69),
+            secondary: const Color.fromARGB(255, 141, 92, 69),
+          )),
       home: const RootPage(),
       routes: {
         PetListPage.pageName: (context) => const PetListPage(),

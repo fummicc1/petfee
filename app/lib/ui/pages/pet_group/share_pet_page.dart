@@ -9,9 +9,9 @@ import '/ui/components/avatar_view.dart';
 
 class SharePetPage extends ConsumerWidget {
   const SharePetPage({
-    Key? key,
+    super.key,
     required this.pet,
-  }) : super(key: key);
+  });
 
   final Pet pet;
 
