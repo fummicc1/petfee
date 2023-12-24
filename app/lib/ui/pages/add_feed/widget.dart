@@ -5,9 +5,9 @@ import 'package:petfee/ui/pages/add_feed/state.dart';
 
 class AddFeedPage extends ConsumerWidget {
   const AddFeedPage({
-    Key? key,
+    super.key,
     required this.input,
-  }) : super(key: key);
+  });
 
   static const pageName = "/add_feed_page";
 
@@ -15,7 +15,8 @@ class AddFeedPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final AddFeedState state = ref.watch(addFeedController(input));
+    final AddFeedState state =
+        ref.watch(addFeedControllerProvider(input: input));
 
     return Scaffold(
       appBar: AppBar(
@@ -42,12 +43,13 @@ class AddFeedPage extends ConsumerWidget {
                     );
                     if (date != null) {
                       ref
-                          .read(addFeedController(input).notifier)
+                          .read(
+                              addFeedControllerProvider(input: input).notifier)
                           .updateFedAt(date);
                     }
                   },
                   child: Text(ref
-                      .read(addFeedController(input).notifier)
+                      .watch(AddFeedControllerProvider(input: input).notifier)
                       .getFedAtText()),
                 )
               ],
@@ -57,7 +59,9 @@ class AddFeedPage extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
-          await ref.read(addFeedController(input).notifier).commit();
+          await ref
+              .read(addFeedControllerProvider(input: input).notifier)
+              .commit();
           // ignore: use_build_context_synchronously
           Navigator.of(context).pop();
         },

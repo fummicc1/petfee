@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:petfee/domain/repositories/pet/repository.dart';
 import 'package:petfee/ui/pages/pet_group/scan_group/controller.dart';
 
 class ScanPetGroupPage extends ConsumerWidget {
@@ -10,10 +9,7 @@ class ScanPetGroupPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final petRepository = ref.watch(petRepositoryProvider);
-    final controller =
-        ref.watch(scanPetGroupControllerProvider(petRepository).notifier);
-    final state = ref.watch(scanPetGroupControllerProvider(petRepository));
+    final controller = ref.watch(scanPetGroupControllerProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text("ペットをスキャン"),

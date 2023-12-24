@@ -7,7 +7,7 @@ part of 'controller.dart';
 // **************************************************************************
 
 String _$addNewPetControllerHash() =>
-    r'b69871d6209aa088cb9a4d9b20850ea209b6ab20';
+    r'ec80df4bebc28ec20e34c6cd73201dfb4c29c8e6';
 
 /// See also [AddNewPetController].
 @ProviderFor(AddNewPetController)

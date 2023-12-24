@@ -1,24 +1,22 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:petfee/domain/repositories/auth/repository.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import 'state.dart';
 
-class AuthController extends StateNotifier<AuthState> {
-  AuthController(
-    AuthState state,
-    this._authRepository,
-  ) : super(state) {
-    _authRepository.onChangedIsLoggedIn.listen((isLoggedIn) {
+part 'controller.g.dart';
+
+@riverpod
+class AuthController extends _$AuthController {
+  @override
+  AuthState build() {
+    ref
+        .watch(authRepositoryProvider.notifier)
+        .onChangedIsLoggedIn
+        .listen((isLoggedIn) {
       state = state.copyWith(
         isLoggedIn: isLoggedIn,
       );
     });
+    return const AuthState();
   }
-
-  final AuthRepository _authRepository;
 }
-
-final authController = StateNotifierProvider((ref) {
-  const state = AuthState();
-  final authRepository = ref.watch(authRepositoryProvider);
-  return AuthController(state, authRepository);
-});

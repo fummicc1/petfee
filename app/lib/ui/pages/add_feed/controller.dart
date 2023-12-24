@@ -1,21 +1,31 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:petfee/domain/entities/feed.dart';
 import 'package:petfee/domain/entities/pet.dart';
 import 'package:petfee/domain/repositories/auth/repository.dart';
 import 'package:petfee/domain/repositories/feed/repository.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'state.dart';
 
-class AddFeedController extends StateNotifier<AddFeedState> {
-  AddFeedController(
-    AddFeedState state,
-    this._authRepository,
-    this._feedRepository,
-  ) : super(state);
+part 'controller.g.dart';
 
-  final AuthRepository _authRepository;
-  final FeedRepository _feedRepository;
+class AddFeedControllerInput {
+  final Pet pet;
+  final DateTime initialDate;
+
+  AddFeedControllerInput(this.pet, this.initialDate);
+}
+
+@Riverpod(dependencies: [AuthRepository, FeedRepository])
+class AddFeedController extends _$AddFeedController {
+  @override
+  AddFeedState build({
+    required AddFeedControllerInput input,
+  }) =>
+      AddFeedState(
+        pet: input.pet,
+        fedAt: input.initialDate,
+      );
 
   updateFedAt(DateTime newValue) {
     state = state.copyWith(fedAt: newValue);
@@ -34,12 +44,16 @@ class AddFeedController extends StateNotifier<AddFeedState> {
   }
 
   Future commit() async {
+    final user = ref.watch(authRepositoryProvider);
+    if (user == null) {
+      return;
+    }
     final now = DateTime.now();
     final pet = state.pet;
     final petID = pet.petID;
-    final userID = await _authRepository.userID;
+    final userID = user.userID;
     final feed = Feed(
-      // TODO: Modify FeedRepository#saveNewFeed
+      // TODO: Modify FeedRepository#create
       //  to create feed without id.
       feedID: const FeedID(""),
       date: state.fedAt,
@@ -48,32 +62,10 @@ class AddFeedController extends StateNotifier<AddFeedState> {
       createdAt: now,
       updatedAt: now,
     );
-    await _feedRepository.saveNewFeed(
-      userID: userID,
-      pet: pet,
-      feed: feed,
-    );
+    await ref.watch(FeedRepositoryProvider(pet).notifier).create(
+          userID: userID,
+          pet: pet,
+          feed: feed,
+        );
   }
 }
-
-class AddFeedControllerInput {
-  final Pet pet;
-  final DateTime initialDate;
-
-  AddFeedControllerInput(this.pet, this.initialDate);
-}
-
-final addFeedController = StateNotifierProvider.family<AddFeedController,
-    AddFeedState, AddFeedControllerInput>((ref, input) {
-  final state = AddFeedState(
-    pet: input.pet,
-    fedAt: input.initialDate,
-  );
-  final auth = ref.watch(authRepositoryProvider);
-  final feed = ref.watch(feedRepositoryProvider);
-  return AddFeedController(
-    state,
-    auth,
-    feed,
-  );
-});

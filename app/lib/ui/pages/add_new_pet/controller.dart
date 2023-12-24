@@ -1,16 +1,16 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:petfee/domain/entities/pet.dart';
+import 'package:petfee/domain/entities/user.dart';
 import 'package:petfee/domain/exceptions/auth.dart';
+import 'package:petfee/domain/repositories/auth/repository.dart';
+import 'package:petfee/domain/services/push_notification.dart';
 import 'package:petfee/ui/pages/add_new_pet/state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '/domain/repositories/auth/repository.dart';
 import '/domain/repositories/pet/repository.dart';
-import '/domain/services/push_notification.dart';
 
 part 'controller.g.dart';
 
@@ -67,23 +67,30 @@ class AddNewPetController extends _$AddNewPetController {
       file = null;
     }
     try {
-      final userID = await authRepository.userID;
-      final petID = await petRepository.saveNewPet(
-        userID: userID,
-        entity: petModel,
-        avatar: file,
-      );
-      await _pushNotificationClient.subscribeTopic(petID);
+      final userID =
+          ref.watch(authRepositoryProvider)?.userID ?? const UserID("");
+      final petID = await ref.watch(petRepositoryProvider.notifier).saveNewPet(
+            userID: userID,
+            entity: petModel,
+            avatar: file,
+          );
+      await ref
+          .watch(pushNotificationClientProvider.notifier)
+          .subscribeTopic(petID);
     } on AuthException catch (e) {
       if (e == AuthException.notLoggedIn()) {
-        await _authRepository.loginAnonymously();
-        final userID = await _authRepository.userID;
-        final petID = await _petRepository.saveNewPet(
-          userID: userID,
-          entity: petModel,
-          avatar: file,
-        );
-        await _pushNotificationClient.subscribeTopic(petID);
+        await ref.watch(authRepositoryProvider.notifier).loginAnonymously();
+        final userID =
+            ref.watch(authRepositoryProvider)?.userID ?? const UserID("");
+        final petID =
+            await ref.watch(petRepositoryProvider.notifier).saveNewPet(
+                  userID: userID,
+                  entity: petModel,
+                  avatar: file,
+                );
+        await ref
+            .watch(pushNotificationClientProvider.notifier)
+            .subscribeTopic(petID);
       }
     } catch (e) {
       if (kDebugMode) {
@@ -97,7 +104,7 @@ class AddNewPetController extends _$AddNewPetController {
   }
 
   Future skipSettings() async {
-    await _authRepository.loginAnonymously();
+    await ref.watch(authRepositoryProvider.notifier).loginAnonymously();
   }
 
   clear() {

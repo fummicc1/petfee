@@ -5,17 +5,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:petfee/ui/pages/pet_group/scan_group/widget.dart';
+
+import '/main.dart';
+import '/strings.dart';
+import '/ui/components/avatar_view.dart';
 import '/ui/pages/add_new_pet/feed_times/widget.dart';
 import '/ui/pages/pet_list/widget.dart';
 import '/ui/pages/root_page.dart';
 import 'controller.dart';
-import '/main.dart';
-import '/strings.dart';
-import '/ui/components/avatar_view.dart';
 
 class InputNewPetInfoPage extends ConsumerWidget {
-  const InputNewPetInfoPage({Key? key, required this.canBack})
-      : super(key: key);
+  const InputNewPetInfoPage({super.key, required this.canBack});
 
   static const pageName = "/input_new_pet_info_page";
 
@@ -23,7 +23,7 @@ class InputNewPetInfoPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(addNewPetController);
+    final state = ref.watch(addNewPetControllerProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text(Strings.inputNewPetInfo),
@@ -54,7 +54,7 @@ class InputNewPetInfoPage extends ConsumerWidget {
                             return;
                           }
                           ref
-                              .read(addNewPetController.notifier)
+                              .read(addNewPetControllerProvider.notifier)
                               .updatePetAvatar(pickedImage);
                         } catch (e) {
                           if (kDebugMode) {
@@ -82,7 +82,7 @@ class InputNewPetInfoPage extends ConsumerWidget {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       onChanged: (name) {
                         ref
-                            .read(addNewPetController.notifier)
+                            .read(addNewPetControllerProvider.notifier)
                             .updatePetName(name);
                       },
                       maxLines: 1,
@@ -106,7 +106,7 @@ class InputNewPetInfoPage extends ConsumerWidget {
                 "共有リンクからペットを追加",
                 style: Theme.of(context)
                     .textTheme
-                    .button
+                    .labelLarge
                     ?.apply(fontWeightDelta: 2),
               ),
             )
@@ -116,7 +116,9 @@ class InputNewPetInfoPage extends ConsumerWidget {
       floatingActionButton: state.canCompleteNewPetSettings
           ? FloatingActionButton.extended(
               onPressed: () async {
-                await ref.read(addNewPetController.notifier).completeSettings();
+                await ref
+                    .read(addNewPetControllerProvider.notifier)
+                    .completeSettings();
                 if (canBack) {
                   // ignore: use_build_context_synchronously
                   Navigator.of(context).pop();

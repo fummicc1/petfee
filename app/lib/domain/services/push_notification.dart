@@ -1,17 +1,8 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:petfee/domain/services/fcm.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-abstract class PushNotificationClient {
-  Future<bool> requestPermission();
-
-  Future<bool> get isNotificationAuthorized;
-
-  Future<String?> getToken();
-
-  Future subscribeTopic(String topic);
-
-  Future unSubscribeTopic(String topic);
-}
+part "push_notification.g.dart";
 
 onReceivePushNotificationMessage(Function(RemoteMessage) handler) {
   FirebaseMessaging.onMessage.listen((remoteNotification) {
@@ -22,46 +13,38 @@ onReceivePushNotificationMessage(Function(RemoteMessage) handler) {
   });
 }
 
-class FirebasePushNotificationClient implements PushNotificationClient {
-  final FirebaseMessaging _messaging = FirebaseMessaging.instance;
-
-  static final shared = FirebasePushNotificationClient();
-
+@Riverpod(keepAlive: true)
+class PushNotificationClient extends _$PushNotificationClient {
   @override
+  void build() {}
+
   Future<bool> get isNotificationAuthorized async {
-    final settings = await _messaging.getNotificationSettings();
+    final settings = await ref.watch(fcmProvider).getNotificationSettings();
     return settings.authorizationStatus == AuthorizationStatus.authorized;
   }
 
-  @override
   Future<bool> requestPermission() async {
-    final NotificationSettings settings = await _messaging.requestPermission(
-      alert: true,
-      announcement: false,
-      badge: true,
-      carPlay: false,
-      criticalAlert: false,
-      provisional: false,
-      sound: true,
-    );
+    final NotificationSettings settings =
+        await ref.watch(fcmProvider).requestPermission(
+              alert: true,
+              announcement: false,
+              badge: true,
+              carPlay: false,
+              criticalAlert: false,
+              provisional: false,
+              sound: true,
+            );
 
     return settings.authorizationStatus == AuthorizationStatus.authorized;
   }
 
-  @override
-  Future<String?> getToken() => _messaging.getToken();
+  Future<String?> getToken() => ref.watch(fcmProvider).getToken();
 
-  @override
   Future subscribeTopic(String topic) async {
-    await _messaging.subscribeToTopic(topic);
+    await ref.watch(fcmProvider).subscribeToTopic(topic);
   }
 
-  @override
   Future unSubscribeTopic(String topic) async {
-    await _messaging.unsubscribeFromTopic(topic);
+    await ref.watch(fcmProvider).unsubscribeFromTopic(topic);
   }
 }
-
-final Provider<PushNotificationClient> pushNotificationProvider = Provider(
-  (ref) => FirebasePushNotificationClient(),
-);

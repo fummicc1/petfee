@@ -5,22 +5,22 @@ import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:petfee/ui/pages/add_feed/controller.dart';
+import 'package:petfee/ui/pages/pet_detail/controller.dart';
 import 'package:petfee/utils/datetime.dart';
 
 import '/domain/entities/pet.dart';
 import '/ui/pages/add_feed/widget.dart';
-import 'controller.dart';
 import 'state.dart';
 
 class PetDetailPage extends ConsumerWidget {
-  const PetDetailPage({Key? key, required this.pet}) : super(key: key);
+  const PetDetailPage({super.key, required this.pet});
 
   static const pageName = "/pet_detail_page";
   final Pet pet;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final PetDetailState state = ref.watch(petDetailController(pet));
+    final PetDetailState state = ref.watch(petDetailControllerProvide);
     var shortestSide = MediaQuery.of(context).size.shortestSide;
     final bool isTablet = shortestSide >= 600;
     return Scaffold(
@@ -49,8 +49,8 @@ class PetDetailPage extends ConsumerWidget {
                   }
                 },
                 pageScrollPhysics: const PageScrollPhysics(),
-                weekdayTextStyle: Theme.of(context).textTheme.bodyText1,
-                headerTextStyle: Theme.of(context).textTheme.headline6,
+                weekdayTextStyle: Theme.of(context).textTheme.bodyLarge,
+                headerTextStyle: Theme.of(context).textTheme.titleLarge,
                 weekFormat: false,
                 height:
                     MediaQuery.of(context).size.height * (isTablet ? 0.7 : 0.5),

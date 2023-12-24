@@ -4,9 +4,9 @@ import 'package:petfee/ui/pages/add_new_pet/controller.dart';
 
 class SetupFeedTimesPage extends ConsumerWidget {
   const SetupFeedTimesPage({
-    Key? key,
+    super.key,
     required this.canBack,
-  }) : super(key: key);
+  });
 
   static const pageName = "/setup_feed_times_page";
 
@@ -32,11 +32,11 @@ class SetupFeedTimesPage extends ConsumerWidget {
   }
 
   List<Widget> _stackChildren(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(addNewPetController);
+    final state = ref.watch(addNewPetControllerProvider);
     final List<Widget> list = [
       Text(
         "餌の回数",
-        style: Theme.of(context).textTheme.headline6,
+        style: Theme.of(context).textTheme.titleLarge,
       ),
       Center(
         child: Row(
@@ -55,7 +55,7 @@ class SetupFeedTimesPage extends ConsumerWidget {
                   number = number as int?;
                   if (number == null) return;
                   ref
-                      .read(addNewPetController.notifier)
+                      .watch(addNewPetControllerProvider.notifier)
                       .updateNumberOfFeedPerDay(number);
                 },
                 items: const [

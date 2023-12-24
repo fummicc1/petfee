@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:petfee/domain/entities/pet.dart';
 import 'package:petfee/domain/exceptions/auth.dart';
-import 'package:petfee/domain/exceptions/pet.dart';
 import 'package:petfee/domain/repositories/auth/repository.dart';
 import 'package:petfee/domain/repositories/pet/repository.dart';
+
+import '/ui/pages/pet_list/widget.dart';
 import 'add_new_pet/widget.dart';
 import 'pet_group/join_group/widget.dart';
-import '/ui/pages/pet_list/widget.dart';
 
 class RootPage extends ConsumerStatefulWidget {
-  const RootPage({Key? key}) : super(key: key);
+  const RootPage({super.key});
 
   static const pageName = "/root_page";
 
@@ -51,19 +51,25 @@ class _RootPageState extends ConsumerState<RootPage> {
 
   Future<Stream<List<Pet>>> initialFuture() async {
     try {
-      final AuthRepository authRepository = ref.watch(authRepositoryProvider);
+      final AuthRepository authRepository =
+          ref.watch(authRepositoryProvider.notifier);
       if (!authRepository.isLoggedIn) {
         await authRepository.loginAnonymously();
       }
-      final userID = await ref.watch(authRepositoryProvider).userID;
-      final petRepository = ref.watch(petRepositoryProvider);
+      final userID = ref.watch(authRepositoryProvider)?.userID;
+      if (userID == null) {
+        return const Stream.empty();
+      }
+      final petRepository = ref.watch(petRepositoryProvider.notifier);
       return petRepository.petListSnapshot(userID: userID);
     } on AuthException catch (e) {
       if (e == AuthException.notLoggedIn()) {
-        await ref.read(authRepositoryProvider).loginAnonymously();
-        final userID = await ref.read(authRepositoryProvider).userID;
-        final petRepository = ref.watch(petRepositoryProvider);
-        return petRepository.petListSnapshot(userID: userID);
+        await ref.watch(authRepositoryProvider.notifier).loginAnonymously();
+        final userID = ref.watch(authRepositoryProvider)?.userID;
+        final petRepository = ref.watch(petRepositoryProvider.notifier);
+        if (userID != null) {
+          return petRepository.petListSnapshot(userID: userID);
+        }
       }
     }
     throw UnimplementedError();
@@ -93,8 +99,9 @@ class _RootPageState extends ConsumerState<RootPage> {
     if (destination == JoinPetGroupPage.pageName.replaceAll("/", "")) {
       final petID = deepLink.queryParameters["pet_id"] ?? "";
       if (petID.isNotEmpty) {
-        final pet =
-            await PetRepositoryImpl.shared.fetchSingle(petID: PetID(petID));
+        final pet = await ref.watch(petRepositoryProvider.notifier).fetchSingle(
+              petID: PetID(petID),
+            );
         // ignore: use_build_context_synchronously
         Navigator.of(context).push(
           MaterialPageRoute(

@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '/main.dart';
-import 'controller.dart';
-import 'state.dart';
-import '/ui/components/pet_card.dart';
+
 import '../add_new_pet/widget.dart';
+import '/main.dart';
+import '/ui/components/pet_card.dart';
 import '/ui/pages/pet_detail/widget.dart';
 import '/ui/pages/pet_group/add_pet_to_group_page.dart';
+import 'controller.dart';
+import 'state.dart';
 
 class PetListPage extends ConsumerWidget {
   static const pageName = "/my_pet_list";
 
-  const PetListPage({Key? key}) : super(key: key);
+  const PetListPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final PetState petState = ref.watch(petController);
+    final PetState petState = ref.watch(petControllerProvider);
 
     final pets = petState.pets;
 
