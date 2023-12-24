@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'feed.dart';
 
@@ -30,54 +30,60 @@ mixin _$FeedID {
 /// @nodoc
 abstract class $FeedIDCopyWith<$Res> {
   factory $FeedIDCopyWith(FeedID value, $Res Function(FeedID) then) =
-      _$FeedIDCopyWithImpl<$Res>;
+      _$FeedIDCopyWithImpl<$Res, FeedID>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$FeedIDCopyWithImpl<$Res> implements $FeedIDCopyWith<$Res> {
+class _$FeedIDCopyWithImpl<$Res, $Val extends FeedID>
+    implements $FeedIDCopyWith<$Res> {
   _$FeedIDCopyWithImpl(this._value, this._then);
 
-  final FeedID _value;
   // ignore: unused_field
-  final $Res Function(FeedID) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_FeedIDCopyWith<$Res> implements $FeedIDCopyWith<$Res> {
-  factory _$$_FeedIDCopyWith(_$_FeedID value, $Res Function(_$_FeedID) then) =
-      __$$_FeedIDCopyWithImpl<$Res>;
+abstract class _$$FeedIDImplCopyWith<$Res> implements $FeedIDCopyWith<$Res> {
+  factory _$$FeedIDImplCopyWith(
+          _$FeedIDImpl value, $Res Function(_$FeedIDImpl) then) =
+      __$$FeedIDImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_FeedIDCopyWithImpl<$Res> extends _$FeedIDCopyWithImpl<$Res>
-    implements _$$_FeedIDCopyWith<$Res> {
-  __$$_FeedIDCopyWithImpl(_$_FeedID _value, $Res Function(_$_FeedID) _then)
-      : super(_value, (v) => _then(v as _$_FeedID));
+class __$$FeedIDImplCopyWithImpl<$Res>
+    extends _$FeedIDCopyWithImpl<$Res, _$FeedIDImpl>
+    implements _$$FeedIDImplCopyWith<$Res> {
+  __$$FeedIDImplCopyWithImpl(
+      _$FeedIDImpl _value, $Res Function(_$FeedIDImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_FeedID get _value => super._value as _$_FeedID;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
-    return _then(_$_FeedID(
-      value == freezed
+    return _then(_$FeedIDImpl(
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -87,11 +93,11 @@ class __$$_FeedIDCopyWithImpl<$Res> extends _$FeedIDCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FeedID with DiagnosticableTreeMixin implements _FeedID {
-  const _$_FeedID(this.value);
+class _$FeedIDImpl with DiagnosticableTreeMixin implements _FeedID {
+  const _$FeedIDImpl(this.value);
 
-  factory _$_FeedID.fromJson(Map<String, dynamic> json) =>
-      _$$_FeedIDFromJson(json);
+  factory _$FeedIDImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedIDImplFromJson(json);
 
   @override
   final String value;
@@ -110,41 +116,41 @@ class _$_FeedID with DiagnosticableTreeMixin implements _FeedID {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FeedID &&
-            const DeepCollectionEquality().equals(other.value, value));
+            other is _$FeedIDImpl &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
-  _$$_FeedIDCopyWith<_$_FeedID> get copyWith =>
-      __$$_FeedIDCopyWithImpl<_$_FeedID>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$FeedIDImplCopyWith<_$FeedIDImpl> get copyWith =>
+      __$$FeedIDImplCopyWithImpl<_$FeedIDImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedIDToJson(
+    return _$$FeedIDImplToJson(
       this,
     );
   }
 }
 
 abstract class _FeedID implements FeedID {
-  const factory _FeedID(final String value) = _$_FeedID;
+  const factory _FeedID(final String value) = _$FeedIDImpl;
 
-  factory _FeedID.fromJson(Map<String, dynamic> json) = _$_FeedID.fromJson;
+  factory _FeedID.fromJson(Map<String, dynamic> json) = _$FeedIDImpl.fromJson;
 
   @override
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedIDCopyWith<_$_FeedID> get copyWith =>
+  _$$FeedIDImplCopyWith<_$FeedIDImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -170,7 +176,8 @@ mixin _$Feed {
 /// @nodoc
 abstract class $FeedCopyWith<$Res> {
   factory $FeedCopyWith(Feed value, $Res Function(Feed) then) =
-      _$FeedCopyWithImpl<$Res>;
+      _$FeedCopyWithImpl<$Res, Feed>;
+  @useResult
   $Res call(
       {FeedID feedID,
       DateTime date,
@@ -186,82 +193,90 @@ abstract class $FeedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FeedCopyWithImpl<$Res> implements $FeedCopyWith<$Res> {
+class _$FeedCopyWithImpl<$Res, $Val extends Feed>
+    implements $FeedCopyWith<$Res> {
   _$FeedCopyWithImpl(this._value, this._then);
 
-  final Feed _value;
   // ignore: unused_field
-  final $Res Function(Feed) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? feedID = freezed,
-    Object? date = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? petID = freezed,
-    Object? feederID = freezed,
+    Object? feedID = null,
+    Object? date = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? petID = null,
+    Object? feederID = null,
     Object? memo = freezed,
   }) {
     return _then(_value.copyWith(
-      feedID: feedID == freezed
+      feedID: null == feedID
           ? _value.feedID
           : feedID // ignore: cast_nullable_to_non_nullable
               as FeedID,
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      petID: petID == freezed
+      petID: null == petID
           ? _value.petID
           : petID // ignore: cast_nullable_to_non_nullable
               as PetID,
-      feederID: feederID == freezed
+      feederID: null == feederID
           ? _value.feederID
           : feederID // ignore: cast_nullable_to_non_nullable
               as UserID,
-      memo: memo == freezed
+      memo: freezed == memo
           ? _value.memo
           : memo // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $FeedIDCopyWith<$Res> get feedID {
     return $FeedIDCopyWith<$Res>(_value.feedID, (value) {
-      return _then(_value.copyWith(feedID: value));
+      return _then(_value.copyWith(feedID: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PetIDCopyWith<$Res> get petID {
     return $PetIDCopyWith<$Res>(_value.petID, (value) {
-      return _then(_value.copyWith(petID: value));
+      return _then(_value.copyWith(petID: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $UserIDCopyWith<$Res> get feederID {
     return $UserIDCopyWith<$Res>(_value.feederID, (value) {
-      return _then(_value.copyWith(feederID: value));
+      return _then(_value.copyWith(feederID: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
-  factory _$$_FeedCopyWith(_$_Feed value, $Res Function(_$_Feed) then) =
-      __$$_FeedCopyWithImpl<$Res>;
+abstract class _$$FeedImplCopyWith<$Res> implements $FeedCopyWith<$Res> {
+  factory _$$FeedImplCopyWith(
+          _$FeedImpl value, $Res Function(_$FeedImpl) then) =
+      __$$FeedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {FeedID feedID,
       DateTime date,
@@ -280,50 +295,49 @@ abstract class _$$_FeedCopyWith<$Res> implements $FeedCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
-    implements _$$_FeedCopyWith<$Res> {
-  __$$_FeedCopyWithImpl(_$_Feed _value, $Res Function(_$_Feed) _then)
-      : super(_value, (v) => _then(v as _$_Feed));
+class __$$FeedImplCopyWithImpl<$Res>
+    extends _$FeedCopyWithImpl<$Res, _$FeedImpl>
+    implements _$$FeedImplCopyWith<$Res> {
+  __$$FeedImplCopyWithImpl(_$FeedImpl _value, $Res Function(_$FeedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Feed get _value => super._value as _$_Feed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? feedID = freezed,
-    Object? date = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
-    Object? petID = freezed,
-    Object? feederID = freezed,
+    Object? feedID = null,
+    Object? date = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
+    Object? petID = null,
+    Object? feederID = null,
     Object? memo = freezed,
   }) {
-    return _then(_$_Feed(
-      feedID: feedID == freezed
+    return _then(_$FeedImpl(
+      feedID: null == feedID
           ? _value.feedID
           : feedID // ignore: cast_nullable_to_non_nullable
               as FeedID,
-      date: date == freezed
+      date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      petID: petID == freezed
+      petID: null == petID
           ? _value.petID
           : petID // ignore: cast_nullable_to_non_nullable
               as PetID,
-      feederID: feederID == freezed
+      feederID: null == feederID
           ? _value.feederID
           : feederID // ignore: cast_nullable_to_non_nullable
               as UserID,
-      memo: memo == freezed
+      memo: freezed == memo
           ? _value.memo
           : memo // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -334,8 +348,8 @@ class __$$_FeedCopyWithImpl<$Res> extends _$FeedCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_Feed with DiagnosticableTreeMixin implements _Feed {
-  const _$_Feed(
+class _$FeedImpl with DiagnosticableTreeMixin implements _Feed {
+  const _$FeedImpl(
       {required this.feedID,
       required this.date,
       required this.createdAt,
@@ -344,7 +358,8 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
       required this.feederID,
       this.memo});
 
-  factory _$_Feed.fromJson(Map<String, dynamic> json) => _$$_FeedFromJson(json);
+  factory _$FeedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedImplFromJson(json);
 
   @override
   final FeedID feedID;
@@ -381,39 +396,36 @@ class _$_Feed with DiagnosticableTreeMixin implements _Feed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Feed &&
-            const DeepCollectionEquality().equals(other.feedID, feedID) &&
-            const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
-            const DeepCollectionEquality().equals(other.petID, petID) &&
-            const DeepCollectionEquality().equals(other.feederID, feederID) &&
-            const DeepCollectionEquality().equals(other.memo, memo));
+            other is _$FeedImpl &&
+            (identical(other.feedID, feedID) || other.feedID == feedID) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.petID, petID) || other.petID == petID) &&
+            (identical(other.feederID, feederID) ||
+                other.feederID == feederID) &&
+            (identical(other.memo, memo) || other.memo == memo));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(feedID),
-      const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt),
-      const DeepCollectionEquality().hash(petID),
-      const DeepCollectionEquality().hash(feederID),
-      const DeepCollectionEquality().hash(memo));
+      runtimeType, feedID, date, createdAt, updatedAt, petID, feederID, memo);
 
   @JsonKey(ignore: true)
   @override
-  _$$_FeedCopyWith<_$_Feed> get copyWith =>
-      __$$_FeedCopyWithImpl<_$_Feed>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$FeedImplCopyWith<_$FeedImpl> get copyWith =>
+      __$$FeedImplCopyWithImpl<_$FeedImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FeedToJson(
+    return _$$FeedImplToJson(
       this,
     );
   }
@@ -427,9 +439,9 @@ abstract class _Feed implements Feed {
       required final DateTime updatedAt,
       required final PetID petID,
       required final UserID feederID,
-      final String? memo}) = _$_Feed;
+      final String? memo}) = _$FeedImpl;
 
-  factory _Feed.fromJson(Map<String, dynamic> json) = _$_Feed.fromJson;
+  factory _Feed.fromJson(Map<String, dynamic> json) = _$FeedImpl.fromJson;
 
   @override
   FeedID get feedID;
@@ -447,5 +459,6 @@ abstract class _Feed implements Feed {
   String? get memo;
   @override
   @JsonKey(ignore: true)
-  _$$_FeedCopyWith<_$_Feed> get copyWith => throw _privateConstructorUsedError;
+  _$$FeedImplCopyWith<_$FeedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

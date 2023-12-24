@@ -1,11 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:petfee/domain/entities/pet.dart';
-import 'package:petfee/domain/exceptions/pet.dart';
+
+import '/ui/components/avatar_view.dart';
 import 'controller.dart';
 import 'state.dart';
-import '/ui/components/avatar_view.dart';
 
 class JoinPetGroupPage extends ConsumerWidget {
   const JoinPetGroupPage({
@@ -61,7 +60,7 @@ class JoinPetGroupPage extends ConsumerWidget {
                 ),
                 Center(
                   child: AvatarView(
-                      avatar: NetworkImage(state.pet.requireAvatarURL!),
+                      avatar: NetworkImage(state.pet.requireAvatarURL),
                       length: 200),
                 ),
                 const SizedBox(
@@ -75,7 +74,9 @@ class JoinPetGroupPage extends ConsumerWidget {
                           await ref
                               .read(joinGroupController(pet).notifier)
                               .joinGroup();
-                          Navigator.of(context).pop();
+                          if (context.mounted) {
+                            Navigator.of(context).pop();
+                          }
                         },
                         icon: const Icon(Icons.group_add),
                         label: const Text("参加する")),

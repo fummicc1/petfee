@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'pet.dart';
 
@@ -30,54 +30,60 @@ mixin _$PetID {
 /// @nodoc
 abstract class $PetIDCopyWith<$Res> {
   factory $PetIDCopyWith(PetID value, $Res Function(PetID) then) =
-      _$PetIDCopyWithImpl<$Res>;
+      _$PetIDCopyWithImpl<$Res, PetID>;
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class _$PetIDCopyWithImpl<$Res> implements $PetIDCopyWith<$Res> {
+class _$PetIDCopyWithImpl<$Res, $Val extends PetID>
+    implements $PetIDCopyWith<$Res> {
   _$PetIDCopyWithImpl(this._value, this._then);
 
-  final PetID _value;
   // ignore: unused_field
-  final $Res Function(PetID) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_PetIDCopyWith<$Res> implements $PetIDCopyWith<$Res> {
-  factory _$$_PetIDCopyWith(_$_PetID value, $Res Function(_$_PetID) then) =
-      __$$_PetIDCopyWithImpl<$Res>;
+abstract class _$$PetIDImplCopyWith<$Res> implements $PetIDCopyWith<$Res> {
+  factory _$$PetIDImplCopyWith(
+          _$PetIDImpl value, $Res Function(_$PetIDImpl) then) =
+      __$$PetIDImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$_PetIDCopyWithImpl<$Res> extends _$PetIDCopyWithImpl<$Res>
-    implements _$$_PetIDCopyWith<$Res> {
-  __$$_PetIDCopyWithImpl(_$_PetID _value, $Res Function(_$_PetID) _then)
-      : super(_value, (v) => _then(v as _$_PetID));
+class __$$PetIDImplCopyWithImpl<$Res>
+    extends _$PetIDCopyWithImpl<$Res, _$PetIDImpl>
+    implements _$$PetIDImplCopyWith<$Res> {
+  __$$PetIDImplCopyWithImpl(
+      _$PetIDImpl _value, $Res Function(_$PetIDImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_PetID get _value => super._value as _$_PetID;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? value = freezed,
+    Object? value = null,
   }) {
-    return _then(_$_PetID(
-      value == freezed
+    return _then(_$PetIDImpl(
+      null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
@@ -87,11 +93,11 @@ class __$$_PetIDCopyWithImpl<$Res> extends _$PetIDCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PetID with DiagnosticableTreeMixin implements _PetID {
-  const _$_PetID(this.value);
+class _$PetIDImpl with DiagnosticableTreeMixin implements _PetID {
+  const _$PetIDImpl(this.value);
 
-  factory _$_PetID.fromJson(Map<String, dynamic> json) =>
-      _$$_PetIDFromJson(json);
+  factory _$PetIDImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PetIDImplFromJson(json);
 
   @override
   final String value;
@@ -110,41 +116,41 @@ class _$_PetID with DiagnosticableTreeMixin implements _PetID {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PetID &&
-            const DeepCollectionEquality().equals(other.value, value));
+            other is _$PetIDImpl &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
-  _$$_PetIDCopyWith<_$_PetID> get copyWith =>
-      __$$_PetIDCopyWithImpl<_$_PetID>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PetIDImplCopyWith<_$PetIDImpl> get copyWith =>
+      __$$PetIDImplCopyWithImpl<_$PetIDImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PetIDToJson(
+    return _$$PetIDImplToJson(
       this,
     );
   }
 }
 
 abstract class _PetID implements PetID {
-  const factory _PetID(final String value) = _$_PetID;
+  const factory _PetID(final String value) = _$PetIDImpl;
 
-  factory _PetID.fromJson(Map<String, dynamic> json) = _$_PetID.fromJson;
+  factory _PetID.fromJson(Map<String, dynamic> json) = _$PetIDImpl.fromJson;
 
   @override
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$_PetIDCopyWith<_$_PetID> get copyWith =>
+  _$$PetIDImplCopyWith<_$PetIDImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -170,7 +176,8 @@ mixin _$Pet {
 /// @nodoc
 abstract class $PetCopyWith<$Res> {
   factory $PetCopyWith(Pet value, $Res Function(Pet) then) =
-      _$PetCopyWithImpl<$Res>;
+      _$PetCopyWithImpl<$Res, Pet>;
+  @useResult
   $Res call(
       {PetID petID,
       String name,
@@ -184,68 +191,72 @@ abstract class $PetCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PetCopyWithImpl<$Res> implements $PetCopyWith<$Res> {
+class _$PetCopyWithImpl<$Res, $Val extends Pet> implements $PetCopyWith<$Res> {
   _$PetCopyWithImpl(this._value, this._then);
 
-  final Pet _value;
   // ignore: unused_field
-  final $Res Function(Pet) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? petID = freezed,
-    Object? name = freezed,
+    Object? petID = null,
+    Object? name = null,
     Object? avatarURL = freezed,
-    Object? numberOfFeedTimesPerDay = freezed,
-    Object? users = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? numberOfFeedTimesPerDay = null,
+    Object? users = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
-      petID: petID == freezed
+      petID: null == petID
           ? _value.petID
           : petID // ignore: cast_nullable_to_non_nullable
               as PetID,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      avatarURL: avatarURL == freezed
+      avatarURL: freezed == avatarURL
           ? _value.avatarURL
           : avatarURL // ignore: cast_nullable_to_non_nullable
               as String?,
-      numberOfFeedTimesPerDay: numberOfFeedTimesPerDay == freezed
+      numberOfFeedTimesPerDay: null == numberOfFeedTimesPerDay
           ? _value.numberOfFeedTimesPerDay
           : numberOfFeedTimesPerDay // ignore: cast_nullable_to_non_nullable
               as int,
-      users: users == freezed
+      users: null == users
           ? _value.users
           : users // ignore: cast_nullable_to_non_nullable
               as List<UserID>,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PetIDCopyWith<$Res> get petID {
     return $PetIDCopyWith<$Res>(_value.petID, (value) {
-      return _then(_value.copyWith(petID: value));
+      return _then(_value.copyWith(petID: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_PetCopyWith<$Res> implements $PetCopyWith<$Res> {
-  factory _$$_PetCopyWith(_$_Pet value, $Res Function(_$_Pet) then) =
-      __$$_PetCopyWithImpl<$Res>;
+abstract class _$$PetImplCopyWith<$Res> implements $PetCopyWith<$Res> {
+  factory _$$PetImplCopyWith(_$PetImpl value, $Res Function(_$PetImpl) then) =
+      __$$PetImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {PetID petID,
       String name,
@@ -260,50 +271,48 @@ abstract class _$$_PetCopyWith<$Res> implements $PetCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_PetCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res>
-    implements _$$_PetCopyWith<$Res> {
-  __$$_PetCopyWithImpl(_$_Pet _value, $Res Function(_$_Pet) _then)
-      : super(_value, (v) => _then(v as _$_Pet));
+class __$$PetImplCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res, _$PetImpl>
+    implements _$$PetImplCopyWith<$Res> {
+  __$$PetImplCopyWithImpl(_$PetImpl _value, $Res Function(_$PetImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Pet get _value => super._value as _$_Pet;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? petID = freezed,
-    Object? name = freezed,
+    Object? petID = null,
+    Object? name = null,
     Object? avatarURL = freezed,
-    Object? numberOfFeedTimesPerDay = freezed,
-    Object? users = freezed,
-    Object? createdAt = freezed,
-    Object? updatedAt = freezed,
+    Object? numberOfFeedTimesPerDay = null,
+    Object? users = null,
+    Object? createdAt = null,
+    Object? updatedAt = null,
   }) {
-    return _then(_$_Pet(
-      petID: petID == freezed
+    return _then(_$PetImpl(
+      petID: null == petID
           ? _value.petID
           : petID // ignore: cast_nullable_to_non_nullable
               as PetID,
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      avatarURL: avatarURL == freezed
+      avatarURL: freezed == avatarURL
           ? _value.avatarURL
           : avatarURL // ignore: cast_nullable_to_non_nullable
               as String?,
-      numberOfFeedTimesPerDay: numberOfFeedTimesPerDay == freezed
+      numberOfFeedTimesPerDay: null == numberOfFeedTimesPerDay
           ? _value.numberOfFeedTimesPerDay
           : numberOfFeedTimesPerDay // ignore: cast_nullable_to_non_nullable
               as int,
-      users: users == freezed
+      users: null == users
           ? _value._users
           : users // ignore: cast_nullable_to_non_nullable
               as List<UserID>,
-      createdAt: createdAt == freezed
+      createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      updatedAt: updatedAt == freezed
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -314,8 +323,8 @@ class __$$_PetCopyWithImpl<$Res> extends _$PetCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$_Pet extends _Pet with DiagnosticableTreeMixin {
-  const _$_Pet(
+class _$PetImpl extends _Pet with DiagnosticableTreeMixin {
+  const _$PetImpl(
       {required this.petID,
       required this.name,
       this.avatarURL,
@@ -326,7 +335,8 @@ class _$_Pet extends _Pet with DiagnosticableTreeMixin {
       : _users = users,
         super._();
 
-  factory _$_Pet.fromJson(Map<String, dynamic> json) => _$$_PetFromJson(json);
+  factory _$PetImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PetImplFromJson(json);
 
   @override
   final PetID petID;
@@ -339,6 +349,7 @@ class _$_Pet extends _Pet with DiagnosticableTreeMixin {
   final List<UserID> _users;
   @override
   List<UserID> get users {
+    if (_users is EqualUnmodifiableListView) return _users;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_users);
   }
@@ -369,40 +380,45 @@ class _$_Pet extends _Pet with DiagnosticableTreeMixin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Pet &&
-            const DeepCollectionEquality().equals(other.petID, petID) &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.avatarURL, avatarURL) &&
-            const DeepCollectionEquality().equals(
-                other.numberOfFeedTimesPerDay, numberOfFeedTimesPerDay) &&
+            other is _$PetImpl &&
+            (identical(other.petID, petID) || other.petID == petID) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.avatarURL, avatarURL) ||
+                other.avatarURL == avatarURL) &&
+            (identical(
+                    other.numberOfFeedTimesPerDay, numberOfFeedTimesPerDay) ||
+                other.numberOfFeedTimesPerDay == numberOfFeedTimesPerDay) &&
             const DeepCollectionEquality().equals(other._users, _users) &&
-            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
-            const DeepCollectionEquality().equals(other.updatedAt, updatedAt));
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(petID),
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(avatarURL),
-      const DeepCollectionEquality().hash(numberOfFeedTimesPerDay),
+      petID,
+      name,
+      avatarURL,
+      numberOfFeedTimesPerDay,
       const DeepCollectionEquality().hash(_users),
-      const DeepCollectionEquality().hash(createdAt),
-      const DeepCollectionEquality().hash(updatedAt));
+      createdAt,
+      updatedAt);
 
   @JsonKey(ignore: true)
   @override
-  _$$_PetCopyWith<_$_Pet> get copyWith =>
-      __$$_PetCopyWithImpl<_$_Pet>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PetImplCopyWith<_$PetImpl> get copyWith =>
+      __$$PetImplCopyWithImpl<_$PetImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PetToJson(
+    return _$$PetImplToJson(
       this,
     );
   }
@@ -416,10 +432,10 @@ abstract class _Pet extends Pet {
       required final int numberOfFeedTimesPerDay,
       required final List<UserID> users,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$_Pet;
+      required final DateTime updatedAt}) = _$PetImpl;
   const _Pet._() : super._();
 
-  factory _Pet.fromJson(Map<String, dynamic> json) = _$_Pet.fromJson;
+  factory _Pet.fromJson(Map<String, dynamic> json) = _$PetImpl.fromJson;
 
   @override
   PetID get petID;
@@ -437,5 +453,6 @@ abstract class _Pet extends Pet {
   DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_PetCopyWith<_$_Pet> get copyWith => throw _privateConstructorUsedError;
+  _$$PetImplCopyWith<_$PetImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

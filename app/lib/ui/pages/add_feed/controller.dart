@@ -4,6 +4,7 @@ import 'package:petfee/domain/entities/feed.dart';
 import 'package:petfee/domain/entities/pet.dart';
 import 'package:petfee/domain/repositories/auth/repository.dart';
 import 'package:petfee/domain/repositories/feed/repository.dart';
+
 import 'state.dart';
 
 class AddFeedController extends StateNotifier<AddFeedState> {
@@ -16,20 +17,20 @@ class AddFeedController extends StateNotifier<AddFeedState> {
   final AuthRepository _authRepository;
   final FeedRepository _feedRepository;
 
-  updateFeededat(DateTime newValue) {
-    state = state.copyWith(feededAt: newValue);
+  updateFedAt(DateTime newValue) {
+    state = state.copyWith(fedAt: newValue);
   }
 
-  String feededAtText() {
+  String getFedAtText() {
     final DateFormat formatter;
-    final year = state.feededAt.year;
+    final year = state.fedAt.year;
     final sameYear = year == (DateTime.now().year);
     if (sameYear) {
       formatter = DateFormat("MM/dd");
     } else {
       formatter = DateFormat("yyyy/MM/dd");
     }
-    return formatter.format(state.feededAt);
+    return formatter.format(state.fedAt);
   }
 
   Future commit() async {
@@ -41,7 +42,7 @@ class AddFeedController extends StateNotifier<AddFeedState> {
       // TODO: Modify FeedRepository#saveNewFeed
       //  to create feed without id.
       feedID: const FeedID(""),
-      date: state.feededAt,
+      date: state.fedAt,
       petID: petID,
       feederID: userID,
       createdAt: now,
@@ -55,18 +56,18 @@ class AddFeedController extends StateNotifier<AddFeedState> {
   }
 }
 
-class AddFeedConrollerInput {
+class AddFeedControllerInput {
   final Pet pet;
   final DateTime initialDate;
 
-  AddFeedConrollerInput(this.pet, this.initialDate);
+  AddFeedControllerInput(this.pet, this.initialDate);
 }
 
 final addFeedController = StateNotifierProvider.family<AddFeedController,
-    AddFeedState, AddFeedConrollerInput>((ref, input) {
+    AddFeedState, AddFeedControllerInput>((ref, input) {
   final state = AddFeedState(
     pet: input.pet,
-    feededAt: input.initialDate,
+    fedAt: input.initialDate,
   );
   final auth = ref.watch(authRepositoryProvider);
   final feed = ref.watch(feedRepositoryProvider);

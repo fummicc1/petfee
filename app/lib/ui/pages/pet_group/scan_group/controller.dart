@@ -1,23 +1,25 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:petfee/domain/repositories/pet/repository.dart';
-import 'package:petfee/ui/pages/add_new_pet/widget.dart';
+import 'package:petfee/domain/services/qr_service.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import 'state.dart';
 
-class ScanPetGroupController extends StateNotifier<ScanPetGroupState> {
-  QRViewController? get _qrViewController => state.qrViewController;
-  final PetRepository _petRepository;
+part 'controller.g.dart';
 
+@Riverpod(dependencies: [QrService])
+class ScanPetGroupController extends _$ScanPetGroupController {
   final GlobalKey _globalKey = GlobalKey(debugLabel: "ScanPetGroupController");
 
-  ScanPetGroupController(
-    super.state,
-    this._petRepository,
-  );
+  @override
+  ScanPetGroupState build() {
+    return const ScanPetGroupState(
+      qrViewController: null,
+      showPreview: false,
+    );
+  }
 
   Widget currentWidget(BuildContext context) {
     if (state.showPreview) {
@@ -82,9 +84,7 @@ class ScanPetGroupController extends StateNotifier<ScanPetGroupState> {
   }
 
   void _onQRViewCreated(BuildContext context, QRViewController controller) {
-    state = state.copyWith(
-      qrViewController: controller,
-    );
+    ref.watch(qrServiceProvider.notifier).update(qrViewController: controller);
     controller.scannedDataStream.listen((scanData) {
       if (scanData.format == BarcodeFormat.qrcode) {
         final code = scanData.code;
@@ -97,7 +97,7 @@ class ScanPetGroupController extends StateNotifier<ScanPetGroupState> {
         try {
           Future.delayed(
             const Duration(milliseconds: 300),
-                () async {
+            () async {
               await _handleLink(code);
             },
           );
@@ -126,18 +126,4 @@ class ScanPetGroupController extends StateNotifier<ScanPetGroupState> {
       );
     }
   }
-
-  @override
-  void dispose() {
-    _qrViewController?.dispose();
-    super.dispose();
-  }
 }
-
-final scanPetGroupController = StateNotifierProvider.family<
-    ScanPetGroupController, ScanPetGroupState, PetRepository>(
-  (ref, petRepository) => ScanPetGroupController(
-    const ScanPetGroupState(),
-    petRepository,
-  ),
-);

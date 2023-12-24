@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'state.dart';
 
@@ -26,56 +26,61 @@ mixin _$PetState {
 /// @nodoc
 abstract class $PetStateCopyWith<$Res> {
   factory $PetStateCopyWith(PetState value, $Res Function(PetState) then) =
-      _$PetStateCopyWithImpl<$Res>;
+      _$PetStateCopyWithImpl<$Res, PetState>;
+  @useResult
   $Res call({List<Pet> pets});
 }
 
 /// @nodoc
-class _$PetStateCopyWithImpl<$Res> implements $PetStateCopyWith<$Res> {
+class _$PetStateCopyWithImpl<$Res, $Val extends PetState>
+    implements $PetStateCopyWith<$Res> {
   _$PetStateCopyWithImpl(this._value, this._then);
 
-  final PetState _value;
   // ignore: unused_field
-  final $Res Function(PetState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pets = freezed,
+    Object? pets = null,
   }) {
     return _then(_value.copyWith(
-      pets: pets == freezed
+      pets: null == pets
           ? _value.pets
           : pets // ignore: cast_nullable_to_non_nullable
               as List<Pet>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_PetStateCopyWith<$Res> implements $PetStateCopyWith<$Res> {
-  factory _$$_PetStateCopyWith(
-          _$_PetState value, $Res Function(_$_PetState) then) =
-      __$$_PetStateCopyWithImpl<$Res>;
+abstract class _$$PetStateImplCopyWith<$Res>
+    implements $PetStateCopyWith<$Res> {
+  factory _$$PetStateImplCopyWith(
+          _$PetStateImpl value, $Res Function(_$PetStateImpl) then) =
+      __$$PetStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<Pet> pets});
 }
 
 /// @nodoc
-class __$$_PetStateCopyWithImpl<$Res> extends _$PetStateCopyWithImpl<$Res>
-    implements _$$_PetStateCopyWith<$Res> {
-  __$$_PetStateCopyWithImpl(
-      _$_PetState _value, $Res Function(_$_PetState) _then)
-      : super(_value, (v) => _then(v as _$_PetState));
+class __$$PetStateImplCopyWithImpl<$Res>
+    extends _$PetStateCopyWithImpl<$Res, _$PetStateImpl>
+    implements _$$PetStateImplCopyWith<$Res> {
+  __$$PetStateImplCopyWithImpl(
+      _$PetStateImpl _value, $Res Function(_$PetStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_PetState get _value => super._value as _$_PetState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pets = freezed,
+    Object? pets = null,
   }) {
-    return _then(_$_PetState(
-      pets: pets == freezed
+    return _then(_$PetStateImpl(
+      pets: null == pets
           ? _value._pets
           : pets // ignore: cast_nullable_to_non_nullable
               as List<Pet>,
@@ -85,13 +90,14 @@ class __$$_PetStateCopyWithImpl<$Res> extends _$PetStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PetState implements _PetState {
-  const _$_PetState({final List<Pet> pets = const []}) : _pets = pets;
+class _$PetStateImpl implements _PetState {
+  const _$PetStateImpl({final List<Pet> pets = const []}) : _pets = pets;
 
   final List<Pet> _pets;
   @override
   @JsonKey()
   List<Pet> get pets {
+    if (_pets is EqualUnmodifiableListView) return _pets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_pets);
   }
@@ -102,10 +108,10 @@ class _$_PetState implements _PetState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PetState &&
+            other is _$PetStateImpl &&
             const DeepCollectionEquality().equals(other._pets, _pets));
   }
 
@@ -115,17 +121,18 @@ class _$_PetState implements _PetState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_PetStateCopyWith<_$_PetState> get copyWith =>
-      __$$_PetStateCopyWithImpl<_$_PetState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PetStateImplCopyWith<_$PetStateImpl> get copyWith =>
+      __$$PetStateImplCopyWithImpl<_$PetStateImpl>(this, _$identity);
 }
 
 abstract class _PetState implements PetState {
-  const factory _PetState({final List<Pet> pets}) = _$_PetState;
+  const factory _PetState({final List<Pet> pets}) = _$PetStateImpl;
 
   @override
   List<Pet> get pets;
   @override
   @JsonKey(ignore: true)
-  _$$_PetStateCopyWith<_$_PetState> get copyWith =>
+  _$$PetStateImplCopyWith<_$PetStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

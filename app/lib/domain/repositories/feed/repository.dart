@@ -1,35 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:petfee/domain/repositories/current-pet/repository.dart';
+import 'package:petfee/domain/services/storage.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import '/domain/entities/feed.dart';
 import '/domain/entities/pet.dart';
 import '/domain/entities/user.dart';
 
-abstract class FeedRepository {
-  Stream<List<Feed>> feedsSnapshot({
-    required PetID petID,
-  });
+part 'repository.g.dart';
 
-  Future<List<Feed>> fetchFeeds({
-    required PetID petID,
-  });
-
-  Future saveNewFeed({
-    required UserID userID,
-    required Pet pet,
-    required Feed feed,
-  });
-}
-
-class FeedRepositoryImpl implements FeedRepository {
-  FeedRepositoryImpl(this._firestore);
-
-  static final shared = FeedRepositoryImpl(FirebaseFirestore.instance);
-
-  final FirebaseFirestore _firestore;
-
+@Riverpod(keepAlive: true, dependencies: [storage, CurrentPetRepository])
+class FeedRepository extends _$FeedRepository {
   @override
-  Stream<List<Feed>> feedsSnapshot({required PetID petID}) {
-    Query query = _firestore
+  List<Feed> build(Pet currentPet) {
+    snapshot();
+    return [];
+  }
+
+  snapshot() {
+    final firestore = ref.watch(storageProvider);
+    Query query = firestore
         .collection(Feed.collectionName)
         .withConverter<Feed>(
           fromFirestore: (snapshot, _) => Feed.fromJson(snapshot.data() ?? {}),
@@ -37,18 +27,18 @@ class FeedRepositoryImpl implements FeedRepository {
         )
         .where(
           "petID",
-          isEqualTo: petID.toJson(),
+          isEqualTo: currentPet.petID.toJson(),
         );
     final Stream<List<Feed>> response = query.snapshots().map((snapshot) =>
         snapshot.docs.map((doc) => doc.data()).cast<Feed>().toList());
-    return response;
+    response.listen((event) {
+      state = event;
+    });
   }
 
-  @override
-  Future<List<Feed>> fetchFeeds({
-    required PetID petID,
-  }) async {
-    Query query = _firestore
+  Future<List<Feed>> fetch() async {
+    final firestore = ref.watch(storageProvider);
+    Query query = firestore
         .collection(Feed.collectionName)
         .withConverter<Feed>(
           fromFirestore: (snapshot, _) => Feed.fromJson(snapshot.data() ?? {}),
@@ -56,22 +46,22 @@ class FeedRepositoryImpl implements FeedRepository {
         )
         .where(
           "petID",
-          isEqualTo: petID.toJson(),
+          isEqualTo: currentPet.petID.toJson(),
         );
     final List<Feed> response = await query.get().then((snapshot) =>
         snapshot.docs.map((doc) => doc.data()).cast<Feed>().toList());
     return response;
   }
 
-  @override
-  Future saveNewFeed({
+  Future create({
     required UserID userID,
     required Pet pet,
     required Feed feed,
   }) async {
+    final firestore = ref.watch(storageProvider);
     final petID = pet.petID;
 
-    final document = _firestore.collection(Feed.collectionName).doc();
+    final document = firestore.collection(Feed.collectionName).doc();
 
     final entity = Feed(
       feedID: FeedID(document.id),
@@ -84,5 +74,3 @@ class FeedRepositoryImpl implements FeedRepository {
     await document.set(entity.toJson());
   }
 }
-
-final feedRepositoryProvider = Provider((ref) => FeedRepositoryImpl.shared);

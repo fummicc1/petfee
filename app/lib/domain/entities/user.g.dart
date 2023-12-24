@@ -6,15 +6,16 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserID _$$_UserIDFromJson(Map<String, dynamic> json) => _$_UserID(
+_$UserIDImpl _$$UserIDImplFromJson(Map<String, dynamic> json) => _$UserIDImpl(
       json['value'] as String,
     );
 
-Map<String, dynamic> _$$_UserIDToJson(_$_UserID instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserIDImplToJson(_$UserIDImpl instance) =>
+    <String, dynamic>{
       'value': instance.value,
     };
 
-_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
+_$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       userID: UserID.fromJson(json['userID'] as Map<String, dynamic>),
       authID: json['authID'] as String,
       isAnonymous: json['isAnonymous'] as bool,
@@ -22,7 +23,8 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
 
-Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
+    <String, dynamic>{
       'userID': instance.userID.toJson(),
       'authID': instance.authID,
       'isAnonymous': instance.isAnonymous,

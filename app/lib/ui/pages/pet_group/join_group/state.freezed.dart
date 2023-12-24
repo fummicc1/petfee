@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'state.dart';
 
@@ -28,53 +28,58 @@ mixin _$JoinGroupState {
 abstract class $JoinGroupStateCopyWith<$Res> {
   factory $JoinGroupStateCopyWith(
           JoinGroupState value, $Res Function(JoinGroupState) then) =
-      _$JoinGroupStateCopyWithImpl<$Res>;
+      _$JoinGroupStateCopyWithImpl<$Res, JoinGroupState>;
+  @useResult
   $Res call({Pet pet, String? errorMessage});
 
   $PetCopyWith<$Res> get pet;
 }
 
 /// @nodoc
-class _$JoinGroupStateCopyWithImpl<$Res>
+class _$JoinGroupStateCopyWithImpl<$Res, $Val extends JoinGroupState>
     implements $JoinGroupStateCopyWith<$Res> {
   _$JoinGroupStateCopyWithImpl(this._value, this._then);
 
-  final JoinGroupState _value;
   // ignore: unused_field
-  final $Res Function(JoinGroupState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pet = freezed,
+    Object? pet = null,
     Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
-      pet: pet == freezed
+      pet: null == pet
           ? _value.pet
           : pet // ignore: cast_nullable_to_non_nullable
               as Pet,
-      errorMessage: errorMessage == freezed
+      errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PetCopyWith<$Res> get pet {
     return $PetCopyWith<$Res>(_value.pet, (value) {
-      return _then(_value.copyWith(pet: value));
+      return _then(_value.copyWith(pet: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_JoinGroupStateCopyWith<$Res>
+abstract class _$$JoinGroupStateImplCopyWith<$Res>
     implements $JoinGroupStateCopyWith<$Res> {
-  factory _$$_JoinGroupStateCopyWith(
-          _$_JoinGroupState value, $Res Function(_$_JoinGroupState) then) =
-      __$$_JoinGroupStateCopyWithImpl<$Res>;
+  factory _$$JoinGroupStateImplCopyWith(_$JoinGroupStateImpl value,
+          $Res Function(_$JoinGroupStateImpl) then) =
+      __$$JoinGroupStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Pet pet, String? errorMessage});
 
   @override
@@ -82,27 +87,25 @@ abstract class _$$_JoinGroupStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_JoinGroupStateCopyWithImpl<$Res>
-    extends _$JoinGroupStateCopyWithImpl<$Res>
-    implements _$$_JoinGroupStateCopyWith<$Res> {
-  __$$_JoinGroupStateCopyWithImpl(
-      _$_JoinGroupState _value, $Res Function(_$_JoinGroupState) _then)
-      : super(_value, (v) => _then(v as _$_JoinGroupState));
+class __$$JoinGroupStateImplCopyWithImpl<$Res>
+    extends _$JoinGroupStateCopyWithImpl<$Res, _$JoinGroupStateImpl>
+    implements _$$JoinGroupStateImplCopyWith<$Res> {
+  __$$JoinGroupStateImplCopyWithImpl(
+      _$JoinGroupStateImpl _value, $Res Function(_$JoinGroupStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_JoinGroupState get _value => super._value as _$_JoinGroupState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pet = freezed,
+    Object? pet = null,
     Object? errorMessage = freezed,
   }) {
-    return _then(_$_JoinGroupState(
-      pet: pet == freezed
+    return _then(_$JoinGroupStateImpl(
+      pet: null == pet
           ? _value.pet
           : pet // ignore: cast_nullable_to_non_nullable
               as Pet,
-      errorMessage: errorMessage == freezed
+      errorMessage: freezed == errorMessage
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -112,8 +115,8 @@ class __$$_JoinGroupStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_JoinGroupState implements _JoinGroupState {
-  const _$_JoinGroupState({required this.pet, this.errorMessage});
+class _$JoinGroupStateImpl implements _JoinGroupState {
+  const _$JoinGroupStateImpl({required this.pet, this.errorMessage});
 
   @override
   final Pet pet;
@@ -126,30 +129,30 @@ class _$_JoinGroupState implements _JoinGroupState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_JoinGroupState &&
-            const DeepCollectionEquality().equals(other.pet, pet) &&
-            const DeepCollectionEquality()
-                .equals(other.errorMessage, errorMessage));
+            other is _$JoinGroupStateImpl &&
+            (identical(other.pet, pet) || other.pet == pet) &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(pet),
-      const DeepCollectionEquality().hash(errorMessage));
+  int get hashCode => Object.hash(runtimeType, pet, errorMessage);
 
   @JsonKey(ignore: true)
   @override
-  _$$_JoinGroupStateCopyWith<_$_JoinGroupState> get copyWith =>
-      __$$_JoinGroupStateCopyWithImpl<_$_JoinGroupState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$JoinGroupStateImplCopyWith<_$JoinGroupStateImpl> get copyWith =>
+      __$$JoinGroupStateImplCopyWithImpl<_$JoinGroupStateImpl>(
+          this, _$identity);
 }
 
 abstract class _JoinGroupState implements JoinGroupState {
   const factory _JoinGroupState(
-      {required final Pet pet, final String? errorMessage}) = _$_JoinGroupState;
+      {required final Pet pet,
+      final String? errorMessage}) = _$JoinGroupStateImpl;
 
   @override
   Pet get pet;
@@ -157,6 +160,6 @@ abstract class _JoinGroupState implements JoinGroupState {
   String? get errorMessage;
   @override
   @JsonKey(ignore: true)
-  _$$_JoinGroupStateCopyWith<_$_JoinGroupState> get copyWith =>
+  _$$JoinGroupStateImplCopyWith<_$JoinGroupStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

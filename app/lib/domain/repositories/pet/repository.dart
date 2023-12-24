@@ -2,37 +2,27 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:petfee/domain/exceptions/pet.dart';
+import 'package:petfee/domain/services/storage.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import '/domain/entities/pet.dart';
 import '/domain/entities/user.dart';
-import '../../exceptions/pet.dart';
 
-mixin PetRepository {
+part 'repository.g.dart';
+
+@Riverpod(keepAlive: true, dependencies: [storage])
+class PetRepository extends _$PetRepository {
+  @override
+  List<Pet> build() {
+    return [];
+  }
+
   Future<String> saveNewPet({
     required UserID userID,
     required Pet entity,
     File? avatar,
-  });
-
-  Future updatePet(Pet entity);
-
-  Future<List<Pet>> fetchPetList({required UserID userID});
-
-  Stream<List<Pet>> petListSnapshot({required UserID userID});
-
-  Future<Pet> fetchSingle({required PetID petID});
-}
-
-class PetRepositoryImpl with PetRepository {
-  PetRepositoryImpl(this._firestore);
-
-  static final shared = PetRepositoryImpl(FirebaseFirestore.instance);
-
-  final FirebaseFirestore _firestore;
-
-  @override
-  Future<String> saveNewPet(
-      {required UserID userID, required Pet entity, File? avatar}) async {
+  }) async {
     final document =
         FirebaseFirestore.instance.collection(Pet.collectionName).doc();
     entity = entity.copyWith(
@@ -53,17 +43,16 @@ class PetRepositoryImpl with PetRepository {
     return document.id;
   }
 
-  @override
-  Future updatePet(Pet entity) async {
+  Future update({required Pet pet}) async {
     final document = FirebaseFirestore.instance
         .collection(Pet.collectionName)
-        .doc(entity.petID.value);
-    await document.set(entity.toJson());
+        .doc(pet.petID.value);
+    await document.set(pet.toJson());
   }
 
-  @override
   Future<Pet> fetchSingle({required PetID petID}) async {
-    final DocumentSnapshot<Pet> response = await _firestore
+    final firestore = ref.watch(storageProvider);
+    final DocumentSnapshot<Pet> response = await firestore
         .collection(Pet.collectionName)
         .doc(petID.value)
         .withConverter<Pet>(
@@ -77,9 +66,9 @@ class PetRepositoryImpl with PetRepository {
     return response.data()!;
   }
 
-  @override
   Stream<List<Pet>> petListSnapshot({required UserID userID}) {
-    Query query = _firestore
+    final firestore = ref.watch(storageProvider);
+    Query query = firestore
         .collection(Pet.collectionName)
         .where(
           "users",
@@ -94,7 +83,6 @@ class PetRepositoryImpl with PetRepository {
     return response;
   }
 
-  @override
   Future<List<Pet>> fetchPetList({required UserID userID}) async {
     Query query = FirebaseFirestore.instance
         .collection(Pet.collectionName)
@@ -111,5 +99,3 @@ class PetRepositoryImpl with PetRepository {
     return response;
   }
 }
-
-final petRepositoryProvider = Provider((ref) => PetRepositoryImpl.shared);

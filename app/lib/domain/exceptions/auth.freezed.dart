@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'auth.dart';
 
@@ -23,7 +23,7 @@ mixin _$AuthException {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notLoggedIn,
+    TResult? Function()? notLoggedIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,7 +39,7 @@ mixin _$AuthException {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotLoggedIn value)? notLoggedIn,
+    TResult? Function(_NotLoggedIn value)? notLoggedIn,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,42 +54,40 @@ mixin _$AuthException {
 abstract class $AuthExceptionCopyWith<$Res> {
   factory $AuthExceptionCopyWith(
           AuthException value, $Res Function(AuthException) then) =
-      _$AuthExceptionCopyWithImpl<$Res>;
+      _$AuthExceptionCopyWithImpl<$Res, AuthException>;
 }
 
 /// @nodoc
-class _$AuthExceptionCopyWithImpl<$Res>
+class _$AuthExceptionCopyWithImpl<$Res, $Val extends AuthException>
     implements $AuthExceptionCopyWith<$Res> {
   _$AuthExceptionCopyWithImpl(this._value, this._then);
 
-  final AuthException _value;
   // ignore: unused_field
-  final $Res Function(AuthException) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$$_NotLoggedInCopyWith<$Res> {
-  factory _$$_NotLoggedInCopyWith(
-          _$_NotLoggedIn value, $Res Function(_$_NotLoggedIn) then) =
-      __$$_NotLoggedInCopyWithImpl<$Res>;
+abstract class _$$NotLoggedInImplCopyWith<$Res> {
+  factory _$$NotLoggedInImplCopyWith(
+          _$NotLoggedInImpl value, $Res Function(_$NotLoggedInImpl) then) =
+      __$$NotLoggedInImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_NotLoggedInCopyWithImpl<$Res>
-    extends _$AuthExceptionCopyWithImpl<$Res>
-    implements _$$_NotLoggedInCopyWith<$Res> {
-  __$$_NotLoggedInCopyWithImpl(
-      _$_NotLoggedIn _value, $Res Function(_$_NotLoggedIn) _then)
-      : super(_value, (v) => _then(v as _$_NotLoggedIn));
-
-  @override
-  _$_NotLoggedIn get _value => super._value as _$_NotLoggedIn;
+class __$$NotLoggedInImplCopyWithImpl<$Res>
+    extends _$AuthExceptionCopyWithImpl<$Res, _$NotLoggedInImpl>
+    implements _$$NotLoggedInImplCopyWith<$Res> {
+  __$$NotLoggedInImplCopyWithImpl(
+      _$NotLoggedInImpl _value, $Res Function(_$NotLoggedInImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_NotLoggedIn implements _NotLoggedIn {
-  _$_NotLoggedIn();
+class _$NotLoggedInImpl implements _NotLoggedIn {
+  _$NotLoggedInImpl();
 
   @override
   String toString() {
@@ -97,9 +95,9 @@ class _$_NotLoggedIn implements _NotLoggedIn {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_NotLoggedIn);
+        (other.runtimeType == runtimeType && other is _$NotLoggedInImpl);
   }
 
   @override
@@ -116,7 +114,7 @@ class _$_NotLoggedIn implements _NotLoggedIn {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? notLoggedIn,
+    TResult? Function()? notLoggedIn,
   }) {
     return notLoggedIn?.call();
   }
@@ -144,7 +142,7 @@ class _$_NotLoggedIn implements _NotLoggedIn {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotLoggedIn value)? notLoggedIn,
+    TResult? Function(_NotLoggedIn value)? notLoggedIn,
   }) {
     return notLoggedIn?.call(this);
   }
@@ -163,5 +161,5 @@ class _$_NotLoggedIn implements _NotLoggedIn {
 }
 
 abstract class _NotLoggedIn implements AuthException {
-  factory _NotLoggedIn() = _$_NotLoggedIn;
+  factory _NotLoggedIn() = _$NotLoggedInImpl;
 }

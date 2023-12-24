@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'pet.dart';
 
@@ -26,10 +26,10 @@ mixin _$PetException {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PetID petID)? notExists,
-    TResult Function()? alreadyJoined,
-    TResult Function()? emptyList,
-    TResult Function()? failToScanQR,
+    TResult? Function(PetID petID)? notExists,
+    TResult? Function()? alreadyJoined,
+    TResult? Function()? emptyList,
+    TResult? Function()? failToScanQR,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,10 +51,10 @@ mixin _$PetException {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotExists value)? notExists,
-    TResult Function(_AlreadyJoined value)? alreadyJoined,
-    TResult Function(_EmptyList value)? emptyList,
-    TResult Function(_FailToScanQR value)? failToScanQR,
+    TResult? Function(_NotExists value)? notExists,
+    TResult? Function(_AlreadyJoined value)? alreadyJoined,
+    TResult? Function(_EmptyList value)? emptyList,
+    TResult? Function(_FailToScanQR value)? failToScanQR,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,44 +72,46 @@ mixin _$PetException {
 abstract class $PetExceptionCopyWith<$Res> {
   factory $PetExceptionCopyWith(
           PetException value, $Res Function(PetException) then) =
-      _$PetExceptionCopyWithImpl<$Res>;
+      _$PetExceptionCopyWithImpl<$Res, PetException>;
 }
 
 /// @nodoc
-class _$PetExceptionCopyWithImpl<$Res> implements $PetExceptionCopyWith<$Res> {
+class _$PetExceptionCopyWithImpl<$Res, $Val extends PetException>
+    implements $PetExceptionCopyWith<$Res> {
   _$PetExceptionCopyWithImpl(this._value, this._then);
 
-  final PetException _value;
   // ignore: unused_field
-  final $Res Function(PetException) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$$_NotExistsCopyWith<$Res> {
-  factory _$$_NotExistsCopyWith(
-          _$_NotExists value, $Res Function(_$_NotExists) then) =
-      __$$_NotExistsCopyWithImpl<$Res>;
+abstract class _$$NotExistsImplCopyWith<$Res> {
+  factory _$$NotExistsImplCopyWith(
+          _$NotExistsImpl value, $Res Function(_$NotExistsImpl) then) =
+      __$$NotExistsImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({PetID petID});
 
   $PetIDCopyWith<$Res> get petID;
 }
 
 /// @nodoc
-class __$$_NotExistsCopyWithImpl<$Res> extends _$PetExceptionCopyWithImpl<$Res>
-    implements _$$_NotExistsCopyWith<$Res> {
-  __$$_NotExistsCopyWithImpl(
-      _$_NotExists _value, $Res Function(_$_NotExists) _then)
-      : super(_value, (v) => _then(v as _$_NotExists));
+class __$$NotExistsImplCopyWithImpl<$Res>
+    extends _$PetExceptionCopyWithImpl<$Res, _$NotExistsImpl>
+    implements _$$NotExistsImplCopyWith<$Res> {
+  __$$NotExistsImplCopyWithImpl(
+      _$NotExistsImpl _value, $Res Function(_$NotExistsImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_NotExists get _value => super._value as _$_NotExists;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? petID = freezed,
+    Object? petID = null,
   }) {
-    return _then(_$_NotExists(
-      petID == freezed
+    return _then(_$NotExistsImpl(
+      null == petID
           ? _value.petID
           : petID // ignore: cast_nullable_to_non_nullable
               as PetID,
@@ -117,6 +119,7 @@ class __$$_NotExistsCopyWithImpl<$Res> extends _$PetExceptionCopyWithImpl<$Res>
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PetIDCopyWith<$Res> get petID {
     return $PetIDCopyWith<$Res>(_value.petID, (value) {
       return _then(_value.copyWith(petID: value));
@@ -126,8 +129,8 @@ class __$$_NotExistsCopyWithImpl<$Res> extends _$PetExceptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NotExists implements _NotExists {
-  _$_NotExists(this.petID);
+class _$NotExistsImpl implements _NotExists {
+  _$NotExistsImpl(this.petID);
 
   @override
   final PetID petID;
@@ -138,21 +141,21 @@ class _$_NotExists implements _NotExists {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NotExists &&
-            const DeepCollectionEquality().equals(other.petID, petID));
+            other is _$NotExistsImpl &&
+            (identical(other.petID, petID) || other.petID == petID));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(petID));
+  int get hashCode => Object.hash(runtimeType, petID);
 
   @JsonKey(ignore: true)
   @override
-  _$$_NotExistsCopyWith<_$_NotExists> get copyWith =>
-      __$$_NotExistsCopyWithImpl<_$_NotExists>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$NotExistsImplCopyWith<_$NotExistsImpl> get copyWith =>
+      __$$NotExistsImplCopyWithImpl<_$NotExistsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -168,10 +171,10 @@ class _$_NotExists implements _NotExists {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PetID petID)? notExists,
-    TResult Function()? alreadyJoined,
-    TResult Function()? emptyList,
-    TResult Function()? failToScanQR,
+    TResult? Function(PetID petID)? notExists,
+    TResult? Function()? alreadyJoined,
+    TResult? Function()? emptyList,
+    TResult? Function()? failToScanQR,
   }) {
     return notExists?.call(petID);
   }
@@ -205,10 +208,10 @@ class _$_NotExists implements _NotExists {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotExists value)? notExists,
-    TResult Function(_AlreadyJoined value)? alreadyJoined,
-    TResult Function(_EmptyList value)? emptyList,
-    TResult Function(_FailToScanQR value)? failToScanQR,
+    TResult? Function(_NotExists value)? notExists,
+    TResult? Function(_AlreadyJoined value)? alreadyJoined,
+    TResult? Function(_EmptyList value)? emptyList,
+    TResult? Function(_FailToScanQR value)? failToScanQR,
   }) {
     return notExists?.call(this);
   }
@@ -230,37 +233,34 @@ class _$_NotExists implements _NotExists {
 }
 
 abstract class _NotExists implements PetException {
-  factory _NotExists(final PetID petID) = _$_NotExists;
+  factory _NotExists(final PetID petID) = _$NotExistsImpl;
 
   PetID get petID;
   @JsonKey(ignore: true)
-  _$$_NotExistsCopyWith<_$_NotExists> get copyWith =>
+  _$$NotExistsImplCopyWith<_$NotExistsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_AlreadyJoinedCopyWith<$Res> {
-  factory _$$_AlreadyJoinedCopyWith(
-          _$_AlreadyJoined value, $Res Function(_$_AlreadyJoined) then) =
-      __$$_AlreadyJoinedCopyWithImpl<$Res>;
+abstract class _$$AlreadyJoinedImplCopyWith<$Res> {
+  factory _$$AlreadyJoinedImplCopyWith(
+          _$AlreadyJoinedImpl value, $Res Function(_$AlreadyJoinedImpl) then) =
+      __$$AlreadyJoinedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AlreadyJoinedCopyWithImpl<$Res>
-    extends _$PetExceptionCopyWithImpl<$Res>
-    implements _$$_AlreadyJoinedCopyWith<$Res> {
-  __$$_AlreadyJoinedCopyWithImpl(
-      _$_AlreadyJoined _value, $Res Function(_$_AlreadyJoined) _then)
-      : super(_value, (v) => _then(v as _$_AlreadyJoined));
-
-  @override
-  _$_AlreadyJoined get _value => super._value as _$_AlreadyJoined;
+class __$$AlreadyJoinedImplCopyWithImpl<$Res>
+    extends _$PetExceptionCopyWithImpl<$Res, _$AlreadyJoinedImpl>
+    implements _$$AlreadyJoinedImplCopyWith<$Res> {
+  __$$AlreadyJoinedImplCopyWithImpl(
+      _$AlreadyJoinedImpl _value, $Res Function(_$AlreadyJoinedImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AlreadyJoined implements _AlreadyJoined {
-  _$_AlreadyJoined();
+class _$AlreadyJoinedImpl implements _AlreadyJoined {
+  _$AlreadyJoinedImpl();
 
   @override
   String toString() {
@@ -268,9 +268,9 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AlreadyJoined);
+        (other.runtimeType == runtimeType && other is _$AlreadyJoinedImpl);
   }
 
   @override
@@ -290,10 +290,10 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PetID petID)? notExists,
-    TResult Function()? alreadyJoined,
-    TResult Function()? emptyList,
-    TResult Function()? failToScanQR,
+    TResult? Function(PetID petID)? notExists,
+    TResult? Function()? alreadyJoined,
+    TResult? Function()? emptyList,
+    TResult? Function()? failToScanQR,
   }) {
     return alreadyJoined?.call();
   }
@@ -327,10 +327,10 @@ class _$_AlreadyJoined implements _AlreadyJoined {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotExists value)? notExists,
-    TResult Function(_AlreadyJoined value)? alreadyJoined,
-    TResult Function(_EmptyList value)? emptyList,
-    TResult Function(_FailToScanQR value)? failToScanQR,
+    TResult? Function(_NotExists value)? notExists,
+    TResult? Function(_AlreadyJoined value)? alreadyJoined,
+    TResult? Function(_EmptyList value)? emptyList,
+    TResult? Function(_FailToScanQR value)? failToScanQR,
   }) {
     return alreadyJoined?.call(this);
   }
@@ -352,31 +352,29 @@ class _$_AlreadyJoined implements _AlreadyJoined {
 }
 
 abstract class _AlreadyJoined implements PetException {
-  factory _AlreadyJoined() = _$_AlreadyJoined;
+  factory _AlreadyJoined() = _$AlreadyJoinedImpl;
 }
 
 /// @nodoc
-abstract class _$$_EmptyListCopyWith<$Res> {
-  factory _$$_EmptyListCopyWith(
-          _$_EmptyList value, $Res Function(_$_EmptyList) then) =
-      __$$_EmptyListCopyWithImpl<$Res>;
+abstract class _$$EmptyListImplCopyWith<$Res> {
+  factory _$$EmptyListImplCopyWith(
+          _$EmptyListImpl value, $Res Function(_$EmptyListImpl) then) =
+      __$$EmptyListImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_EmptyListCopyWithImpl<$Res> extends _$PetExceptionCopyWithImpl<$Res>
-    implements _$$_EmptyListCopyWith<$Res> {
-  __$$_EmptyListCopyWithImpl(
-      _$_EmptyList _value, $Res Function(_$_EmptyList) _then)
-      : super(_value, (v) => _then(v as _$_EmptyList));
-
-  @override
-  _$_EmptyList get _value => super._value as _$_EmptyList;
+class __$$EmptyListImplCopyWithImpl<$Res>
+    extends _$PetExceptionCopyWithImpl<$Res, _$EmptyListImpl>
+    implements _$$EmptyListImplCopyWith<$Res> {
+  __$$EmptyListImplCopyWithImpl(
+      _$EmptyListImpl _value, $Res Function(_$EmptyListImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_EmptyList implements _EmptyList {
-  _$_EmptyList();
+class _$EmptyListImpl implements _EmptyList {
+  _$EmptyListImpl();
 
   @override
   String toString() {
@@ -384,9 +382,9 @@ class _$_EmptyList implements _EmptyList {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_EmptyList);
+        (other.runtimeType == runtimeType && other is _$EmptyListImpl);
   }
 
   @override
@@ -406,10 +404,10 @@ class _$_EmptyList implements _EmptyList {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PetID petID)? notExists,
-    TResult Function()? alreadyJoined,
-    TResult Function()? emptyList,
-    TResult Function()? failToScanQR,
+    TResult? Function(PetID petID)? notExists,
+    TResult? Function()? alreadyJoined,
+    TResult? Function()? emptyList,
+    TResult? Function()? failToScanQR,
   }) {
     return emptyList?.call();
   }
@@ -443,10 +441,10 @@ class _$_EmptyList implements _EmptyList {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotExists value)? notExists,
-    TResult Function(_AlreadyJoined value)? alreadyJoined,
-    TResult Function(_EmptyList value)? emptyList,
-    TResult Function(_FailToScanQR value)? failToScanQR,
+    TResult? Function(_NotExists value)? notExists,
+    TResult? Function(_AlreadyJoined value)? alreadyJoined,
+    TResult? Function(_EmptyList value)? emptyList,
+    TResult? Function(_FailToScanQR value)? failToScanQR,
   }) {
     return emptyList?.call(this);
   }
@@ -468,32 +466,29 @@ class _$_EmptyList implements _EmptyList {
 }
 
 abstract class _EmptyList implements PetException {
-  factory _EmptyList() = _$_EmptyList;
+  factory _EmptyList() = _$EmptyListImpl;
 }
 
 /// @nodoc
-abstract class _$$_FailToScanQRCopyWith<$Res> {
-  factory _$$_FailToScanQRCopyWith(
-          _$_FailToScanQR value, $Res Function(_$_FailToScanQR) then) =
-      __$$_FailToScanQRCopyWithImpl<$Res>;
+abstract class _$$FailToScanQRImplCopyWith<$Res> {
+  factory _$$FailToScanQRImplCopyWith(
+          _$FailToScanQRImpl value, $Res Function(_$FailToScanQRImpl) then) =
+      __$$FailToScanQRImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FailToScanQRCopyWithImpl<$Res>
-    extends _$PetExceptionCopyWithImpl<$Res>
-    implements _$$_FailToScanQRCopyWith<$Res> {
-  __$$_FailToScanQRCopyWithImpl(
-      _$_FailToScanQR _value, $Res Function(_$_FailToScanQR) _then)
-      : super(_value, (v) => _then(v as _$_FailToScanQR));
-
-  @override
-  _$_FailToScanQR get _value => super._value as _$_FailToScanQR;
+class __$$FailToScanQRImplCopyWithImpl<$Res>
+    extends _$PetExceptionCopyWithImpl<$Res, _$FailToScanQRImpl>
+    implements _$$FailToScanQRImplCopyWith<$Res> {
+  __$$FailToScanQRImplCopyWithImpl(
+      _$FailToScanQRImpl _value, $Res Function(_$FailToScanQRImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_FailToScanQR implements _FailToScanQR {
-  _$_FailToScanQR();
+class _$FailToScanQRImpl implements _FailToScanQR {
+  _$FailToScanQRImpl();
 
   @override
   String toString() {
@@ -501,9 +496,9 @@ class _$_FailToScanQR implements _FailToScanQR {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_FailToScanQR);
+        (other.runtimeType == runtimeType && other is _$FailToScanQRImpl);
   }
 
   @override
@@ -523,10 +518,10 @@ class _$_FailToScanQR implements _FailToScanQR {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(PetID petID)? notExists,
-    TResult Function()? alreadyJoined,
-    TResult Function()? emptyList,
-    TResult Function()? failToScanQR,
+    TResult? Function(PetID petID)? notExists,
+    TResult? Function()? alreadyJoined,
+    TResult? Function()? emptyList,
+    TResult? Function()? failToScanQR,
   }) {
     return failToScanQR?.call();
   }
@@ -560,10 +555,10 @@ class _$_FailToScanQR implements _FailToScanQR {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_NotExists value)? notExists,
-    TResult Function(_AlreadyJoined value)? alreadyJoined,
-    TResult Function(_EmptyList value)? emptyList,
-    TResult Function(_FailToScanQR value)? failToScanQR,
+    TResult? Function(_NotExists value)? notExists,
+    TResult? Function(_AlreadyJoined value)? alreadyJoined,
+    TResult? Function(_EmptyList value)? emptyList,
+    TResult? Function(_FailToScanQR value)? failToScanQR,
   }) {
     return failToScanQR?.call(this);
   }
@@ -585,5 +580,5 @@ class _$_FailToScanQR implements _FailToScanQR {
 }
 
 abstract class _FailToScanQR implements PetException {
-  factory _FailToScanQR() = _$_FailToScanQR;
+  factory _FailToScanQR() = _$FailToScanQRImpl;
 }

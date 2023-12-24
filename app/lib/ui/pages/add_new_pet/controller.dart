@@ -6,22 +6,18 @@ import 'package:image_picker/image_picker.dart';
 import 'package:petfee/domain/entities/pet.dart';
 import 'package:petfee/domain/exceptions/auth.dart';
 import 'package:petfee/ui/pages/add_new_pet/state.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '/domain/repositories/auth/repository.dart';
 import '/domain/repositories/pet/repository.dart';
 import '/domain/services/push_notification.dart';
 
-class AddNewPetController extends StateNotifier<AddNewPetState> {
-  final AuthRepository _authRepository;
-  final PetRepository _petRepository;
-  final PushNotificationClient _pushNotificationClient;
+part 'controller.g.dart';
 
-  AddNewPetController(
-    AddNewPetState state,
-    this._authRepository,
-    this._petRepository,
-    this._pushNotificationClient,
-  ) : super(state);
+@Riverpod(dependencies: [PetRepository])
+class AddNewPetController extends _$AddNewPetController {
+  @override
+  AddNewPetState build() => AddNewPetState();
 
   updatePetName(String newValue) {
     state = state.copyWith(
@@ -71,8 +67,8 @@ class AddNewPetController extends StateNotifier<AddNewPetState> {
       file = null;
     }
     try {
-      final userID = await _authRepository.userID;
-      final petID = await _petRepository.saveNewPet(
+      final userID = await authRepository.userID;
+      final petID = await petRepository.saveNewPet(
         userID: userID,
         entity: petModel,
         avatar: file,
@@ -89,7 +85,7 @@ class AddNewPetController extends StateNotifier<AddNewPetState> {
         );
         await _pushNotificationClient.subscribeTopic(petID);
       }
-    }  catch (e) {
+    } catch (e) {
       if (kDebugMode) {
         print(e);
       }
@@ -112,17 +108,3 @@ class AddNewPetController extends StateNotifier<AddNewPetState> {
     );
   }
 }
-
-final addNewPetController =
-    StateNotifierProvider<AddNewPetController, AddNewPetState>((ref) {
-  final state = AddNewPetState();
-  final auth = ref.watch(authRepositoryProvider);
-  final pet = ref.watch(petRepositoryProvider);
-  final push = ref.watch(pushNotificationProvider);
-  return AddNewPetController(
-    state,
-    auth,
-    pet,
-    push,
-  );
-});

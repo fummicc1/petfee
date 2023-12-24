@@ -6,15 +6,16 @@ part of 'pet.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_PetID _$$_PetIDFromJson(Map<String, dynamic> json) => _$_PetID(
+_$PetIDImpl _$$PetIDImplFromJson(Map<String, dynamic> json) => _$PetIDImpl(
       json['value'] as String,
     );
 
-Map<String, dynamic> _$$_PetIDToJson(_$_PetID instance) => <String, dynamic>{
+Map<String, dynamic> _$$PetIDImplToJson(_$PetIDImpl instance) =>
+    <String, dynamic>{
       'value': instance.value,
     };
 
-_$_Pet _$$_PetFromJson(Map<String, dynamic> json) => _$_Pet(
+_$PetImpl _$$PetImplFromJson(Map<String, dynamic> json) => _$PetImpl(
       petID: PetID.fromJson(json['petID'] as Map<String, dynamic>),
       name: json['name'] as String,
       avatarURL: json['avatarURL'] as String?,
@@ -26,7 +27,7 @@ _$_Pet _$$_PetFromJson(Map<String, dynamic> json) => _$_Pet(
       updatedAt: DateTime.parse(json['updatedAt'] as String),
     );
 
-Map<String, dynamic> _$$_PetToJson(_$_Pet instance) => <String, dynamic>{
+Map<String, dynamic> _$$PetImplToJson(_$PetImpl instance) => <String, dynamic>{
       'petID': instance.petID.toJson(),
       'name': instance.name,
       'avatarURL': instance.avatarURL,

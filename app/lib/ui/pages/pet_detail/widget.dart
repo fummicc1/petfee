@@ -1,17 +1,16 @@
 import 'dart:math';
 
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:petfee/ui/pages/add_feed/controller.dart';
 import 'package:petfee/utils/datetime.dart';
+
 import '/domain/entities/pet.dart';
+import '/ui/pages/add_feed/widget.dart';
 import 'controller.dart';
 import 'state.dart';
-import '/ui/pages/add_feed/widget.dart';
 
 class PetDetailPage extends ConsumerWidget {
   const PetDetailPage({Key? key, required this.pet}) : super(key: key);
@@ -172,7 +171,7 @@ class PetDetailPage extends ConsumerWidget {
       MaterialPageRoute(
         builder: (context) {
           return AddFeedPage(
-            input: AddFeedConrollerInput(
+            input: AddFeedControllerInput(
               pet,
               initialSelectedDate,
             ),

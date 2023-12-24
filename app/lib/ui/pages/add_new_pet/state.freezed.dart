@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'state.dart';
 
@@ -31,7 +31,8 @@ mixin _$AddNewPetState {
 abstract class $AddNewPetStateCopyWith<$Res> {
   factory $AddNewPetStateCopyWith(
           AddNewPetState value, $Res Function(AddNewPetState) then) =
-      _$AddNewPetStateCopyWithImpl<$Res>;
+      _$AddNewPetStateCopyWithImpl<$Res, AddNewPetState>;
+  @useResult
   $Res call(
       {String petName,
       int numberOfFeedPerDay,
@@ -41,54 +42,57 @@ abstract class $AddNewPetStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AddNewPetStateCopyWithImpl<$Res>
+class _$AddNewPetStateCopyWithImpl<$Res, $Val extends AddNewPetState>
     implements $AddNewPetStateCopyWith<$Res> {
   _$AddNewPetStateCopyWithImpl(this._value, this._then);
 
-  final AddNewPetState _value;
   // ignore: unused_field
-  final $Res Function(AddNewPetState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? petName = freezed,
-    Object? numberOfFeedPerDay = freezed,
-    Object? showLoading = freezed,
-    Object? canCompleteNewPetSettings = freezed,
+    Object? petName = null,
+    Object? numberOfFeedPerDay = null,
+    Object? showLoading = null,
+    Object? canCompleteNewPetSettings = null,
     Object? petAvatar = freezed,
   }) {
     return _then(_value.copyWith(
-      petName: petName == freezed
+      petName: null == petName
           ? _value.petName
           : petName // ignore: cast_nullable_to_non_nullable
               as String,
-      numberOfFeedPerDay: numberOfFeedPerDay == freezed
+      numberOfFeedPerDay: null == numberOfFeedPerDay
           ? _value.numberOfFeedPerDay
           : numberOfFeedPerDay // ignore: cast_nullable_to_non_nullable
               as int,
-      showLoading: showLoading == freezed
+      showLoading: null == showLoading
           ? _value.showLoading
           : showLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      canCompleteNewPetSettings: canCompleteNewPetSettings == freezed
+      canCompleteNewPetSettings: null == canCompleteNewPetSettings
           ? _value.canCompleteNewPetSettings
           : canCompleteNewPetSettings // ignore: cast_nullable_to_non_nullable
               as bool,
-      petAvatar: petAvatar == freezed
+      petAvatar: freezed == petAvatar
           ? _value.petAvatar
           : petAvatar // ignore: cast_nullable_to_non_nullable
               as XFile?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_AddNewPetStateCopyWith<$Res>
+abstract class _$$AddNewPetStateImplCopyWith<$Res>
     implements $AddNewPetStateCopyWith<$Res> {
-  factory _$$_AddNewPetStateCopyWith(
-          _$_AddNewPetState value, $Res Function(_$_AddNewPetState) then) =
-      __$$_AddNewPetStateCopyWithImpl<$Res>;
+  factory _$$AddNewPetStateImplCopyWith(_$AddNewPetStateImpl value,
+          $Res Function(_$AddNewPetStateImpl) then) =
+      __$$AddNewPetStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String petName,
       int numberOfFeedPerDay,
@@ -98,42 +102,40 @@ abstract class _$$_AddNewPetStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AddNewPetStateCopyWithImpl<$Res>
-    extends _$AddNewPetStateCopyWithImpl<$Res>
-    implements _$$_AddNewPetStateCopyWith<$Res> {
-  __$$_AddNewPetStateCopyWithImpl(
-      _$_AddNewPetState _value, $Res Function(_$_AddNewPetState) _then)
-      : super(_value, (v) => _then(v as _$_AddNewPetState));
+class __$$AddNewPetStateImplCopyWithImpl<$Res>
+    extends _$AddNewPetStateCopyWithImpl<$Res, _$AddNewPetStateImpl>
+    implements _$$AddNewPetStateImplCopyWith<$Res> {
+  __$$AddNewPetStateImplCopyWithImpl(
+      _$AddNewPetStateImpl _value, $Res Function(_$AddNewPetStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_AddNewPetState get _value => super._value as _$_AddNewPetState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? petName = freezed,
-    Object? numberOfFeedPerDay = freezed,
-    Object? showLoading = freezed,
-    Object? canCompleteNewPetSettings = freezed,
+    Object? petName = null,
+    Object? numberOfFeedPerDay = null,
+    Object? showLoading = null,
+    Object? canCompleteNewPetSettings = null,
     Object? petAvatar = freezed,
   }) {
-    return _then(_$_AddNewPetState(
-      petName: petName == freezed
+    return _then(_$AddNewPetStateImpl(
+      petName: null == petName
           ? _value.petName
           : petName // ignore: cast_nullable_to_non_nullable
               as String,
-      numberOfFeedPerDay: numberOfFeedPerDay == freezed
+      numberOfFeedPerDay: null == numberOfFeedPerDay
           ? _value.numberOfFeedPerDay
           : numberOfFeedPerDay // ignore: cast_nullable_to_non_nullable
               as int,
-      showLoading: showLoading == freezed
+      showLoading: null == showLoading
           ? _value.showLoading
           : showLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      canCompleteNewPetSettings: canCompleteNewPetSettings == freezed
+      canCompleteNewPetSettings: null == canCompleteNewPetSettings
           ? _value.canCompleteNewPetSettings
           : canCompleteNewPetSettings // ignore: cast_nullable_to_non_nullable
               as bool,
-      petAvatar: petAvatar == freezed
+      petAvatar: freezed == petAvatar
           ? _value.petAvatar
           : petAvatar // ignore: cast_nullable_to_non_nullable
               as XFile?,
@@ -143,8 +145,8 @@ class __$$_AddNewPetStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddNewPetState implements _AddNewPetState {
-  _$_AddNewPetState(
+class _$AddNewPetStateImpl implements _AddNewPetState {
+  _$AddNewPetStateImpl(
       {this.petName = "",
       this.numberOfFeedPerDay = 2,
       this.showLoading = false,
@@ -172,33 +174,32 @@ class _$_AddNewPetState implements _AddNewPetState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddNewPetState &&
-            const DeepCollectionEquality().equals(other.petName, petName) &&
-            const DeepCollectionEquality()
-                .equals(other.numberOfFeedPerDay, numberOfFeedPerDay) &&
-            const DeepCollectionEquality()
-                .equals(other.showLoading, showLoading) &&
-            const DeepCollectionEquality().equals(
-                other.canCompleteNewPetSettings, canCompleteNewPetSettings) &&
-            const DeepCollectionEquality().equals(other.petAvatar, petAvatar));
+            other is _$AddNewPetStateImpl &&
+            (identical(other.petName, petName) || other.petName == petName) &&
+            (identical(other.numberOfFeedPerDay, numberOfFeedPerDay) ||
+                other.numberOfFeedPerDay == numberOfFeedPerDay) &&
+            (identical(other.showLoading, showLoading) ||
+                other.showLoading == showLoading) &&
+            (identical(other.canCompleteNewPetSettings,
+                    canCompleteNewPetSettings) ||
+                other.canCompleteNewPetSettings == canCompleteNewPetSettings) &&
+            (identical(other.petAvatar, petAvatar) ||
+                other.petAvatar == petAvatar));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(petName),
-      const DeepCollectionEquality().hash(numberOfFeedPerDay),
-      const DeepCollectionEquality().hash(showLoading),
-      const DeepCollectionEquality().hash(canCompleteNewPetSettings),
-      const DeepCollectionEquality().hash(petAvatar));
+  int get hashCode => Object.hash(runtimeType, petName, numberOfFeedPerDay,
+      showLoading, canCompleteNewPetSettings, petAvatar);
 
   @JsonKey(ignore: true)
   @override
-  _$$_AddNewPetStateCopyWith<_$_AddNewPetState> get copyWith =>
-      __$$_AddNewPetStateCopyWithImpl<_$_AddNewPetState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AddNewPetStateImplCopyWith<_$AddNewPetStateImpl> get copyWith =>
+      __$$AddNewPetStateImplCopyWithImpl<_$AddNewPetStateImpl>(
+          this, _$identity);
 }
 
 abstract class _AddNewPetState implements AddNewPetState {
@@ -207,7 +208,7 @@ abstract class _AddNewPetState implements AddNewPetState {
       final int numberOfFeedPerDay,
       final bool showLoading,
       final bool canCompleteNewPetSettings,
-      final XFile? petAvatar}) = _$_AddNewPetState;
+      final XFile? petAvatar}) = _$AddNewPetStateImpl;
 
   @override
   String get petName;
@@ -221,6 +222,6 @@ abstract class _AddNewPetState implements AddNewPetState {
   XFile? get petAvatar;
   @override
   @JsonKey(ignore: true)
-  _$$_AddNewPetStateCopyWith<_$_AddNewPetState> get copyWith =>
+  _$$AddNewPetStateImplCopyWith<_$AddNewPetStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

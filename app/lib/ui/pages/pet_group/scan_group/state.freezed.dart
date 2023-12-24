@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'state.dart';
 
@@ -29,7 +29,8 @@ mixin _$ScanPetGroupState {
 abstract class $ScanPetGroupStateCopyWith<$Res> {
   factory $ScanPetGroupStateCopyWith(
           ScanPetGroupState value, $Res Function(ScanPetGroupState) then) =
-      _$ScanPetGroupStateCopyWithImpl<$Res>;
+      _$ScanPetGroupStateCopyWithImpl<$Res, ScanPetGroupState>;
+  @useResult
   $Res call(
       {bool showPreview,
       QRViewController? qrViewController,
@@ -37,44 +38,47 @@ abstract class $ScanPetGroupStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ScanPetGroupStateCopyWithImpl<$Res>
+class _$ScanPetGroupStateCopyWithImpl<$Res, $Val extends ScanPetGroupState>
     implements $ScanPetGroupStateCopyWith<$Res> {
   _$ScanPetGroupStateCopyWithImpl(this._value, this._then);
 
-  final ScanPetGroupState _value;
   // ignore: unused_field
-  final $Res Function(ScanPetGroupState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? showPreview = freezed,
+    Object? showPreview = null,
     Object? qrViewController = freezed,
-    Object? isLoadingQRCode = freezed,
+    Object? isLoadingQRCode = null,
   }) {
     return _then(_value.copyWith(
-      showPreview: showPreview == freezed
+      showPreview: null == showPreview
           ? _value.showPreview
           : showPreview // ignore: cast_nullable_to_non_nullable
               as bool,
-      qrViewController: qrViewController == freezed
+      qrViewController: freezed == qrViewController
           ? _value.qrViewController
           : qrViewController // ignore: cast_nullable_to_non_nullable
               as QRViewController?,
-      isLoadingQRCode: isLoadingQRCode == freezed
+      isLoadingQRCode: null == isLoadingQRCode
           ? _value.isLoadingQRCode
           : isLoadingQRCode // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_ScanPetGroupStateCopyWith<$Res>
+abstract class _$$ScanPetGroupStateImplCopyWith<$Res>
     implements $ScanPetGroupStateCopyWith<$Res> {
-  factory _$$_ScanPetGroupStateCopyWith(_$_ScanPetGroupState value,
-          $Res Function(_$_ScanPetGroupState) then) =
-      __$$_ScanPetGroupStateCopyWithImpl<$Res>;
+  factory _$$ScanPetGroupStateImplCopyWith(_$ScanPetGroupStateImpl value,
+          $Res Function(_$ScanPetGroupStateImpl) then) =
+      __$$ScanPetGroupStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool showPreview,
       QRViewController? qrViewController,
@@ -82,32 +86,30 @@ abstract class _$$_ScanPetGroupStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ScanPetGroupStateCopyWithImpl<$Res>
-    extends _$ScanPetGroupStateCopyWithImpl<$Res>
-    implements _$$_ScanPetGroupStateCopyWith<$Res> {
-  __$$_ScanPetGroupStateCopyWithImpl(
-      _$_ScanPetGroupState _value, $Res Function(_$_ScanPetGroupState) _then)
-      : super(_value, (v) => _then(v as _$_ScanPetGroupState));
+class __$$ScanPetGroupStateImplCopyWithImpl<$Res>
+    extends _$ScanPetGroupStateCopyWithImpl<$Res, _$ScanPetGroupStateImpl>
+    implements _$$ScanPetGroupStateImplCopyWith<$Res> {
+  __$$ScanPetGroupStateImplCopyWithImpl(_$ScanPetGroupStateImpl _value,
+      $Res Function(_$ScanPetGroupStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_ScanPetGroupState get _value => super._value as _$_ScanPetGroupState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? showPreview = freezed,
+    Object? showPreview = null,
     Object? qrViewController = freezed,
-    Object? isLoadingQRCode = freezed,
+    Object? isLoadingQRCode = null,
   }) {
-    return _then(_$_ScanPetGroupState(
-      showPreview: showPreview == freezed
+    return _then(_$ScanPetGroupStateImpl(
+      showPreview: null == showPreview
           ? _value.showPreview
           : showPreview // ignore: cast_nullable_to_non_nullable
               as bool,
-      qrViewController: qrViewController == freezed
+      qrViewController: freezed == qrViewController
           ? _value.qrViewController
           : qrViewController // ignore: cast_nullable_to_non_nullable
               as QRViewController?,
-      isLoadingQRCode: isLoadingQRCode == freezed
+      isLoadingQRCode: null == isLoadingQRCode
           ? _value.isLoadingQRCode
           : isLoadingQRCode // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -117,8 +119,8 @@ class __$$_ScanPetGroupStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ScanPetGroupState implements _ScanPetGroupState {
-  const _$_ScanPetGroupState(
+class _$ScanPetGroupStateImpl implements _ScanPetGroupState {
+  const _$ScanPetGroupStateImpl(
       {this.showPreview = true,
       this.qrViewController,
       this.isLoadingQRCode = false});
@@ -138,29 +140,27 @@ class _$_ScanPetGroupState implements _ScanPetGroupState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ScanPetGroupState &&
-            const DeepCollectionEquality()
-                .equals(other.showPreview, showPreview) &&
-            const DeepCollectionEquality()
-                .equals(other.qrViewController, qrViewController) &&
-            const DeepCollectionEquality()
-                .equals(other.isLoadingQRCode, isLoadingQRCode));
+            other is _$ScanPetGroupStateImpl &&
+            (identical(other.showPreview, showPreview) ||
+                other.showPreview == showPreview) &&
+            (identical(other.qrViewController, qrViewController) ||
+                other.qrViewController == qrViewController) &&
+            (identical(other.isLoadingQRCode, isLoadingQRCode) ||
+                other.isLoadingQRCode == isLoadingQRCode));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(showPreview),
-      const DeepCollectionEquality().hash(qrViewController),
-      const DeepCollectionEquality().hash(isLoadingQRCode));
+  int get hashCode =>
+      Object.hash(runtimeType, showPreview, qrViewController, isLoadingQRCode);
 
   @JsonKey(ignore: true)
   @override
-  _$$_ScanPetGroupStateCopyWith<_$_ScanPetGroupState> get copyWith =>
-      __$$_ScanPetGroupStateCopyWithImpl<_$_ScanPetGroupState>(
+  @pragma('vm:prefer-inline')
+  _$$ScanPetGroupStateImplCopyWith<_$ScanPetGroupStateImpl> get copyWith =>
+      __$$ScanPetGroupStateImplCopyWithImpl<_$ScanPetGroupStateImpl>(
           this, _$identity);
 }
 
@@ -168,7 +168,7 @@ abstract class _ScanPetGroupState implements ScanPetGroupState {
   const factory _ScanPetGroupState(
       {final bool showPreview,
       final QRViewController? qrViewController,
-      final bool isLoadingQRCode}) = _$_ScanPetGroupState;
+      final bool isLoadingQRCode}) = _$ScanPetGroupStateImpl;
 
   @override
   bool get showPreview;
@@ -178,6 +178,6 @@ abstract class _ScanPetGroupState implements ScanPetGroupState {
   bool get isLoadingQRCode;
   @override
   @JsonKey(ignore: true)
-  _$$_ScanPetGroupStateCopyWith<_$_ScanPetGroupState> get copyWith =>
+  _$$ScanPetGroupStateImplCopyWith<_$ScanPetGroupStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'state.dart';
 
@@ -31,7 +31,8 @@ mixin _$PetDetailState {
 abstract class $PetDetailStateCopyWith<$Res> {
   factory $PetDetailStateCopyWith(
           PetDetailState value, $Res Function(PetDetailState) then) =
-      _$PetDetailStateCopyWithImpl<$Res>;
+      _$PetDetailStateCopyWithImpl<$Res, PetDetailState>;
+  @useResult
   $Res call(
       {Pet pet,
       DateTime selectedDate,
@@ -43,61 +44,65 @@ abstract class $PetDetailStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PetDetailStateCopyWithImpl<$Res>
+class _$PetDetailStateCopyWithImpl<$Res, $Val extends PetDetailState>
     implements $PetDetailStateCopyWith<$Res> {
   _$PetDetailStateCopyWithImpl(this._value, this._then);
 
-  final PetDetailState _value;
   // ignore: unused_field
-  final $Res Function(PetDetailState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pet = freezed,
-    Object? selectedDate = freezed,
-    Object? calendarEventList = freezed,
-    Object? feedCompletionPercentage = freezed,
-    Object? feedsForSelectedDate = freezed,
+    Object? pet = null,
+    Object? selectedDate = null,
+    Object? calendarEventList = null,
+    Object? feedCompletionPercentage = null,
+    Object? feedsForSelectedDate = null,
   }) {
     return _then(_value.copyWith(
-      pet: pet == freezed
+      pet: null == pet
           ? _value.pet
           : pet // ignore: cast_nullable_to_non_nullable
               as Pet,
-      selectedDate: selectedDate == freezed
+      selectedDate: null == selectedDate
           ? _value.selectedDate
           : selectedDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      calendarEventList: calendarEventList == freezed
+      calendarEventList: null == calendarEventList
           ? _value.calendarEventList
           : calendarEventList // ignore: cast_nullable_to_non_nullable
               as EventList<Event>,
-      feedCompletionPercentage: feedCompletionPercentage == freezed
+      feedCompletionPercentage: null == feedCompletionPercentage
           ? _value.feedCompletionPercentage
           : feedCompletionPercentage // ignore: cast_nullable_to_non_nullable
               as double,
-      feedsForSelectedDate: feedsForSelectedDate == freezed
+      feedsForSelectedDate: null == feedsForSelectedDate
           ? _value.feedsForSelectedDate
           : feedsForSelectedDate // ignore: cast_nullable_to_non_nullable
               as List<Feed>,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $PetCopyWith<$Res> get pet {
     return $PetCopyWith<$Res>(_value.pet, (value) {
-      return _then(_value.copyWith(pet: value));
+      return _then(_value.copyWith(pet: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_PetDetailStateCopyWith<$Res>
+abstract class _$$PetDetailStateImplCopyWith<$Res>
     implements $PetDetailStateCopyWith<$Res> {
-  factory _$$_PetDetailStateCopyWith(
-          _$_PetDetailState value, $Res Function(_$_PetDetailState) then) =
-      __$$_PetDetailStateCopyWithImpl<$Res>;
+  factory _$$PetDetailStateImplCopyWith(_$PetDetailStateImpl value,
+          $Res Function(_$PetDetailStateImpl) then) =
+      __$$PetDetailStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {Pet pet,
       DateTime selectedDate,
@@ -110,42 +115,40 @@ abstract class _$$_PetDetailStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_PetDetailStateCopyWithImpl<$Res>
-    extends _$PetDetailStateCopyWithImpl<$Res>
-    implements _$$_PetDetailStateCopyWith<$Res> {
-  __$$_PetDetailStateCopyWithImpl(
-      _$_PetDetailState _value, $Res Function(_$_PetDetailState) _then)
-      : super(_value, (v) => _then(v as _$_PetDetailState));
+class __$$PetDetailStateImplCopyWithImpl<$Res>
+    extends _$PetDetailStateCopyWithImpl<$Res, _$PetDetailStateImpl>
+    implements _$$PetDetailStateImplCopyWith<$Res> {
+  __$$PetDetailStateImplCopyWithImpl(
+      _$PetDetailStateImpl _value, $Res Function(_$PetDetailStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_PetDetailState get _value => super._value as _$_PetDetailState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pet = freezed,
-    Object? selectedDate = freezed,
-    Object? calendarEventList = freezed,
-    Object? feedCompletionPercentage = freezed,
-    Object? feedsForSelectedDate = freezed,
+    Object? pet = null,
+    Object? selectedDate = null,
+    Object? calendarEventList = null,
+    Object? feedCompletionPercentage = null,
+    Object? feedsForSelectedDate = null,
   }) {
-    return _then(_$_PetDetailState(
-      pet: pet == freezed
+    return _then(_$PetDetailStateImpl(
+      pet: null == pet
           ? _value.pet
           : pet // ignore: cast_nullable_to_non_nullable
               as Pet,
-      selectedDate: selectedDate == freezed
+      selectedDate: null == selectedDate
           ? _value.selectedDate
           : selectedDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      calendarEventList: calendarEventList == freezed
+      calendarEventList: null == calendarEventList
           ? _value.calendarEventList
           : calendarEventList // ignore: cast_nullable_to_non_nullable
               as EventList<Event>,
-      feedCompletionPercentage: feedCompletionPercentage == freezed
+      feedCompletionPercentage: null == feedCompletionPercentage
           ? _value.feedCompletionPercentage
           : feedCompletionPercentage // ignore: cast_nullable_to_non_nullable
               as double,
-      feedsForSelectedDate: feedsForSelectedDate == freezed
+      feedsForSelectedDate: null == feedsForSelectedDate
           ? _value._feedsForSelectedDate
           : feedsForSelectedDate // ignore: cast_nullable_to_non_nullable
               as List<Feed>,
@@ -155,8 +158,8 @@ class __$$_PetDetailStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PetDetailState implements _PetDetailState {
-  const _$_PetDetailState(
+class _$PetDetailStateImpl implements _PetDetailState {
+  const _$PetDetailStateImpl(
       {required this.pet,
       required this.selectedDate,
       required this.calendarEventList,
@@ -177,6 +180,8 @@ class _$_PetDetailState implements _PetDetailState {
   @override
   @JsonKey()
   List<Feed> get feedsForSelectedDate {
+    if (_feedsForSelectedDate is EqualUnmodifiableListView)
+      return _feedsForSelectedDate;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_feedsForSelectedDate);
   }
@@ -187,17 +192,18 @@ class _$_PetDetailState implements _PetDetailState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PetDetailState &&
-            const DeepCollectionEquality().equals(other.pet, pet) &&
-            const DeepCollectionEquality()
-                .equals(other.selectedDate, selectedDate) &&
-            const DeepCollectionEquality()
-                .equals(other.calendarEventList, calendarEventList) &&
-            const DeepCollectionEquality().equals(
-                other.feedCompletionPercentage, feedCompletionPercentage) &&
+            other is _$PetDetailStateImpl &&
+            (identical(other.pet, pet) || other.pet == pet) &&
+            (identical(other.selectedDate, selectedDate) ||
+                other.selectedDate == selectedDate) &&
+            (identical(other.calendarEventList, calendarEventList) ||
+                other.calendarEventList == calendarEventList) &&
+            (identical(
+                    other.feedCompletionPercentage, feedCompletionPercentage) ||
+                other.feedCompletionPercentage == feedCompletionPercentage) &&
             const DeepCollectionEquality()
                 .equals(other._feedsForSelectedDate, _feedsForSelectedDate));
   }
@@ -205,16 +211,18 @@ class _$_PetDetailState implements _PetDetailState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(pet),
-      const DeepCollectionEquality().hash(selectedDate),
-      const DeepCollectionEquality().hash(calendarEventList),
-      const DeepCollectionEquality().hash(feedCompletionPercentage),
+      pet,
+      selectedDate,
+      calendarEventList,
+      feedCompletionPercentage,
       const DeepCollectionEquality().hash(_feedsForSelectedDate));
 
   @JsonKey(ignore: true)
   @override
-  _$$_PetDetailStateCopyWith<_$_PetDetailState> get copyWith =>
-      __$$_PetDetailStateCopyWithImpl<_$_PetDetailState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$PetDetailStateImplCopyWith<_$PetDetailStateImpl> get copyWith =>
+      __$$PetDetailStateImplCopyWithImpl<_$PetDetailStateImpl>(
+          this, _$identity);
 }
 
 abstract class _PetDetailState implements PetDetailState {
@@ -223,7 +231,7 @@ abstract class _PetDetailState implements PetDetailState {
       required final DateTime selectedDate,
       required final EventList<Event> calendarEventList,
       final double feedCompletionPercentage,
-      final List<Feed> feedsForSelectedDate}) = _$_PetDetailState;
+      final List<Feed> feedsForSelectedDate}) = _$PetDetailStateImpl;
 
   @override
   Pet get pet;
@@ -237,6 +245,6 @@ abstract class _PetDetailState implements PetDetailState {
   List<Feed> get feedsForSelectedDate;
   @override
   @JsonKey(ignore: true)
-  _$$_PetDetailStateCopyWith<_$_PetDetailState> get copyWith =>
+  _$$PetDetailStateImplCopyWith<_$PetDetailStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

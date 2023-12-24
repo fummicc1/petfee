@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:petfee/domain/repositories/pet/repository.dart';
-import 'package:petfee/ui/pages/pet_group/join_group/widget.dart';
 import 'package:petfee/ui/pages/pet_group/scan_group/controller.dart';
 
 class ScanPetGroupPage extends ConsumerWidget {
-  const ScanPetGroupPage({Key? key}) : super(key: key);
+  const ScanPetGroupPage({super.key});
 
   static const String pageName = "/scan_pet_group_page";
 
@@ -13,8 +12,8 @@ class ScanPetGroupPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final petRepository = ref.watch(petRepositoryProvider);
     final controller =
-        ref.watch(scanPetGroupController(petRepository).notifier);
-    final state = ref.watch(scanPetGroupController(petRepository));
+        ref.watch(scanPetGroupControllerProvider(petRepository).notifier);
+    final state = ref.watch(scanPetGroupControllerProvider(petRepository));
     return Scaffold(
       appBar: AppBar(
         title: const Text("ペットをスキャン"),

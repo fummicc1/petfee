@@ -6,15 +6,16 @@ part of 'feed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_FeedID _$$_FeedIDFromJson(Map<String, dynamic> json) => _$_FeedID(
+_$FeedIDImpl _$$FeedIDImplFromJson(Map<String, dynamic> json) => _$FeedIDImpl(
       json['value'] as String,
     );
 
-Map<String, dynamic> _$$_FeedIDToJson(_$_FeedID instance) => <String, dynamic>{
+Map<String, dynamic> _$$FeedIDImplToJson(_$FeedIDImpl instance) =>
+    <String, dynamic>{
       'value': instance.value,
     };
 
-_$_Feed _$$_FeedFromJson(Map<String, dynamic> json) => _$_Feed(
+_$FeedImpl _$$FeedImplFromJson(Map<String, dynamic> json) => _$FeedImpl(
       feedID: FeedID.fromJson(json['feedID'] as Map<String, dynamic>),
       date: DateTime.parse(json['date'] as String),
       createdAt: DateTime.parse(json['createdAt'] as String),
@@ -24,7 +25,8 @@ _$_Feed _$$_FeedFromJson(Map<String, dynamic> json) => _$_Feed(
       memo: json['memo'] as String?,
     );
 
-Map<String, dynamic> _$$_FeedToJson(_$_Feed instance) => <String, dynamic>{
+Map<String, dynamic> _$$FeedImplToJson(_$FeedImpl instance) =>
+    <String, dynamic>{
       'feedID': instance.feedID.toJson(),
       'date': instance.date.toIso8601String(),
       'createdAt': instance.createdAt.toIso8601String(),

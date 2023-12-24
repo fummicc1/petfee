@@ -6,12 +6,12 @@ import 'package:petfee/ui/pages/add_feed/state.dart';
 class AddFeedPage extends ConsumerWidget {
   const AddFeedPage({
     Key? key,
-    required final this.input,
+    required this.input,
   }) : super(key: key);
 
   static const pageName = "/add_feed_page";
 
-  final AddFeedConrollerInput input;
+  final AddFeedControllerInput input;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -36,19 +36,19 @@ class AddFeedPage extends ConsumerWidget {
                   onPressed: () async {
                     final date = await showDatePicker(
                       context: context,
-                      initialDate: state.feededAt,
+                      initialDate: state.fedAt,
                       firstDate: DateTime(1970, 1, 1),
                       lastDate: DateTime.now(),
                     );
                     if (date != null) {
                       ref
                           .read(addFeedController(input).notifier)
-                          .updateFeededat(date);
+                          .updateFedAt(date);
                     }
                   },
                   child: Text(ref
                       .read(addFeedController(input).notifier)
-                      .feededAtText()),
+                      .getFedAtText()),
                 )
               ],
             )

@@ -1,38 +1,28 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart' hide User;
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '/domain/entities/user.dart';
+import 'package:petfee/domain/services/auth_client.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
 import '../../exceptions/auth.dart';
+import '/domain/entities/user.dart';
 
-mixin AuthRepository {
-  Stream<bool> get onChangedIsLoggedIn;
+part 'repository.g.dart';
 
-  String? get currentUID;
-
-  Future<UserID> get userID;
-
-  bool get isLoggedIn;
-
-  Future loginAnonymously();
-}
-
-class AuthRepositoryImpl with AuthRepository {
-  AuthRepositoryImpl(this._authClient);
-
-  final FirebaseAuth _authClient;
-
-  static final AuthRepositoryImpl shared =
-      AuthRepositoryImpl(FirebaseAuth.instance);
-
+@Riverpod(keepAlive: true, dependencies: [authClient])
+class AuthRepository extends _$AuthRepository {
   @override
-  late Stream<bool> onChangedIsLoggedIn = _authClient.authStateChanges().map(
-        (user) => user != null,
-      );
+  User? build() {
+    return null;
+  }
 
-  @override
-  String? get currentUID => _authClient.currentUser?.uid;
+  Stream<bool> get onChangedIsLoggedIn {
+    return ref
+        .watch(authClientProvider)
+        .authStateChanges()
+        .map((event) => event != null);
+  }
 
-  @override
+  String? get currentUID => ref.watch(authClientProvider).currentUser?.uid;
+
   Future<UserID> get userID async {
     if (currentUID == null) {
       throw AuthException.notLoggedIn();
@@ -56,12 +46,10 @@ class AuthRepositoryImpl with AuthRepository {
     return entity.data().userID;
   }
 
-  @override
-  bool get isLoggedIn => _authClient.currentUser?.uid != null;
+  bool get isLoggedIn => ref.watch(authClientProvider).currentUser?.uid != null;
 
-  @override
   Future loginAnonymously() async {
-    final authID = await _authClient.signInAnonymously().then(
+    final authID = await ref.watch(authClientProvider).signInAnonymously().then(
           (credential) => credential.user?.uid,
         );
     if (authID == null) {
@@ -80,5 +68,3 @@ class AuthRepositoryImpl with AuthRepository {
     await userDocument.set(entity.toJson());
   }
 }
-
-final authRepositoryProvider = Provider((ref) => AuthRepositoryImpl.shared);

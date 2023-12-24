@@ -1,0 +1,28 @@
+// ref: https://zenn.dev/inari_sushio/articles/0f4c606c8340ee
+{
+    "dart.previewFlutterUiGuides": true,
+    // 以下はオプション
+    "dart.previewFlutterUiGuidesCustomTracking": true,
+    "dart.closingLabels": false,
+    // ①コード整形の場合
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        // ②コード修正の場合
+        "source.fixAll": true,
+        // ③importの順番整理の場合
+        "source.organizeImports": true,
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    // Dart Code v3.28 より前： "dart.previewLsp": true,
+    // Dart Code v3.28 以降　↓
+    "dart.useLsp": true,
+    // always, prompt（選択制）, never のオプションあり
+    "dart.renameFilesWithClasses": "always",
+    "cSpell.words": [
+        "riverpod",
+        "petfee",
+        "cupertino",
+        "firestore",
+    ]
+}

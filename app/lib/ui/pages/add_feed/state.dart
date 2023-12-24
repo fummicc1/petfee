@@ -7,6 +7,6 @@ part 'state.freezed.dart';
 class AddFeedState with _$AddFeedState {
   factory AddFeedState({
     required final Pet pet,
-    required final DateTime feededAt,
+    required final DateTime fedAt,
   }) = _AddFeedState;
 }
